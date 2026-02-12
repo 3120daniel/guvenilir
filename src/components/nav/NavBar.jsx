@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Buttons from "../Buttons";
-import { Dropdown, DropdownItem } from "./DropDown";
+import { Dropdown, DropdownItem } from "./Dropdown";
 import { Menu, X } from "lucide-react";
 
 export const NavBar = () => {
