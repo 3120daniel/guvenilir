@@ -1,0 +1,121 @@
+import React, { useState } from "react";
+import Buttons from "../Buttons";
+import { Dropdown, DropdownItem } from "./DropDown";
+import { Menu, X } from "lucide-react";
+
+export const NavBar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+
+  return (
+    <nav className="bg-black text-white shadow-md sticky top-0 z-50 py-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo - always visible, left aligned */}
+          <div className="shrink-0 flex gap-10">
+            <a href="/" className="text-2xl font-bold text-gray-800">
+              Logo
+            </a>
+
+            {/* Desktop Navigation - hidden on mobile */}
+            <div className="hidden md:flex items-center">
+
+              {/* Dropdown Usage Example */}
+              <Dropdown trigger="Products">
+                <DropdownItem onClick={() => console.log("Analytics clicked")}>
+                  Analytics
+                </DropdownItem>
+                <DropdownItem onClick={() => console.log("Marketing clicked")}>
+                  Marketing
+                </DropdownItem>
+                <DropdownItem onClick={() => console.log("Commerce clicked")}>
+                  Commerce
+                </DropdownItem>
+                <hr className="my-1 border-gray-100" />
+                <DropdownItem onClick={() => console.log("Enterprise clicked")}>
+                  Enterprise
+                </DropdownItem>
+              </Dropdown>
+              {/* Dropdown Usage Example */}
+
+              <a href="/about" className="hover:text-amber-400 px-3 py-2 rounded-md text-sm">
+                Market
+              </a>
+              <a href="/about" className="hover:text-amber-400 px-3 py-2 rounded-md text-sm">
+                Plans
+              </a>
+              <a href="/services" className="hover:text-amber-400 px-3 py-2 rounded-md text-sm">
+                Our Services
+              </a>
+              <a href="/contact" className="hover:text-amber-400 px-3 py-2 rounded-md text-sm">
+                Buy/Sell
+              </a>
+              <a href="/contact" className="hover:text-amber-400 px-3 py-2 rounded-md text-sm">
+                Legal
+              </a>
+            </div>
+          </div>
+
+          {/* Buttons */}
+          <div className="hidden md:flex space-x-4">
+            <Buttons btnTitle="Login" />
+            <Buttons btnTitle="Sign up" btnStyles="bg-amber-400" />
+          </div>
+
+
+
+          {/* Mobile Hamburger - right aligned */}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={toggleMenu}
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-300"
+              aria-expanded={isOpen}
+            >
+              <span className="sr-only">Open main menu</span>
+              {isOpen ? (
+                <X className="block h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Menu className="block h-6 w-6" aria-hidden="true" />
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu Panel - slides down when hamburger clicked */}
+      <div className={`md:hidden absolute w-full ${isOpen ? "block" : "hidden"}`}>
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-300 border-t">
+          <a
+            href="/"
+            className="block text-gray-700 hover:text-gray-900 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium"
+            onClick={toggleMenu}
+          >
+            Home
+          </a>
+          <a
+            href="/about"
+            className="block text-gray-700 hover:text-gray-900 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium"
+            onClick={toggleMenu}
+          >
+            About
+          </a>
+          <a
+            href="/services"
+            className="block text-gray-700 hover:text-gray-900 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium"
+            onClick={toggleMenu}
+          >
+            Services
+          </a>
+          <a
+            href="/contact"
+            className="block text-gray-700 hover:text-gray-900 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium"
+            onClick={toggleMenu}
+          >
+            Contact
+          </a>
+        </div>
+      </div>
+    </nav>
+  );
+};
