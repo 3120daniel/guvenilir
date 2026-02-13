@@ -45,7 +45,7 @@ export default function Footer() {
                                     Company
                                 </span>
                             </Link>
-                            <div className="mt-4 lg:max-w-sm">
+                            {/* <div className="mt-4 lg:max-w-sm">
                                 <p className="text-sm text-deep-purple-50">
                                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                                     accusantium doloremque laudantium, totam rem aperiam.
@@ -54,7 +54,7 @@ export default function Footer() {
                                     Eaque ipsa quae ab illo inventore veritatis et quasi architecto
                                     beatae vitae dicta sunt explicabo.
                                 </p>
-                            </div>
+                            </div> */}
                         </div>
                         <div className="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
                             <div>

@@ -6,31 +6,32 @@ import { Check, CheckCircle, CheckCircle2, IdCard, Settings, Users2Icon } from '
 import OurServices from '../components/OurServices'
 import TradeWithConfidence from '../components/TradeWithConfidence'
 import MarketSection from '../components/MarketSection'
+import AtmCards from "../assets/card.png" 
+import Hero from '../components/Hero'
 
 export default function Home() {
   return (
     <div>
+      <Hero />
 
-      <div>
-
-
+      <div className='py-10'>
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
          Learn more about{" "}
           <span className="relative inline-block">
-            Market
+            Company name
             <span className="absolute left-0 -bottom-2 w-full h-1 bg-yellow-500"></span>
           </span>
         </h2>
         <p className='text-center text-xl'>Your Number One Provider of Profitable Investment</p>
         <div class="h-full w-full pt-12 p-4">
 
-          <div className='max-w-4xl mx-auto'>
-            <div class="grid gap-14 md:grid-cols-3 md:gap-5">
+          <div className='max-w-2xl mx-auto'>
+            <div class="grid gap-5 md:grid-cols-3 md:gap-4">
               {[1, 2, 3].map(() => (
                 <div class="rounded-xl bg-white text-center shadow relative pt-8 pb-4 border border-amber-400">
                   <div
-                    class="mx-auto flex h-10 w-10 absolute left-1/2 -translate-x-1/2 -translate-y-14 transform items-center justify-center rounded-full bg-white shadow shadow-amber-400/40">
-                    <IdCard size={25} />
+                    class="mx-auto flex h-12 w-12 absolute left-1/2 -translate-x-1/2 -translate-y-14 transform items-center justify-center rounded-full bg-white shadow-amber-400/40">
+                    <IdCard size={35} />
                   </div>
                   <h1 class="text-darken mb-1 text-xl font-medium">About Us</h1>
                   <p class="px-4 text-gray-500">Expert In Finiancial Services</p>
@@ -127,8 +128,8 @@ export default function Home() {
 
       <ThreeSteps />
       <div className='bg-amber-400'>
-        <div className='flex items-center justify-between max-w-7xl border border-amber-400 mx-auto p-6 rounded-lg'>
-          <div className='border border-gray-200 p-8 rounded-xl bg-amber-300'>
+        <div className='flex flex-col sm:flex-row items-center justify-between max-w-7xl border border-amber-400 mx-auto p-6 rounded-lg'>
+          <div className='border border-gray-200 p-8 rounded-xl bg-amber-300 mb-10 sm:mb-0'>
             <p><span className='text-3xl font-semibold'>Investors #1 Choice</span> <br /> Karli-varliklar</p>
           </div>
           <Buttons btnTitle="Lear More" btnStyles="bg-black text-white px-8 py-4" />

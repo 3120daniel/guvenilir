@@ -63,9 +63,15 @@ export default function Pricing() {
     ]
     return (
         <div className='max-w-7xl mx-auto'>
-            <p className='text-2xl font-semibold'>Invest on Crypto currency trading</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+                Invest in
+                <span className="relative inline-block">
+                    Crypto currency trading
+                    <span className="absolute left-0 -bottom-2 w-full h-1 bg-yellow-500"></span>
+                </span>
+            </h2>
 
-            <div className='grid grid-cols-3 gap-8'>
+            <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-2 lg:gap-4 px-4'>
                 {pricing.map((plan, index) => (
                     <div key={index} className='bg-black text-white p-8 rounded-lg'>
                         <div className='flex gap-4 mb-4'>

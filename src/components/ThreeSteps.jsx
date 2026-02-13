@@ -4,7 +4,7 @@ import Buttons from './Buttons'
 export default function ThreeSteps() {
     return (
         <div>
-            <div className='bg-black flex px-20 py-20'>
+            <div className='bg-black flex flex-col sm:flex-row px-4 md:px-20 py-20'>
                 {/* col 1 */}
                 <div className='space-y-6 w-full text-white'>
                     <p className='text-3xl mb-12 font-semibold'>Begin trading in three steps</p>
@@ -35,7 +35,7 @@ export default function ThreeSteps() {
 
                 </div>
                 {/* col 2 */}
-                <div className='bg-black'>
+                <div className='bg-black mt-10 md:mt-0'>
                     <Buttons btnTitle="Open Account" btnStyles="bg-gray-200" />
 
                 </div>

@@ -9,6 +9,8 @@ import img7 from "../assets/7.jpg"
 import img8 from "../assets/8.jpg"
 import img9 from "../assets/9.jpg"
 import Buttons from './Buttons'
+import atmCard from "../assets/card.png"
+
 
 
 
@@ -28,10 +30,10 @@ export default function OurServices() {
                         </p>
 
                     </div>
-                    <div>
+                    <div className='w-full'>
                         <img
-                            className="object-cover w-full h-56 rounded shadow-lg sm:h-96"
-                            src="https://images.pexels.com/photos/927022/pexels-photo-927022.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260"
+                            className="object-contain w-full rounded shadow-lg sm:h-96"
+                            src={atmCard}
                             alt=""
                         />
                     </div>
@@ -39,9 +41,15 @@ export default function OurServices() {
                 </div>
             </div>
             {/*  */}
-            <div className='max-w-6xl px-4 shadow-2xl mx-auto'>
-                <p>Our Services</p>
-                <div className='grid grid-cols-2 gap-4'>
+            <div className='max-w-6xl sm:px-4 shadow-2xl mx-auto'>
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
+                    Our
+                    <span className="relative inline-block">
+                        Services
+                        <span className="absolute left-0 -bottom-2 w-full h-1 bg-yellow-500"></span>
+                    </span>
+                </h2>
+                <div className='grid sm:grid-cols-2 gap-2 lg:gap-4 px-4'>
                     {[
                         {
                             title: "Forex Trading",

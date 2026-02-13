@@ -34,7 +34,7 @@ export default function MarketSection() {
   }, []);
 
   return (
-    <section className="relative bg-gradient-to-b from-[#0f1115] via-[#111418] to-[#1a1d22] text-white py-20 px-6">
+    <section className="relative bg-gradient-to-b from-[#0f1115] via-[#111418] to-[#1a1d22] text-white py-20 sm:px-6">
       <div className="max-w-6xl mx-auto text-center">
         
         {/* Heading */}
@@ -62,7 +62,7 @@ export default function MarketSection() {
         </div>
 
         {/* Stats */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
           <div className="border border-gray-600 rounded-xl py-6">
             <p className="text-3xl font-bold">$91+</p>
             <p className="text-gray-400 text-sm mt-2">
