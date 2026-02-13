@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Buttons from "../Buttons";
 import { Dropdown, DropdownItem } from "./Dropdown";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,44 +24,44 @@ export const NavBar = () => {
 
               {/* Dropdown Usage Example */}
               <Dropdown trigger="Products">
-                <DropdownItem onClick={() => console.log("Analytics clicked")}>
-                  Analytics
+                <DropdownItem onClick={() => console.log("About Us")}>
+                  <Link to="/about">About Us</Link>
                 </DropdownItem>
-                <DropdownItem onClick={() => console.log("Marketing clicked")}>
-                  Marketing
+                <DropdownItem onClick={() => console.log("Contact Us clicked")}>
+                  <Link to="/contact">Contact Us</Link>
                 </DropdownItem>
-                <DropdownItem onClick={() => console.log("Commerce clicked")}>
-                  Commerce
-                </DropdownItem>
-                <hr className="my-1 border-gray-100" />
-                <DropdownItem onClick={() => console.log("Enterprise clicked")}>
-                  Enterprise
+                <DropdownItem onClick={() => console.log("FAQ's")}>
+                  <Link to="faqs">FAQ's</Link>
                 </DropdownItem>
               </Dropdown>
               {/* Dropdown Usage Example */}
 
-              <a href="/about" className="hover:text-amber-400 px-3 py-2 rounded-md text-sm">
+              <Link to="/market" className="hover:text-amber-400 px-3 py-2 rounded-md text-sm">
                 Market
-              </a>
-              <a href="/about" className="hover:text-amber-400 px-3 py-2 rounded-md text-sm">
+              </Link>
+              <Link to="/plans" className="hover:text-amber-400 px-3 py-2 rounded-md text-sm">
                 Plans
-              </a>
-              <a href="/services" className="hover:text-amber-400 px-3 py-2 rounded-md text-sm">
+              </Link>
+              <Link to="/services" className="hover:text-amber-400 px-3 py-2 rounded-md text-sm">
                 Our Services
-              </a>
-              <a href="/contact" className="hover:text-amber-400 px-3 py-2 rounded-md text-sm">
+              </Link>
+              <Link to="/buy/sell" className="hover:text-amber-400 px-3 py-2 rounded-md text-sm">
                 Buy/Sell
-              </a>
-              <a href="/contact" className="hover:text-amber-400 px-3 py-2 rounded-md text-sm">
+              </Link>
+              <Link to="/legal" className="hover:text-amber-400 px-3 py-2 rounded-md text-sm">
                 Legal
-              </a>
+              </Link>
             </div>
           </div>
 
           {/* Buttons */}
           <div className="hidden md:flex space-x-4">
-            <Buttons btnTitle="Login" />
-            <Buttons btnTitle="Sign up" btnStyles="bg-amber-400" />
+            <Link to="/login">
+              <Buttons btnTitle="Login" withArrow={true} />
+            </Link>
+            <Link to="/register">
+              <Buttons btnTitle="Sign up" btnStyles="bg-amber-400" withArrow={true} />
+            </Link>
           </div>
 
 

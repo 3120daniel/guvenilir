@@ -85,7 +85,7 @@ export default function Pricing() {
                         </ul>
 
                         <div className='flex justify-end'>
-                            <Buttons btnTitle="Get Started" btnStyles="text-amber-400" />
+                            <Buttons btnTitle="Get Started" btnStyles="text-amber-400" withArrow={true} />
                         </div>
                     </div>
                 ))}
