@@ -11,6 +11,7 @@ import About from '../pages/About'
 import ContactUs from '../pages/ContactUs'
 import FAQs from '../pages/FAQs'
 import NotFound from '../pages/NotFound'
+import Footer from '../components/Footer'
 
 export default function AppRouter() {
   return (
@@ -29,6 +30,7 @@ export default function AppRouter() {
           <Route path='/market' element={<Markets />} />
           <Route path='/plans' element={<Plans />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   )

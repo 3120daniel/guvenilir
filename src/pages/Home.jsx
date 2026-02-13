@@ -4,6 +4,8 @@ import ThreeSteps from '../components/ThreeSteps'
 import Buttons from '../components/Buttons'
 import { Check, CheckCircle, CheckCircle2 } from 'lucide-react'
 import OurServices from '../components/OurServices'
+import TradeWithConfidence from '../components/TradeWithConfidence'
+import MarketSection from '../components/MarketSection'
 
 export default function Home() {
   return (
@@ -84,6 +86,8 @@ export default function Home() {
       </div>
       {/*  */}
       <OurServices />
+      <TradeWithConfidence />
+      <MarketSection />
 
       <ThreeSteps />
       <div className='bg-amber-400'>

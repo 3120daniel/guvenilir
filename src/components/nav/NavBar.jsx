@@ -3,6 +3,7 @@ import Buttons from "../Buttons";
 import { Dropdown, DropdownItem } from "./Dropdown";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import Logo from "../Logo";
 
 export const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,9 +16,9 @@ export const NavBar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo - always visible, left aligned */}
           <div className="shrink-0 flex gap-10">
-            <a href="/" className="text-2xl font-bold text-gray-800">
-              Logo
-            </a>
+            <Link to="/" className="text-2xl font-bold text-gray-800">
+              <Logo />
+            </Link>
 
             {/* Desktop Navigation - hidden on mobile */}
             <div className="hidden md:flex items-center">
