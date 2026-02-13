@@ -2,7 +2,7 @@ import React from 'react'
 import Pricing from '../components/Pricing'
 import ThreeSteps from '../components/ThreeSteps'
 import Buttons from '../components/Buttons'
-import { Check, CheckCircle, CheckCircle2 } from 'lucide-react'
+import { Check, CheckCircle, CheckCircle2, IdCard, Settings, Users2Icon } from 'lucide-react'
 import OurServices from '../components/OurServices'
 import TradeWithConfidence from '../components/TradeWithConfidence'
 import MarketSection from '../components/MarketSection'
@@ -10,6 +10,42 @@ import MarketSection from '../components/MarketSection'
 export default function Home() {
   return (
     <div>
+
+      <div>
+
+
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+         Learn more about{" "}
+          <span className="relative inline-block">
+            Market
+            <span className="absolute left-0 -bottom-2 w-full h-1 bg-yellow-500"></span>
+          </span>
+        </h2>
+        <p className='text-center text-xl'>Your Number One Provider of Profitable Investment</p>
+        <div class="h-full w-full pt-12 p-4">
+
+          <div className='max-w-4xl mx-auto'>
+            <div class="grid gap-14 md:grid-cols-3 md:gap-5">
+              {[1, 2, 3].map(() => (
+                <div class="rounded-xl bg-white text-center shadow relative pt-8 pb-4 border border-amber-400">
+                  <div
+                    class="mx-auto flex h-10 w-10 absolute left-1/2 -translate-x-1/2 -translate-y-14 transform items-center justify-center rounded-full bg-white shadow shadow-amber-400/40">
+                    <IdCard size={25} />
+                  </div>
+                  <h1 class="text-darken mb-1 text-xl font-medium">About Us</h1>
+                  <p class="px-4 text-gray-500">Expert In Finiancial Services</p>
+                </div>
+              ))}
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+
       {/* Investment that's suitable for you */}
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="grid gap-10 lg:grid-cols-2">
@@ -98,6 +134,6 @@ export default function Home() {
           <Buttons btnTitle="Lear More" btnStyles="bg-black text-white px-8 py-4" />
         </div>
       </div>
-    </div>
+    </div >
   )
 }
