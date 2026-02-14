@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import imgg from "../assets/NAOMI-3-1.JPG"
+import imgg from "../assets/NAOMI-3-1.jpg"
 import Logo from '../components/Logo'
 import { Eye, EyeClosed } from 'lucide-react'
 import { Link } from 'react-router-dom'
