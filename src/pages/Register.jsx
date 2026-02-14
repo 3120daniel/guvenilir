@@ -1,5 +1,5 @@
 import React from 'react'
-import imgg from "../assets/NAOMI-3-1.jpg"
+import imggg from "../assets/NAOMI-3-1.jpg"
 import Logo from '../components/Logo'
 import { Eye, EyeClosed, Mail } from 'lucide-react'
 import { Link } from 'react-router-dom'
@@ -9,7 +9,7 @@ export default function Register() {
     <div className="min-h-screen">
       {/* Fixed image on the right side */}
       <div className="fixed right-0 top-0 h-screen w-full md:w-1/2 hidden md:block">
-        <img src={imgg} class="w-full h-full object-cover" alt="login-image" />
+        <img src={imggg} class="w-full h-full object-cover" alt="login-image" />
       </div>
       
       {/* Scrollable form column on the left */}
