@@ -53,7 +53,7 @@ export default function Login() {
                                     <label class="text-slate-900 text-sm font-medium mb-2 block">User name</label>
                                     <div class="relative flex items-center">
                                         <input
-                                            class="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md outline-gray-300"
+                                            class="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md outline-blue-500"
                                             placeholder="Enter user name"
                                             name="username"
                                             type="text"
@@ -70,7 +70,7 @@ export default function Login() {
                                     <label class="text-slate-900 text-sm font-medium mb-2 block">Password</label>
                                     <div class="relative flex items-center">
                                         <input
-                                            class="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md outline-amber-200"
+                                            class="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md outline-blue-500"
                                             placeholder="Enter password"
                                             type={passwordVisible ? "text" : "password"}
                                             required
