@@ -9,9 +9,12 @@ import ltc from "./assets/crypto/ltc.png"
 import usdt from "./assets/crypto/usdt.png"
 import xrp from "./assets/crypto/xrp.png"
 import AppRouter from './routes/AppRouter'
+import { BrowserRouter } from 'react-router-dom'
 
 export default function App() {
   return (
-    <AppRouter />
+    <BrowserRouter>
+      <AppRouter />
+    </BrowserRouter>
   )
 }

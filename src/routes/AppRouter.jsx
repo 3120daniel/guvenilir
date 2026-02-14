@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom"
 import Home from '../pages/Home'
 import Register from '../pages/Register'
 import Plans from '../pages/Plans'
@@ -14,10 +14,27 @@ import NotFound from '../pages/NotFound'
 import Footer from '../components/Footer'
 
 export default function AppRouter() {
+  let currentPath = useLocation().pathname;
+    // console.log(currentPath)
+    
+    const hideNavBarPaths = [
+        "/login",
+        "/register",
+        "/forgot-password",
+        "/user",
+        "/user/dashboard",
+        "/user/deposit",
+        "/user/withdraw",
+        "/user/active-deposit",
+        "/user/profile",
+        "/admin",
+        "/contact"
+    ];
+
   return (
-    <div>
-      <BrowserRouter>
-        <NavBar />
+    <>
+      {!hideNavBarPaths.includes(currentPath) && <NavBar />}
+        {/* <NavBar /> */}
         <Routes>
           <Route path='*' element={<NotFound />} />
           <Route index element={<Home />} />
@@ -30,8 +47,8 @@ export default function AppRouter() {
           <Route path='/market' element={<Markets />} />
           <Route path='/plans' element={<Plans />} />
         </Routes>
-        <Footer />
-      </BrowserRouter>
-    </div>
+        {/* {currentPath === "login" } */}
+        
+    </>
   )
 }
