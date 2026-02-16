@@ -6,7 +6,7 @@ import { Check, CheckCircle, CheckCircle2, IdCard, Settings, Users2Icon } from '
 import OurServices from '../components/OurServices'
 import TradeWithConfidence from '../components/TradeWithConfidence'
 import MarketSection from '../components/MarketSection'
-import AtmCards from "../assets/card.png" 
+import AtmCards from "../assets/card.png"
 import Hero from '../components/Hero'
 
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
 
       <div className='py-10'>
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-         Learn more about{" "}
+          Learn more about{" "}
           <span className="relative inline-block">
             Company name
             <span className="absolute left-0 -bottom-2 w-full h-1 bg-yellow-500"></span>
@@ -25,6 +25,7 @@ export default function Home() {
         <p className='text-center text-xl'>Your Number One Provider of Profitable Investment</p>
         <div class="h-full w-full pt-12 p-4">
 
+          {/* Replace with thr one commented out down */}
           <div className='max-w-2xl mx-auto'>
             <div class="grid gap-5 md:grid-cols-3 md:gap-4">
               {[1, 2, 3].map(() => (
@@ -37,6 +38,7 @@ export default function Home() {
                   <p class="px-4 text-gray-500">Expert In Finiancial Services</p>
                 </div>
               ))}
+              {/* Replace with thr one commented out down */}
 
             </div>
           </div>
@@ -138,3 +140,6 @@ export default function Home() {
     </div >
   )
 }
+
+
+// https://tailwindflex.com/@ron-hicks/steps-block

@@ -15,9 +15,9 @@ export function EmblaCarousel() {
     }, [emblaApi])
 
     return (
-        <div className="embla">
+        <div className="embla bg-amber-300">
             <div className="embla__viewport" ref={emblaRef}>
-                <div className="embla__container">
+                <div className="embla__container text-white">
                     {[1, 2, 3].map((_, index) => (
                         <div className="embla__slide flex items-center min-h-[80vh]" key={index}>
 
@@ -27,7 +27,7 @@ export function EmblaCarousel() {
                                 <div className="lg:max-w-xl">
 
                                     {/* Top Buttons */}
-                                    <div className="flex gap-4 mb-8 flex-wrap">
+                                    <div className="rounded-md flex gap-4 mb-8 flex-wrap backdrop-blur-xs bg-white/30 max-w-60">
                                         <Buttons btnTitle="Learn More" btnStyles="bg-blue-400" />
                                         <Buttons btnTitle="Cryptocurrency" />
                                     </div>
@@ -42,7 +42,7 @@ export function EmblaCarousel() {
                                     </h2>
 
                                     {/* Paragraph */}
-                                    <p className="text-lg md:text-xl text-gray-700">
+                                    <p className="text-lg md:text-xl">
                                         Our mission is to create wealth for our clients irrespective
                                         of market flow.
                                     </p>
@@ -51,7 +51,7 @@ export function EmblaCarousel() {
                                     <div className="flex flex-wrap items-center gap-6 mt-10">
                                         <Buttons
                                             btnTitle="Login"
-                                            btnStyles="bg-white"
+                                            btnStyles="bg-white text-black"
                                             withArrow
                                         />
                                         <Buttons

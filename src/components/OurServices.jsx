@@ -10,6 +10,7 @@ import img8 from "../assets/8.jpg"
 import img9 from "../assets/9.jpg"
 import Buttons from './Buttons'
 import atmCard from "../assets/card.png"
+import CryptoPrices from './CryptoPrices'
 
 
 
@@ -36,6 +37,26 @@ export default function OurServices() {
                             src={atmCard}
                             alt=""
                         />
+                    </div>
+
+                </div>
+            </div>
+            {/*  */}
+            <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+                <div className="grid gap-10 lg:grid-cols-2">
+
+                    {/*  */}
+                    <div className="lg:px-10">
+                        <h5 className="mb-4 text-4xl font-extrabold leading-none">
+                            Karli-varliklar offer Card to investors on Ultimate plan
+                        </h5>
+                        <p className="mb-6 text-gray-900 text-lg">
+                            The partnership aims to fill a gap in the traditional financial system that has left many without access to essential banking products. According to a 2017 survey by the FDIC, 25 percent of U.S. households are unbanked or underbanked, while global numbers have reached a staggering 1.7 billion, according to data released by the World Bank. Through BlockCard, Karli-varliklar investors can have a virtual card issued to them while a physical card is mailed to them. The card has a minimum of $1000 balance needed. It can be used at over 45 million merchants and ATMs – anywhere in the world where major credit cards are accepted.
+                        </p>
+
+                    </div>
+                    <div className='w-full'>
+                        <CryptoPrices />
                     </div>
 
                 </div>

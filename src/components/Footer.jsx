@@ -10,17 +10,19 @@ import Logo from './Logo'
 export default function Footer() {
     return (
         <div className='pt-10 '>
-            <div className='max-w-7xl shadow mx-auto p-6 rounded-lg text-center bg-gray-100 mb-20'>
-                <p className='text-2xl font-semibold '>Fast and reliable withdrawal/deposit method</p>
-                <div className='flex justify-around gap-6 mt-12'>
-                    {[btc, eth, usdt, xrp, ltc].map((item) => (
-                        <img src={item} alt="" className='h-12 w-12 rounded-full' />
+            <div className='px-4'>
+                <div className='max-w-7xl shadow mx-auto p-6 rounded-lg text-center bg-gray-100'>
+                    <p className='text-2xl font-semibold '>Fast and reliable withdrawal/deposit method</p>
+                    <div className='flex justify-center gap-4 md:gap-20 sm:gap-6 mt-8 sm:mt-12'>
+                        {[btc, eth, usdt, xrp, ltc].map((item) => (
+                            <img src={item} alt="" className='h-12 w-12 rounded-full' />
 
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
 
-            <div className="relative mt-16 bg-gray-100">
+            <div className="relative mt-10 sm:mt-20 bg-gray-100">
                 <svg
                     className="absolute top-0 w-full h-6 -mt-5 sm:-mt-10 sm:h-16 text-gray-100"
                     preserveAspectRatio="none"
@@ -67,7 +69,7 @@ export default function Footer() {
                                             to="/"
                                             className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                                         >
-                                           About Us
+                                            About Us
                                         </Link>
                                     </li>
                                     <li>
@@ -219,7 +221,7 @@ export default function Footer() {
                                             Forgot Password?
                                         </Link>
                                     </li>
-                                    
+
                                 </ul>
                             </div>
                         </div>
@@ -228,7 +230,7 @@ export default function Footer() {
                         <p className="text-sm">
                             © Copyright 2020 Lorem Inc. All rights reserved.
                         </p>
-                        <div className='flex justify-around gap-6'>
+                        <div className='flex gap-6 mt-4 sm:mt-0'>
                             {[btc, eth, usdt, xrp, ltc].map((item) => (
                                 <img src={item} alt="" className='h-5 w-5 rounded-full' />
 

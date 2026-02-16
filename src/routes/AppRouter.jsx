@@ -12,6 +12,8 @@ import ContactUs from '../pages/ContactUs'
 import FAQs from '../pages/FAQs'
 import NotFound from '../pages/NotFound'
 import Footer from '../components/Footer'
+import UserLayout from './user/UserLayout'
+import Deposit from './user/Deposit'
 
 export default function AppRouter() {
   let currentPath = useLocation().pathname;
@@ -28,7 +30,8 @@ export default function AppRouter() {
         "/user/active-deposit",
         "/user/profile",
         "/admin",
-        "/contact"
+        "/contact",
+        "/account"
     ];
 
   return (
@@ -46,8 +49,10 @@ export default function AppRouter() {
           <Route path='/legal' element={<Legal />} />
           <Route path='/market' element={<Markets />} />
           <Route path='/plans' element={<Plans />} />
+          <Route path='/account' element={<UserLayout />} />
+          <Route path='/deposit' element={<Deposit />} />
         </Routes>
-        {/* {currentPath === "login" } */}
+        {!hideNavBarPaths.includes(currentPath) && <Footer />}
         
     </>
   )
