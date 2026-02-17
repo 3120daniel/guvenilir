@@ -25,10 +25,10 @@ export default function OurServices() {
                     {/*  */}
                     <div className="lg:px-10">
                         <h5 className="mb-4 text-4xl font-extrabold leading-none">
-                            Karli-varliklar offer Card to investors on Ultimate plan
+                            Güvenilir-varlıklar offer Card to investors on Ultimate plan
                         </h5>
                         <p className="mb-6 text-gray-900 text-lg">
-                            The partnership aims to fill a gap in the traditional financial system that has left many without access to essential banking products. According to a 2017 survey by the FDIC, 25 percent of U.S. households are unbanked or underbanked, while global numbers have reached a staggering 1.7 billion, according to data released by the World Bank. Through BlockCard, Karli-varliklar investors can have a virtual card issued to them while a physical card is mailed to them. The card has a minimum of $1000 balance needed. It can be used at over 45 million merchants and ATMs – anywhere in the world where major credit cards are accepted.
+                            The partnership aims to fill a gap in the traditional financial system that has left many without access to essential banking products. According to a 2017 survey by the FDIC, 25 percent of U.S. households are unbanked or underbanked, while global numbers have reached a staggering 1.7 billion, according to data released by the World Bank. Through BlockCard, Güvenilir-varlıklar investors can have a virtual card issued to them while a physical card is mailed to them. The card has a minimum of $1000 balance needed. It can be used at over 45 million merchants and ATMs – anywhere in the world where major credit cards are accepted.
                         </p>
 
                     </div>
@@ -92,7 +92,7 @@ export default function OurServices() {
                         },
                         {
                             title: "Retirement Planning",
-                            desc: "Saving for retirement can be a daunting task, but with a sound strategy, it’s well within reach. Karli-varliklar is here to bring clarity to retirement...",
+                            desc: "Saving for retirement can be a daunting task, but with a sound strategy, it’s well within reach. Güvenilir-varlıklar  is here to bring clarity to retirement...",
                             image: img1
                         },
                         {
@@ -102,7 +102,7 @@ export default function OurServices() {
                         },
                         {
                             title: "Cryptocurrencies",
-                            desc: "Karli-varliklar now offers all traders the opportunity to trade a wide range of the top ranked digital coins 24/7*. Today cryptocurrencies have become known to most people...",
+                            desc: "Güvenilir-varlıklar  now offers all traders the opportunity to trade a wide range of the top ranked digital coins 24/7*. Today cryptocurrencies have become known to most people...",
                             image: img3
                         },
                         {

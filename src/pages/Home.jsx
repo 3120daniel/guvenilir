@@ -10,15 +10,12 @@ import AtmCards from "../assets/card.png"
 import Hero from '../components/Hero'
 import forexTrader from "../assets/forex-trader.jpg"
 import serverRoom from "../assets/server-room.jpg"
-import { useTranslation } from 'react-i18next';
 
 
 export default function Home() {
-  const { t } = useTranslation();
   return (
     <div>
       <Hero />
-      <h1 className='text-3xl font-bold'>{t('common.welcome')}</h1>;
 
       <div className='py-10'>
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
@@ -138,7 +135,7 @@ export default function Home() {
       <div className='bg-primary'>
         <div className='flex flex-col sm:flex-row items-center justify-between max-w-7xl border border-primary mx-auto p-6 rounded-lg'>
           <div className='border border-gray-200 p-8 rounded-xl bg-primary mb-10 sm:mb-0'>
-            <p><span className='text-3xl font-semibold'>Investors #1 Choice</span> <br /> Karli-varliklar</p>
+            <p><span className='text-3xl font-semibold'>Investors #1 Choice</span> <br /> Güvenilir-varlıklar </p>
           </div>
           <Buttons btnTitle="Lear More" btnStyles="bg-black text-white px-8 py-4" />
         </div>

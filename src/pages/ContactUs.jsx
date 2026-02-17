@@ -13,14 +13,14 @@ export default function ContactUs() {
             <div className='flex flex-col justify-center items-center'>
               <Mail />
               <p>Email</p>
-              <p>support@karli-varliklar.com</p>
+              <p>support@Güvenilir-varlıklar .com</p>
             </div>
           </div>
           <div>
             <div className='flex flex-col justify-center items-center'>
               <Mail />
               <p>Email</p>
-              <p>support@karli-varliklar.com</p>
+              <p>support@Güvenilir-varlıklar .com</p>
             </div>
           </div>
         </div>

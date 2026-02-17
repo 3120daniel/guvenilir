@@ -69,7 +69,7 @@ export default function WhyChooseUs() {
         {/* Header */}
         <div className="mb-14">
           <div className="bg-primary text-black text-center py-4 rounded-xl text-2xl md:text-3xl font-bold">
-            Why choose Karli-varliklar
+            Why choose Güvenilir-varlıklar 
           </div>
         </div>
 

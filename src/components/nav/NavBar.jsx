@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Buttons from "../Buttons";
 import { Dropdown, DropdownItem } from "./Dropdown";
-import LanguageSwitcher from "../LanguageSwitcher";
+import GoogleTranslateSwitcher from "../GoogleTranslateSwitcher";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import Logo from "../Logo";
@@ -12,7 +12,7 @@ export const NavBar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="bg-black text-white shadow-md sticky top-0 z-50 py-3">
+    <nav className="bg-black text-white shadow-md sticky top-0 z-50 pt-6 pb-3">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo - always visible, left aligned */}
@@ -65,9 +65,9 @@ export const NavBar = () => {
             </div>
           </div>
 
-          {/* Buttons and Language Switcher */}
+          {/* Buttons and Google Translate Switcher */}
           <div className="hidden md:flex space-x-4 items-center">
-            <LanguageSwitcher />
+            <GoogleTranslateSwitcher />
             <Link to="/login">
               <Buttons btnTitle="Login" withArrow={true} />
             </Link>
@@ -80,7 +80,7 @@ export const NavBar = () => {
 
           {/* Mobile Hamburger - right aligned */}
           <div className="md:hidden flex items-center gap-4">
-            <LanguageSwitcher />
+            <GoogleTranslateSwitcher />
             <button
               onClick={toggleMenu}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-300"
@@ -140,10 +140,10 @@ export const NavBar = () => {
             className="block hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">
             Sign up
           </Link>
-          <Link to="/account" className="hover:teblock hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">
+          <Link to="/account" className="block hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">
             uAccount
           </Link>
-          <Link to="/deposit" className="hover:teblock hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">
+          <Link to="/deposit" className="block hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">
             uDeposit
           </Link>
           <Link to="/confirm-deposit" className="block hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">
