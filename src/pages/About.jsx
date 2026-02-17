@@ -6,6 +6,7 @@ import equity4 from "../assets/in-equity-11-icon-4.svg"
 import equity5 from "../assets/in-equity-11-icon-5.svg"
 import equity6 from "../assets/in-equity-11-icon-6.svg"
 import WhyChooseUs from '../components/WhyChooseUs'
+import { Flag, Hourglass, Leaf } from 'lucide-react'
 
 
 export default function About() {
@@ -18,7 +19,7 @@ export default function About() {
               TRUST, EXPERIENCE, EXPERTISE AND
               <span className="relative inline-block">
                 KNOWLEDGE
-                <span className="absolute left-0 -bottom-2 w-full h-1 bg-yellow-500"></span>
+                <span className="absolute left-0 -bottom-2 w-full h-1 bg-primary"></span>
               </span>
             </h2>
             <p className='text-base sm:text-xl'>
@@ -26,14 +27,29 @@ export default function About() {
             </p>
           </div>
           <div className='space-y-8 px-4'>
-            {[1, 2, 3].map(() => (
-              <div className='flex items-start gap-6'>
-                <div className='h-14 w-14 shrink-0 bg-amber-400 rounded-3xl'></div>
+            {[
+              {
+                icon: <Leaf />,
+                title: "Who We Are", 
+                desc: "We are a leading financial investment platform focusing on various aspect of finance and wealth management by providing access to over 4,000 funds and assets listed on the major capital markets ranging from investments banking, stock Broking, fund escrow services, forex, Gold and the most recently developed Cryptocurrencies, ETFs and Assets listed on the major stock markets, ISA’s investment services, Pensions and insurance bonds(onshore and offshore), third party providers such as Self Invested Personal pensions providers, advisory professionals, discretionary investment managers, portfolio management, lifetime cash flow modeling and a comprehensive financial planning infrastructure for investors in a more tax-efficient way."
+              }, 
+              {
+                icon: <Hourglass />,
+                title: "History", 
+                desc: "Karli-varliklar is a private limited liability company established on 24th January 2014, incorporated on 13th August 2015 and have gained popular support and trust from worldwide customers and investors owing totally to the teams dedication, hard work and sincerity by using our own in-depth knowledge supported by proven technology and systems already developed to provide our investors and clients with a simple and efficient way to invest and manage assets, maintain records, have access to bank term deposits listed on major exchanges and stock markets, provide access to reports and analysis tools and a high-touch client/customer service team through a team of over 72 of our own highly trained service staff."
+              }, 
+              {
+                icon: <Flag />,
+                title: "Culture", 
+                desc: "We are in control of our investors experience as we operate using our own proprietary sophisticated trading technologies that allows us to react quickly to market trends and investors demands to regulate changes with no reliance on external technology. We can set our own priorities and control the cost involved, hence we have been reckoned to providing bespoke technology and comprehensive functionality for the efficient management of investors portfolio as we are founded with the vision to create transparent trading and investment experience for our client. We are interested in successful and transparent traders that will create high trading and investment volume for we are proud to help many customers to make revenue as we provide real-time market data from leading analytical agencies. Karli-varliklar have had a very strong relationship with equity and funding providers since our inception, we have also had experience of working across multiple sectors and offering variety of full partner led services from experienced and professionals with passion for working on corporate finance transactions, delivering transactions on the best all round investments services ranging from acquisitions, MBO, Growth and capital development, replacement capital, real estates funding and arranging long term financing."
+              }].map((item, i) => (
+              <div key={i} className='flex items-start gap-4 sm:gap-6'>
+                <div className='h-8 sm:h-14 w-8 sm:w-14 shrink-0 bg-primary rounded-xl sm:rounded-3xl flex justify-center items-center text-white'>
+                  {item.icon}
+                </div>
                 <div>
-                  <p className='text-2xl font-semibold mb-3'>Who We Are</p>
-                  <p>
-                    We are a leading financial investment platform focusing on various aspect of finance and wealth management by providing access to over 4,000 funds and assets listed on the major capital markets ranging from investments banking, stock Broking, fund escrow services, forex, Gold and the most recently developed Cryptocurrencies, ETFs and Assets listed on the major stock markets, ISA’s investment services, Pensions and insurance bonds(onshore and offshore), third party providers such as Self Invested Personal pensions providers, advisory professionals, discretionary investment managers, portfolio management, lifetime cash flow modeling and a comprehensive financial planning infrastructure for investors in a more tax-efficient way.
-                  </p>
+                  <p className='text-lg sm:text-2xl font-semibold mb-3'>{item.title}</p>
+                  <p>{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -45,7 +61,7 @@ export default function About() {
             <h2 className="text-3xl md:text-4xl font-bold">
               Trade the world’s most popular <span className="relative inline-block"> markets
 
-                <span className="absolute left-0 -bottom-2 w-full h-1 bg-yellow-500"></span>
+                <span className="absolute left-0 -bottom-2 w-full h-1 bg-primary"></span>
               </span>
             </h2>
             <p className='text-base sm:text-xl'>

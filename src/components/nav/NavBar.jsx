@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Buttons from "../Buttons";
 import { Dropdown, DropdownItem } from "./Dropdown";
+import LanguageSwitcher from "../LanguageSwitcher";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import Logo from "../Logo";
@@ -37,38 +38,40 @@ export const NavBar = () => {
               </Dropdown>
               {/* Dropdown Usage Example */}
 
-              <Link to="/market" className="hover:text-amber-400 px-3 py-2 rounded-md text-sm">
+              <Link to="/market" className="hover:text-primary px-3 py-2 rounded-md text-sm">
                 Market
               </Link>
-              <Link to="/plans" className="hover:text-amber-400 px-3 py-2 rounded-md text-sm">
+              <Link to="/plans" className="hover:text-primary px-3 py-2 rounded-md text-sm">
                 Plans
               </Link>
-              <Link to="/services" className="hover:text-amber-400 px-3 py-2 rounded-md text-sm">
+              <Link to="/services" className="hover:text-primary px-3 py-2 rounded-md text-sm">
                 Our Services
               </Link>
-              <Link to="/buy/sell" className="hover:text-amber-400 px-3 py-2 rounded-md text-sm">
+              <Link to="/buy/sell" className="hover:text-primary px-3 py-2 rounded-md text-sm">
                 Buy/Sell
               </Link>
-              <Link to="/legal" className="hover:text-amber-400 px-3 py-2 rounded-md text-sm">
+              <Link to="/legal" className="hover:text-primary px-3 py-2 rounded-md text-sm">
                 Legal
               </Link>
             </div>
           </div>
 
-          {/* Buttons */}
-          <div className="hidden md:flex space-x-4">
+          {/* Buttons and Language Switcher */}
+          <div className="hidden md:flex space-x-4 items-center">
+            <LanguageSwitcher />
             <Link to="/login">
               <Buttons btnTitle="Login" withArrow={true} />
             </Link>
             <Link to="/register">
-              <Buttons btnTitle="Sign up" btnStyles="bg-amber-400 shadow-lg" withArrow={true} />
+              <Buttons btnTitle="Sign up" btnStyles="bg-primary shadow-lg" withArrow={true} />
             </Link>
           </div>
 
 
 
           {/* Mobile Hamburger - right aligned */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center gap-4">
+            <LanguageSwitcher />
             <button
               onClick={toggleMenu}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-300"

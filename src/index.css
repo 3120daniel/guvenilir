@@ -1,10 +1,17 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: true;
+  --color-primary: #A8F002;
+  --color-secondary: teal;
+}
+
 body {
-    background-color: white;
-    color: black;
-    
+  background-color: white;
+  color: black;
+
 }
 
 .embla__viewport {
@@ -27,6 +34,8 @@ body {
 }
 
 .no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }

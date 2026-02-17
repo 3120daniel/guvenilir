@@ -73,7 +73,7 @@ export default function CryptoPrices() {
     }, [])
 
     return (
-        <div className='card bg-base-300 flex-1'>
+        <div className='card bg-gray-100 flex-1'>
             <div className='card-body'>
                 <p className="p-4 pb-2 text-xs opacity-60 tracking-wide">
                     CRYPTO CURRENCY MARKET PRICES
@@ -96,7 +96,7 @@ export default function CryptoPrices() {
                                 return (
                                     <tr
                                         key={coin.id}
-                                        className='hover:bg-base-100 group transition-all duration-500 ease-in-out'
+                                        className='hover:bg-white group transition-all duration-500 ease-in-out'
                                     >
                                         <td>
                                             <div className="flex items-center gap-3">

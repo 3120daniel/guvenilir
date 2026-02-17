@@ -42,7 +42,7 @@
 //           Invest on most popular{" "}
 //           <span className="relative inline-block">
 //             Market
-//             <span className="absolute left-0 -bottom-2 w-full h-1 bg-yellow-500"></span>
+//             <span className="absolute left-0 -bottom-2 w-full h-1 bg-primary"></span>
 //           </span>
 //         </h2>
 
@@ -134,7 +134,7 @@ export default function MarketSection() {
           Invest on most popular{" "}
           <span className="relative inline-block">
             Market
-            <span className="absolute left-0 -bottom-2 w-full h-1 bg-yellow-500"></span>
+            <span className="absolute left-0 -bottom-2 w-full h-1 bg-primary"></span>
           </span>
         </h2>
 

@@ -15,7 +15,7 @@ export function EmblaCarousel() {
     }, [emblaApi])
 
     return (
-        <div className="embla bg-amber-300">
+        <div className="embla bg-primary">
             <div className="embla__viewport" ref={emblaRef}>
                 <div className="embla__container text-white">
                     {[1, 2, 3].map((_, index) => (
@@ -37,7 +37,7 @@ export function EmblaCarousel() {
                                         We are experts in financial{" "}
                                         <span className="relative inline-block">
                                             services
-                                            <span className="absolute left-0 -bottom-2 w-full h-1 bg-yellow-500"></span>
+                                            <span className="absolute left-0 -bottom-2 w-full h-1 bg-primary"></span>
                                         </span>
                                     </h2>
 
@@ -56,7 +56,7 @@ export function EmblaCarousel() {
                                         />
                                         <Buttons
                                             btnTitle="Open Account"
-                                            btnStyles="bg-amber-400"
+                                            btnStyles="bg-primary"
                                             withArrow
                                         />
                                     </div>

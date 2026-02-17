@@ -44,7 +44,7 @@ export default function UserLayout() {
                     {/* </div> */}
                     <div className='flex gap-6'>
                         <Buttons btnTitle="Make Deposits" btnStyles="bg-blue-400 py-3 font-semibold" />
-                        <Buttons btnTitle="Withdraw" btnStyles="bg-amber-300 py-3 font-semibold" />
+                        <Buttons btnTitle="Withdraw" btnStyles="bg-primary py-3 font-semibold" />
                     </div>
 
                 </div>

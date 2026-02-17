@@ -11,6 +11,7 @@ import img9 from "../assets/9.jpg"
 import Buttons from './Buttons'
 import atmCard from "../assets/card.png"
 import CryptoPrices from './CryptoPrices'
+import atmCard2 from "../assets/atm-card-2.jpg"
 
 
 
@@ -33,8 +34,8 @@ export default function OurServices() {
                     </div>
                     <div className='w-full'>
                         <img
-                            className="object-contain w-full rounded shadow-lg sm:h-96"
-                            src={atmCard}
+                            className="object-contain h-full w-full rounded sm:h-96"
+                            src={atmCard2}
                             alt=""
                         />
                     </div>
@@ -47,13 +48,15 @@ export default function OurServices() {
 
                     {/*  */}
                     <div className="lg:px-10">
-                        <h5 className="mb-4 text-4xl font-extrabold leading-none">
-                            Karli-varliklar offer Card to investors on Ultimate plan
-                        </h5>
-                        <p className="mb-6 text-gray-900 text-lg">
-                            The partnership aims to fill a gap in the traditional financial system that has left many without access to essential banking products. According to a 2017 survey by the FDIC, 25 percent of U.S. households are unbanked or underbanked, while global numbers have reached a staggering 1.7 billion, according to data released by the World Bank. Through BlockCard, Karli-varliklar investors can have a virtual card issued to them while a physical card is mailed to them. The card has a minimum of $1000 balance needed. It can be used at over 45 million merchants and ATMs – anywhere in the world where major credit cards are accepted.
-                        </p>
-
+                        <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-14">
+                            Choose an <br />
+                            <span className="relative inline-block">
+                                investment product
+                                <span className="absolute left-0 -bottom-2 w-full h-1 bg-primary"></span>
+                            </span>
+                            that is suitable for you
+                        </h2>
+                        <p className='text-lg md:text-2xl font-semibold'>Best market prices available so you can receive excellent conditions.</p>
                     </div>
                     <div className='w-full'>
                         <CryptoPrices />
@@ -67,7 +70,7 @@ export default function OurServices() {
                     Our
                     <span className="relative inline-block">
                         Services
-                        <span className="absolute left-0 -bottom-2 w-full h-1 bg-yellow-500"></span>
+                        <span className="absolute left-0 -bottom-2 w-full h-1 bg-primary"></span>
                     </span>
                 </h2>
                 <div className='grid sm:grid-cols-2 gap-2 lg:gap-4 px-4'>
@@ -125,7 +128,7 @@ export default function OurServices() {
                             <div className='px-4 pt-4 pb-6'>
                                 <p className='font-semibold text-xl mb-1'>{item.title}</p>
                                 <p className='mb-6'>{item.desc}</p>
-                                <Buttons btnTitle="Learn More" btnStyles="bg-amber-400" withArrow={true} />
+                                <Buttons btnTitle="Learn More" btnStyles="bg-primary" withArrow={true} />
                             </div>
                         </div>
                     ))}

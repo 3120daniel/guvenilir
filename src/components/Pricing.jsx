@@ -67,7 +67,7 @@ export default function Pricing() {
                 Invest in
                 <span className="relative inline-block">
                     Crypto currency trading
-                    <span className="absolute left-0 -bottom-2 w-full h-1 bg-yellow-500"></span>
+                    <span className="absolute left-0 -bottom-2 w-full h-1 bg-primary"></span>
                 </span>
             </h2>
 
@@ -91,7 +91,7 @@ export default function Pricing() {
                         </ul>
 
                         <div className='flex justify-end'>
-                            <Buttons btnTitle="Get Started" btnStyles="text-amber-400" withArrow={true} />
+                            <Buttons btnTitle="Get Started" btnStyles="text-primary" withArrow={true} />
                         </div>
                     </div>
                 ))}

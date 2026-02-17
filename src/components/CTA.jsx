@@ -4,9 +4,9 @@ import Buttons from './Buttons'
 export default function CTA() {
     return (
         <div className='space-y-4 py-10'>
-            <div className='flex items-center max-w-7xl border border-amber-400 mx-auto p-6 rounded-lg bg-white'>
+            <div className='flex items-center max-w-7xl border border-primary mx-auto p-6 rounded-lg bg-white'>
                 <p>We are an international financial company engaged in investment activities, which are related to trading on financial markets and cryptocurrency exchanges performed by qualified professional traders.</p>
-                <Buttons btnTitle="Lear More" btnStyles="bg-amber-400" />
+                <Buttons btnTitle="Lear More" btnStyles="bg-primary" />
             </div>
             <div class="relative before:absolute before:w-full before:h-full before:inset-0 before:bg-black before:opacity-50 before:z-10 max-w-7xl mx-auto rounded-xl overflow-hidden">
                 <img src="https://readymadeui.com/cardImg.webp" alt="Banner Image" class="absolute inset-0 w-full h-full object-cover" />

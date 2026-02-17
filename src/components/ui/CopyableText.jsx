@@ -42,15 +42,15 @@ export const CopyableText = ({ text, label, mainStyle, btnStyle }) => {
                     {/* btn-sm pass bth styles size */}
                     <button
                         onClick={handleCopy}
-                        className={`${copied && "text-success"} ${btnStyle} btn btn-neutral btn-square mr-1 rounded shadow text-base-content text-xs font-bold transition-all duration-300 ease-in-out mx-0`}
+                        className={`${copied && "text-success"} ${btnStyle} btn btn-neutral rounded shadow text-base-content text-xs font-bold transition-all duration-300 ease-in-out mx-0`}
                         // title={copied ? "Copied!" : "Copy to clipboard"}
                     >
                         {copied ? (
-                            <Check className="w-4 h-4 text-green-600" />
-                            // "Copied!"
+                            // <Check className="w-4 h-4 text-green-600" />
+                            "Copied!"
                         ) : (
-                            <Copy className="w-4 h-4 text-gray-600" />
-                            // "Copy"
+                            // <Copy className="w-4 h-4 text-gray-600" />
+                            "Copy"
                         )}
                     </button>
                 </div>

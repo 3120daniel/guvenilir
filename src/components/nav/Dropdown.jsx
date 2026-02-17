@@ -39,7 +39,7 @@ const Dropdown = ({ trigger, children }) => {
       onMouseLeave={handleMouseLeave}
     >
       {/* Dropdown Trigger */}
-      <button className="flex items-center gap-2 px-4 py-2 text-white hover:text-amber-400 focus:outline-none">
+      <button className="flex items-center gap-2 px-4 py-2 text-white hover:text-primary focus:outline-none">
         <span>{trigger}</span>
         <ChevronDown
           className={`w-4 h-4 transition-transform duration-200 ${

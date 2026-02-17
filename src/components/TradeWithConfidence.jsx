@@ -11,7 +11,7 @@ const TradeWithConfidence = () => {
 
                         {/* McDonald's Large */}
                         <div className="w-64 h-64 md:w-80 md:h-80 bg-red-600 rounded-full flex items-center justify-center z-10">
-                            <span className="text-yellow-400 text-7xl md:text-8xl font-bold">
+                            <span className="text-primary text-7xl md:text-8xl font-bold">
                                 M
                             </span>
                         </div>
@@ -35,7 +35,7 @@ const TradeWithConfidence = () => {
                         <div className="absolute -left-6 top-32 w-14 h-14 bg-sky-500 rounded-full"></div>
                         <div className="absolute bottom-6 left-20 w-10 h-10 bg-blue-500 rounded-full"></div>
                         <div className="absolute -top-6 right-28 w-14 h-14 bg-green-500 rounded-full"></div>
-                        <div className="absolute bottom-8 right-0 w-16 h-16 bg-yellow-400 rounded-full"></div>
+                        <div className="absolute bottom-8 right-0 w-16 h-16 bg-primary rounded-full"></div>
                     </div>
 
                     {/* RIGHT SIDE - Text Content */}
@@ -51,7 +51,7 @@ const TradeWithConfidence = () => {
                             Trade with{" "}
                             <span className="relative inline-block">
                                 confidence
-                                <span className="absolute left-0 -bottom-2 w-full h-1 bg-yellow-500"></span>
+                                <span className="absolute left-0 -bottom-2 w-full h-1 bg-primary"></span>
                             </span>
                         </h1>
 
