@@ -142,15 +142,67 @@ export default function GoogleTranslateSwitcher() {
       document.head.appendChild(script);
     }
 
-    // Hide Google Translate's native banner
+    // Hide Google Translate's native banner - KEEP VISIBLE for ToS compliance but make it less intrusive
     const style = document.createElement('style');
     style.textContent = `
-      .goog-te-banner-frame { display: none !important; }
-      body { top: 0 !important; }
-      .goog-te-gadget-simple { background-color: transparent !important; border: none !important; }
-      .goog-te-gadget-simple .goog-te-combo { display: none; }
-      .goog-te-gadget { font-size: inherit; }
-      .goog-te-notification-popup { display: none !important; }
+      .goog-te-banner-frame {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: linear-gradient(to right, #f8f9fa, #ffffff) !important;
+        border-bottom: 1px solid #e0e0e0 !important;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+        z-index: 999 !important;
+        padding: 4px 0 !important;
+      }
+      
+      .goog-te-banner-frame > * {
+        font-size: 12px !important;
+        padding: 2px 8px !important;
+      }
+      
+      .goog-te-gadget {
+        font-size: 12px !important;
+        padding: 2px 0 !important;
+        color: #666 !important;
+      }
+      
+      .goog-te-gadget-simple .goog-te-combo {
+        background-color: #f0f0f0 !important;
+        border: 1px solid #d0d0d0 !important;
+        border-radius: 3px !important;
+        padding: 3px 6px !important;
+        font-size: 11px !important;
+        color: #333 !important;
+      }
+      
+      .goog-te-gadget-simple {
+        padding: 2px 4px !important;
+        background: transparent !important;
+        border: none !important;
+      }
+      
+      .goog-te-gadget a {
+        font-size: 11px !important;
+        text-decoration: none !important;
+        color: #1a73e8 !important;
+        padding: 2px 4px !important;
+      }
+      
+      .goog-te-notification-popup {
+        display: none !important;
+      }
+      
+      body {
+        top: 0 !important;
+      }
+      
+      .skiptranslate {
+        display: none !important;
+      }
     `;
     if (!document.getElementById('google-translate-hide-style')) {
       style.id = 'google-translate-hide-style';
