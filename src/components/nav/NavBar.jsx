@@ -53,6 +53,15 @@ export const NavBar = () => {
               <Link to="/legal" className="hover:text-primary px-3 py-2 rounded-md text-sm">
                 Legal
               </Link>
+              <Link to="/account" className="hover:text-primary px-3 py-2 rounded-md text-sm">
+                uAccount
+              </Link>
+              <Link to="/deposit" className="hover:text-primary px-3 py-2 rounded-md text-sm">
+                uDeposit
+              </Link>
+              <Link to="/confirm-deposit" className="hover:text-primary px-3 py-2 rounded-md text-sm">
+                uConfirm deposit
+              </Link>
             </div>
           </div>
 
@@ -130,6 +139,15 @@ export const NavBar = () => {
             to="/register"
             className="block hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">
             Sign up
+          </Link>
+          <Link to="/account" className="hover:teblock hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">
+            uAccount
+          </Link>
+          <Link to="/deposit" className="hover:teblock hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">
+            uDeposit
+          </Link>
+          <Link to="/confirm-deposit" className="block hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">
+            uConfirm deposit
           </Link>
         </div>
       </div>

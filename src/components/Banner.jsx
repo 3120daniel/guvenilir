@@ -17,18 +17,18 @@ export default function Banner({title, desc}) {
           </div>
 
           {/* RIGHT SIDE */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 text-base-content">
             
             {/* CARD 1 */}
             <div className="flex items-center gap-4">
-              <div className="bg-warning text-white p-5 rounded-2xl">
+              <div className="bg-primary text-white p-4 rounded-2xl">
                 <ArrowRightLeft size={28} />
               </div>
               <div>
-                <h3 className="text-2xl font-bold">
-                  $91 <span className="text-warning">Million+</span>
+                <h3 className="text-4xl font-semibold">
+                  $91 <span className="text-warning text-xl">Million+</span>
                 </h3>
-                <div className="badge badge-primary badge-sm mt-2">
+                <div className="badge bg-blue-400 badge-sm mt-2">
                   Total Transactions
                 </div>
               </div>
@@ -36,14 +36,14 @@ export default function Banner({title, desc}) {
 
             {/* CARD 2 */}
             <div className="flex items-center gap-4">
-              <div className="bg-warning text-white p-5 rounded-2xl">
+              <div className="bg-primary text-white p-4 rounded-2xl">
                 <Users size={28} />
               </div>
               <div>
-                <h3 className="text-2xl font-bold">
-                  49.6 <span className="text-warning">Thousand+</span>
+                <h3 className="text-4xl font-semibold">
+                  49.6 <span className="text-warning text-xl">Thousand+</span>
                 </h3>
-                <div className="badge badge-primary badge-sm mt-2">
+                <div className="badge bg-blue-400 badge-sm mt-2">
                   Active Investors
                 </div>
               </div>
