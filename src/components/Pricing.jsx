@@ -8,7 +8,7 @@ export default function Pricing() {
         {
             title: "Plan A",
             details: {
-                min: "25",
+                min: "30",
                 max: "499",
                 dailyProfit: "15",
                 duration: "After 24 Hours",
@@ -21,40 +21,40 @@ export default function Pricing() {
             details: {
                 min: "500",
                 max: "999",
-                dailyProfit: "20",
+                dailyProfit: "30",
                 duration: "After 48 Hours",
                 referalBonus: "15%"
             },
             // category: "Stock trading"
         },
         {
-            title: "Plan C",
+            title: "Plan C (Classic)",
             details: {
-                min: "500",
-                max: "999",
-                dailyProfit: "20",
+                min: "1,000",
+                max: "4,999",
+                dailyProfit: "50",
                 duration: "After 48 Hours",
                 referalBonus: "15%"
             },
             // category: "Stock trading"
         },
         {
-            title: "Plan D",
+            title: "Plan D (VIP)",
             details: {
-                min: "500",
-                max: "999",
-                dailyProfit: "20",
+                min: "5,000",
+                max: "19,900",
+                dailyProfit: "75",
                 duration: "After 48 Hours",
                 referalBonus: "15%"
             },
             // category: "Stock trading"
         },
         {
-            title: "Plan D",
+            title: "Plan E (VIP)",
             details: {
-                min: "500",
-                max: "999",
-                dailyProfit: "20",
+                min: "20,000",
+                max: "Unlimited",
+                dailyProfit: "100",
                 duration: "After 48 Hours",
                 referalBonus: "15%"
             },
