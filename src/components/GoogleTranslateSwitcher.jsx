@@ -225,10 +225,14 @@ export default function GoogleTranslateSwitcher() {
     // Force page reload with language cookie to ensure translation
     setTimeout(() => {
       if (langCode !== 'en') {
+        // Set cookie for non-English languages
         document.cookie = `googtrans=/en/${langCode}; path=/`;
         window.location.reload();
       } else {
-        // For English, just reload to clear any previous translation
+        // For English, clear the Google Translate cookie
+        document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        // Also try the alternative cookie name
+        document.cookie = 'googtrans=/en/en; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
         window.location.reload();
       }
     }, 300);
