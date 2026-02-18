@@ -72,7 +72,7 @@ export const NavBar = () => {
               <Buttons btnTitle="Login" withArrow={true} />
             </Link>
             <Link to="/register">
-              <Buttons btnTitle="Sign up" btnStyles="bg-primary shadow-lg" withArrow={true} />
+              <Buttons btnTitle="Sign up" btnStyles="bg-primary text-black shadow-lg" withArrow={true} />
             </Link>
           </div>
 

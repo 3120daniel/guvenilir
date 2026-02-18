@@ -56,7 +56,7 @@ export function EmblaCarousel() {
                                         />
                                         <Buttons
                                             btnTitle="Open Account"
-                                            btnStyles="bg-primary"
+                                            btnStyles="bg-primary text-black"
                                             withArrow
                                         />
                                     </div>
