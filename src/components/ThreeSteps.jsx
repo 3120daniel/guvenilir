@@ -21,8 +21,8 @@ export default function ThreeSteps() {
                             title: "Withdraw",
                             desc: "As soon as your deposit plan duration is completed, you can withdraw directly to your wallet."
                         },].map((item, i) => (
-                            <div className='flex items-center gap-6 border border-primary p-6 rounded-xl max-w-xl'>
-                                <div className='bg-primary shrink-0 h-12 w-12 rounded-full flex justify-center items-center font-bold text-xl'>
+                            <div className='flex gap-6 border border-primary p-6 rounded-xl max-w-xl'>
+                                <div className='bg-primary shrink-0 h-12 w-12 rounded-full flex justify-center items-center font-bold text-xl text-black'>
                                     {i + 1}
                                 </div>
                                 <div className=''>

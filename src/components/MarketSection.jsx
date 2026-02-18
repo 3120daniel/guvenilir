@@ -126,7 +126,7 @@ export default function MarketSection() {
   }, []);
 
   return (
-    <section className="relative bg-gradient-to-b from-[#0f1115] via-[#111418] to-[#1a1d22] text-white py-20 px-6">
+    <section className="relative bg-gradient-to-b from-[#0f1115] via-[#111418] to-[#1a1d22] text-white py-20 px-2 sm:px-6">
       <div className="max-w-6xl mx-auto text-center">
         
         {/* Heading */}

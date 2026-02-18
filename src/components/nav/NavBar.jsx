@@ -12,7 +12,7 @@ export const NavBar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="bg-black text-white shadow-md sticky top-0 z-50 pt-6 pb-3">
+    <nav className="bg-black text-white shadow-md sticky top-0 z-50  py-3">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo - always visible, left aligned */}
