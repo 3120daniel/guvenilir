@@ -11,6 +11,7 @@ import Hero from '../components/Hero'
 import forexTrader from "../assets/forex-trader.jpg"
 import serverRoom from "../assets/server-room.jpg"
 import Faqs from '../components/Faqs'
+import { EmblaCarousel } from '../components/EmblaCarousel'
 
 
 export default function Home() {
@@ -19,9 +20,6 @@ export default function Home() {
       <Hero />
 
       <div className='py-10'>
-
-
-
           <div className="max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between">
 
             {/* <div className="text-center">
@@ -156,6 +154,7 @@ export default function Home() {
       </div>
       {/*  */}
       <OurServices />
+      <EmblaCarousel />
       <TradeWithConfidence />
       <MarketSection />
       <Faqs />

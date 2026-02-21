@@ -9,8 +9,8 @@ export default function Faqs() {
                     FAQ's <br />
                     <span className='text-4xl font-semibold'>Frequently Asked Questions</span>
                     </p>
-                    <a href='http://figma.com/design/XRCX73lFMzt4vbLitqwI1S/Airbnb-Landing-Page-and-Onboarding--Community-?node-id=0-1&p=f&t=SNSDmE2D3bWJAGlV-0'>Joy</a>
-                <div className='grid grid-cols-2 gap-x-6 gap-y-2 py-10'>
+                    
+                <div className='grid md:grid-cols-2 gap-x-6 gap-y-2 py-10 px-4'>
                     {[
                         { title: "How long does it take to process my withdrawl?", desc: "Once we receive your withdrawal request we process immediately and send to your provided wallet address" },
                         { title: "How many times can I make deposit?", desc: "You are allowed to make a deposit as much as you want on all our investment plans." },
