@@ -47,21 +47,13 @@ export const NavBar = () => {
               <Link to="/services" className="hover:text-primary px-3 py-2 rounded-md text-sm">
                 Our Services
               </Link>
-              <Link to="/buy/sell" className="hover:text-primary px-3 py-2 rounded-md text-sm">
+              <Link to="/buy-and-sell" className="hover:text-primary px-3 py-2 rounded-md text-sm">
                 Buy/Sell
               </Link>
               <Link to="/legal" className="hover:text-primary px-3 py-2 rounded-md text-sm">
                 Legal
               </Link>
-              <Link to="/account" className="hover:text-primary px-3 py-2 rounded-md text-sm">
-                uAccount
-              </Link>
-              <Link to="/deposit" className="hover:text-primary px-3 py-2 rounded-md text-sm">
-                uDeposit
-              </Link>
-              <Link to="/confirm-deposit" className="hover:text-primary px-3 py-2 rounded-md text-sm">
-                uConfirm deposit
-              </Link>
+              
             </div>
           </div>
 

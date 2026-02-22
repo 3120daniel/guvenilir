@@ -20,9 +20,9 @@ export default function Home() {
       <Hero />
 
       <div className='py-10'>
-          <div className="max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between">
+        <div className="max-w-[80vh]-lg mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between">
 
-            {/* <div className="text-center">
+          {/* <div className="text-center">
               <p className="mt-4 text-sm leading-7 text-gray-500 font-regular">
                 STEPS
               </p>
@@ -31,47 +31,47 @@ export default function Home() {
               </h3>
 
             </div> */}
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-              Learn more about{" "}
-              <span className="relative inline-block">
-                Company name
-                <span className="absolute left-0 -bottom-2 w-full h-1 bg-primary"></span>
-              </span>
-            </h2>
-            <p className='text-center text-xl'>Your Number One Provider of Profitable Investment</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+            Learn more about{" "}
+            <span className="relative inline-block">
+              Company name
+              <span className="absolute left-0 -bottom-2 w-full h-1 bg-primary"></span>
+            </span>
+          </h2>
+          <p className='text-center text-xl'>Your Number One Provider of Profitable Investment</p>
 
-            <div className="mt-20">
-              <ul className="space-y-1 md:space-y-0 md:grid md:grid-cols-3 md:col-gap-10 md:row-gap-10">
-                {[
-                  { title: "About Us", desc: "Experts in financial services" },
-                  { title: "Our services", desc: "Our awsome services" },
-                  { title: "Contact Us", desc: "Any questions? Write us" }
-                ].map((item, i) => (
-                  <li className=" bg-primary/40 p-5 pb-10 text-center">
-                    <div className="flex flex-col items-center">
-                      <div className="flex-shrink-0 relative top-0 -mt-14">
-                        <div
-                          className="flex items-center justify-center h-16 w-16 rounded-full bg-white text-primary border-4 border-primary text-xl font-semibold">
-                          {/* {i + 1} */}
-                          {i === 0 && <IdCard size={34} />}
-                          {i === 1 && <Wrench size={34} />}
-                          {i === 2 && <MessageSquare size={34} />}
-                        </div>
-                      </div>
-                      <div className="mt-4">
-                        <h4 className="text-lg leading-6 font-semibold text-gray-900">{item.title}</h4>
-                        <p className="mt-2 text-base leading-6 text-gray-500">
-                          {item.desc}
-                        </p>
+          <div className="mt-20">
+            <ul className="space-y-1 md:space-y-0 md:grid md:grid-cols-3 md:col-gap-10 space-x-6 max-w-4xl mx-auto">
+              {[
+                { title: "About Us", desc: "Experts in financial services" },
+                { title: "Our services", desc: "Our awsome services" },
+                { title: "Contact Us", desc: "Any questions? Write us" }
+              ].map((item, i) => (
+                <li className="bg-white p-5 pb-10 text-center border border-primary rounded-xl">
+                  <div className="flex flex-col items-center">
+                    <div className="flex-shrink-0 relative top-0 -mt-14">
+                      <div
+                        className="flex items-center justify-center h-16 w-16 rounded-full bg-white text-primary border-2 border-primary text-xl font-semibold">
+                        {/* {i + 1} */}
+                        {i === 0 && <IdCard size={30} />}
+                        {i === 1 && <Wrench size={30} />}
+                        {i === 2 && <MessageSquare size={30} />}
                       </div>
                     </div>
-                  </li>
+                    <div className="mt-4">
+                      <h4 className="text-lg leading-6 font-semibold text-gray-900">{item.title}</h4>
+                      <p className="mt-2 text-base leading-6 text-gray-500">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                </li>
 
-                ))}
-              </ul>
-            </div>
-
+              ))}
+            </ul>
           </div>
+
+        </div>
 
       </div>
 
@@ -154,15 +154,15 @@ export default function Home() {
       </div>
       {/*  */}
       <OurServices />
-      <EmblaCarousel />
       <TradeWithConfidence />
       <MarketSection />
+      <EmblaCarousel />
       <Faqs />
 
       <ThreeSteps />
       <div className='bg-primary'>
-        <div className='flex flex-col sm:flex-row items-center justify-between max-w-7xl border border-primary mx-auto p-6 rounded-lg'>
-          <div className='border border-gray-200 p-8 rounded-xl bg-primary mb-10 sm:mb-0'>
+        <div className='flex flex-col sm:flex-row items-center justify-between max-w-7xl border border-primary/50 mx-auto p-6 rounded-lg'>
+          <div className='border border-base-300 p-8 rounded-xl bg-primary mb-10 sm:mb-0'>
             <p><span className='text-3xl font-semibold'>Investors #1 Choice</span> <br /> Güvenilir-varlıklar </p>
           </div>
           <Buttons btnTitle="Lear More" btnStyles="bg-black text-white px-8 py-4" />
@@ -174,3 +174,4 @@ export default function Home() {
 
 
 // https://tailwindflex.com/@ron-hicks/steps-block
+// some broke men cant have women until they have momey

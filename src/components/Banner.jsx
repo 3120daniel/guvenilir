@@ -21,7 +21,7 @@ export default function Banner({title, desc}) {
             
             {/* CARD 1 */}
             <div className="flex items-center gap-4">
-              <div className="bg-primary text-white p-4 rounded-2xl">
+              <div className="bg-primary text-black p-4 rounded-2xl">
                 <ArrowRightLeft size={28} />
               </div>
               <div>
@@ -36,7 +36,7 @@ export default function Banner({title, desc}) {
 
             {/* CARD 2 */}
             <div className="flex items-center gap-4">
-              <div className="bg-primary text-white p-4 rounded-2xl">
+              <div className="bg-primary text-black p-4 rounded-2xl">
                 <Users size={28} />
               </div>
               <div>

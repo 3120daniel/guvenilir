@@ -6,6 +6,9 @@ import usdt from "../assets/crypto/usdt.png"
 import xrp from "../assets/crypto/xrp.png"
 import { Link } from 'react-router-dom'
 import Logo from './Logo'
+import dodge from "../assets/crypto/dodge.jpg"
+import tron from "../assets/crypto/tron.jpg"
+import solana from "../assets/crypto/solana.jpg"
 
 export default function Footer() {
     return (
@@ -14,7 +17,7 @@ export default function Footer() {
                 <div className='max-w-7xl shadow mx-auto p-6 rounded-lg text-center bg-gray-100'>
                     <p className='text-2xl font-semibold '>Fast and reliable withdrawal/deposit method</p>
                     <div className='flex justify-center gap-4 md:gap-20 sm:gap-6 mt-8 sm:mt-12'>
-                        {[btc, eth, usdt, xrp, ltc].map((item) => (
+                        {[btc, eth, usdt, xrp, ltc, dodge, tron, solana].map((item) => (
                             <img src={item} alt="" className='h-12 w-12 rounded-full' />
 
                         ))}
@@ -230,8 +233,8 @@ export default function Footer() {
                         <p className="text-sm">
                             © Copyright 2020 Lorem Inc. All rights reserved.
                         </p>
-                        <div className='flex gap-6 mt-4 sm:mt-0'>
-                            {[btc, eth, usdt, xrp, ltc].map((item) => (
+                        <div className='flex gap-4 mt-4 sm:mt-0'>
+                            {[btc, eth, usdt, xrp, ltc, dodge, tron, solana].map((item) => (
                                 <img src={item} alt="" className='h-5 w-5 rounded-full' />
 
                             ))}
