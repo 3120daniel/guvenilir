@@ -3,8 +3,8 @@ import { Navigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 
 // Protected Route Component - redirects to login if not authenticated
-export const ProtectedRoute = ({ children }) => {
-  const { isAuthenticated, isLoading } = useAuth()
+export const ProtectedRoute = ({ children, requiredRole = null }) => {
+  const { isAuthenticated, isLoading, user } = useAuth()
 
   if (isLoading) {
     return (
@@ -19,6 +19,19 @@ export const ProtectedRoute = ({ children }) => {
 
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />
+  }
+
+  // Role-based access control
+  if (requiredRole && user) {
+    const userRole = user.role || user.userRole || 'user';
+    if (userRole !== requiredRole) {
+      // Redirect based on role
+      if (userRole === 'admin') {
+        return <Navigate to="/w-admin" replace />
+      } else {
+        return <Navigate to="/account" replace />
+      }
+    }
   }
 
   return children

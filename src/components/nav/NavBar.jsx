@@ -2,14 +2,22 @@ import React, { useState } from "react";
 import Buttons from "../Buttons";
 import { Dropdown, DropdownItem } from "./Dropdown";
 import GoogleTranslateSwitcher from "../GoogleTranslateSwitcher";
-import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Menu, X, LogOut } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../Logo";
+import { useAuth } from "../../context/AuthContext";
 
 export const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { isAuthenticated, logout, isLoading } = useAuth();
+  const navigate = useNavigate();
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    await logout();
+  };
 
   return (
     <nav className="bg-black text-white shadow-md sticky top-0 z-50  py-3">
@@ -60,12 +68,30 @@ export const NavBar = () => {
           {/* Buttons and Google Translate Switcher */}
           <div className="hidden md:flex space-x-4 items-center">
             <GoogleTranslateSwitcher />
-            <Link to="/login">
-              <Buttons btnTitle="Login" withArrow={true} />
-            </Link>
-            <Link to="/register">
-              <Buttons btnTitle="Sign up" btnStyles="bg-primary text-black shadow-lg" withArrow={true} />
-            </Link>
+            {isAuthenticated ? (
+              <>
+                <Link to="/account" className="hover:text-primary px-3 py-2 rounded-md text-sm">
+                  Dashboard
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  disabled={isLoading}
+                  className="flex items-center gap-2 px-4 py-2 rounded-md bg-red-600 hover:bg-red-700 transition disabled:opacity-50"
+                >
+                  <LogOut size={16} />
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link to="/login">
+                  <Buttons btnTitle="Login" withArrow={true} />
+                </Link>
+                <Link to="/register">
+                  <Buttons btnTitle="Sign up" btnStyles="bg-primary text-black shadow-lg" withArrow={true} />
+                </Link>
+              </>
+            )}
           </div>
 
 
@@ -122,16 +148,33 @@ export const NavBar = () => {
             className="block hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">
             Legal
           </Link>
-          <Link
-            to="/login"
-            className="block hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">
-            Login
-          </Link>
-          <Link
-            to="/register"
-            className="block hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">
-            Sign up
-          </Link>
+          {isAuthenticated ? (
+            <>
+              <Link to="/account" className="block hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">
+                Dashboard
+              </Link>
+              <button 
+                onClick={handleLogout}
+                disabled={isLoading}
+                className="block w-full text-left hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium text-red-600"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className="block hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">
+                Login
+              </Link>
+              <Link
+                to="/register"
+                className="block hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">
+                Sign up
+              </Link>
+            </>
+          )}
           <Link to="/account" className="block hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">
             uAccount
           </Link>

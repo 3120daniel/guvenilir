@@ -19,6 +19,9 @@ import Dashboard from './user/Dashboard'
 import Services from '../pages/Services'
 import BuyAndSell from '../pages/BuyAndSell'
 import ProtectedRoute from '../components/ProtectedRoute'
+import YourDeposit from './user/YourDeposit'
+import Withdraw from './user/Withdraw'
+import AdminLayout from './admin/AdminLayout'
 
 export default function AppRouter() {
   const currentPath = useLocation().pathname
@@ -27,6 +30,7 @@ export default function AppRouter() {
     "/login",
     "/register",
     "/forgot-password",
+    "/w-admin",
     "/user",
     "/user/dashboard",
     "/user/deposit",
@@ -34,7 +38,11 @@ export default function AppRouter() {
     "/user/active-deposit",
     "/user/profile",
     "/admin",
-    "/account"
+    "/account",
+    "/account/confirm-deposit",
+    "/account/deposit",
+    "/account/your-deposit",
+    "/account/withdraw",
   ];
 
   return (
@@ -54,11 +62,21 @@ export default function AppRouter() {
         <Route path='/services' element={<Services />} />
         <Route path='/buy-and-sell' element={<BuyAndSell />} />
         
+        {/* Protected Admin Route */}
+        <Route 
+          path='/w-admin' 
+          element={
+            <ProtectedRoute requiredRole="admin">
+              <AdminLayout />
+            </ProtectedRoute>
+          } 
+        />
+        
         {/* Protected User Routes */}
         <Route 
           path='/account' 
           element={
-            <ProtectedRoute>
+            <ProtectedRoute requiredRole="user">
               <UserLayout />
             </ProtectedRoute>
           }
@@ -66,6 +84,8 @@ export default function AppRouter() {
           <Route index element={<Dashboard />} />
           <Route path="confirm-deposit" element={<ConfirmDeposit />} />
           <Route path="deposit" element={<Deposit />} />
+          <Route path="your-deposit" element={<YourDeposit />} />
+          <Route path="withdraw" element={<Withdraw />} />
         </Route>
       </Routes>
       {!hideNavBarPaths.includes(currentPath) && <Footer />}

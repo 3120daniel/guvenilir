@@ -51,7 +51,6 @@ export default function Dashboard() {
             <div className='mb-6'>
                 <p className='text-lg font-bold mb-2'>Account Details</p>
                 <div className='grid grid-cols-2 gap-5 md:grid-cols-4'>
-                    {[1, 2, 3, 4, 5, 6, 7, 8].map(() => (
                         <div className='card bg-base-300'>
                             <div className='card-body'>
                                 <p className='font-bold text-lg'>Main Balance</p>
@@ -59,7 +58,55 @@ export default function Dashboard() {
 
                             </div>
                         </div>
-                    ))}
+                        <div className='card bg-base-300'>
+                            <div className='card-body'>
+                                <p className='font-bold text-lg'>Total Deposit</p>
+                                <p className='text-xl'>$0 <span className='text-xs'>USD</span></p>
+
+                            </div>
+                        </div>
+                        <div className='card bg-base-300'>
+                            <div className='card-body'>
+                                <p className='font-bold text-lg'>Active Deposit</p>
+                                <p className='text-xl'>$0 <span className='text-xs'>USD</span></p>
+
+                            </div>
+                        </div>
+                        <div className='card bg-base-300'>
+                            <div className='card-body'>
+                                <p className='font-bold text-lg'>Last Deposit</p>
+                                <p className='text-xl'>$0 <span className='text-xs'>USD</span></p>
+
+                            </div>
+                        </div>
+                        <div className='card bg-base-300'>
+                            <div className='card-body'>
+                                <p className='font-bold text-lg'>Earned Total</p>
+                                <p className='text-xl'>$0 <span className='text-xs'>USD</span></p>
+
+                            </div>
+                        </div>
+                        <div className='card bg-base-300'>
+                            <div className='card-body'>
+                                <p className='font-bold text-lg'>Pending Withdrawal</p>
+                                <p className='text-xl'>$0 <span className='text-xs'>USD</span></p>
+
+                            </div>
+                        </div>
+                        <div className='card bg-base-300'>
+                            <div className='card-body'>
+                                <p className='font-bold text-lg'>Withdrawal Total</p>
+                                <p className='text-xl'>$0 <span className='text-xs'>USD</span></p>
+
+                            </div>
+                        </div>
+                        <div className='card bg-base-300'>
+                            <div className='card-body'>
+                                <p className='font-bold text-lg'>Last Withdrawal</p>
+                                <p className='text-xl'>$0 <span className='text-xs'>USD</span></p>
+
+                            </div>
+                        </div>
                 </div>
             </div>
             {/*  */}

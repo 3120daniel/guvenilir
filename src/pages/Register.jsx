@@ -142,7 +142,7 @@ export default function Register() {
       
       // Redirect to dashboard after short delay
       setTimeout(() => {
-        navigate('/account')
+        navigate('/login')
       }, 1000)
     } catch (err) {
       const errorMsg = err.message || "Registration failed. Please try again."
