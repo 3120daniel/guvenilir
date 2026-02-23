@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom"
+import { Route, Routes, useLocation } from "react-router-dom"
 import Home from '../pages/Home'
 import Register from '../pages/Register'
 import Plans from '../pages/Plans'
@@ -18,10 +18,10 @@ import ConfirmDeposit from './user/ConfirmDeposit'
 import Dashboard from './user/Dashboard'
 import Services from '../pages/Services'
 import BuyAndSell from '../pages/BuyAndSell'
+import ProtectedRoute from '../components/ProtectedRoute'
 
 export default function AppRouter() {
-  let currentPath = useLocation().pathname;
-  // console.log(currentPath)
+  const currentPath = useLocation().pathname
 
   const hideNavBarPaths = [
     "/login",
@@ -34,14 +34,12 @@ export default function AppRouter() {
     "/user/active-deposit",
     "/user/profile",
     "/admin",
-    // "/contact",
     "/account"
   ];
 
   return (
     <>
       {!hideNavBarPaths.includes(currentPath) && <NavBar />}
-      {/* <NavBar /> */}
       <Routes>
         <Route path='*' element={<NotFound />} />
         <Route index element={<Home />} />
@@ -55,16 +53,22 @@ export default function AppRouter() {
         <Route path='/plans' element={<Plans />} />
         <Route path='/services' element={<Services />} />
         <Route path='/buy-and-sell' element={<BuyAndSell />} />
-        <Route path='/account' element={<UserLayout />}>
+        
+        {/* Protected User Routes */}
+        <Route 
+          path='/account' 
+          element={
+            <ProtectedRoute>
+              <UserLayout />
+            </ProtectedRoute>
+          }
+        >
           <Route index element={<Dashboard />} />
           <Route path="confirm-deposit" element={<ConfirmDeposit />} />
           <Route path="deposit" element={<Deposit />} />
         </Route>
-        {/* <Route path='/deposit' element={<Deposit />} /> */}
-        {/* <Route path='/confirm-deposit' element={<ConfirmDeposit />} /> */}
       </Routes>
       {!hideNavBarPaths.includes(currentPath) && <Footer />}
-
     </>
   )
 }
