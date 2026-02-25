@@ -16,9 +16,9 @@ export default function Footer() {
             <div className='px-4'>
                 <div className='max-w-7xl shadow mx-auto p-6 rounded-lg text-center bg-gray-100'>
                     <p className='text-2xl font-semibold '>Fast and reliable withdrawal/deposit method</p>
-                    <div className='flex justify-center gap-4 md:gap-20 sm:gap-6 mt-8 sm:mt-12'>
+                    <div className='flex justify-center gap-2 sm:gap-4 md:gap-20 md:gap-6 mt-8 sm:mt-12'>
                         {[btc, eth, usdt, xrp, ltc, dodge, tron, solana].map((item) => (
-                            <img src={item} alt="" className='h-12 w-12 rounded-full' />
+                            <img src={item} alt="" className='h-8 sm:h-12 w-8 sm:w-12 rounded-full' />
 
                         ))}
                     </div>

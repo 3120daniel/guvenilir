@@ -8,6 +8,14 @@ import { Link } from 'react-router-dom'
 import hero1 from "../assets/images (1).jpg"
 import hero2 from "../assets/images (2).jpg"
 import hero3 from "../assets/images (3).jpg"
+import hero4 from "../assets/images (4).jpg"
+import hero5 from "../assets/images (5).jpg"
+import hero6 from "../assets/images (6).jpg"
+import hero7 from "../assets/images (7).jpg"
+import hero8 from "../assets/images (8).jpg"
+// import hero9 from "../assets/images (9).jpg"
+import hero10 from "../assets/images (10).jpg"
+
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 
 export function EmblaCarousel() {
@@ -43,7 +51,43 @@ export function EmblaCarousel() {
       image: hero3,
       title: "Hero Title 3",
       subtitle: "Optional subtitle text here"
-    }
+    },
+    { 
+      id: 4, 
+      image: hero4,
+      // title: "Hero Title 3",
+      // subtitle: "Optional subtitle text here"
+    },
+    { 
+      id: 5, 
+      image: hero5,
+      // title: "Hero Title 3",
+      // subtitle: "Optional subtitle text here"
+    },
+    { 
+      id: 6, 
+      image: hero6,
+      // title: "Hero Title 3",
+      // subtitle: "Optional subtitle text here"
+    },
+    { 
+      id: 7, 
+      image: hero7,
+      // title: "Hero Title 3",
+      // subtitle: "Optional subtitle text here"
+    },
+    { 
+      id: 8, 
+      image: hero8,
+      // title: "Hero Title 3",
+      // subtitle: "Optional subtitle text here"
+    },
+    { 
+      id: 10, 
+      image: hero10,
+      // title: "Hero Title 3",
+      // subtitle: "Optional subtitle text here"
+    },
   ];
 
   return (
