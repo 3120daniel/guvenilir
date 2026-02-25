@@ -1,5 +1,6 @@
 import React from 'react'
 import Buttons from './Buttons'
+import { Link } from 'react-router-dom'
 
 export default function ThreeSteps() {
     return (
@@ -36,7 +37,9 @@ export default function ThreeSteps() {
                 </div>
                 {/* col 2 */}
                 <div className='bg-black mt-10 md:mt-0'>
-                    <Buttons btnTitle="Open Account" btnStyles="bg-gray-200" />
+                    <Link to="/register">
+                        <Buttons btnTitle="Open Account" btnStyles="bg-gray-200" />
+                    </Link>
 
                 </div>
             </div>

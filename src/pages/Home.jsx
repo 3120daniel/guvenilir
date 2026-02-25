@@ -12,12 +12,14 @@ import forexTrader from "../assets/forex-trader.jpg"
 import serverRoom from "../assets/server-room.jpg"
 import Faqs from '../components/Faqs'
 import { EmblaCarousel } from '../components/EmblaCarousel'
+import TradingViewTicker from '../components/TradingviewTicker'
 
 
 export default function Home() {
   return (
     <div>
       <Hero />
+     
 
       <div className='py-10'>
         <div className="max-w-[80vh]-lg mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between">

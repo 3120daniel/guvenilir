@@ -1,5 +1,6 @@
 import React from 'react'
 import { EmblaCarousel } from './Hero/EmblaCarousel'
+import TradingViewTicker from './TradingviewTicker'
 
 export default function Hero() {
   return (
@@ -19,6 +20,7 @@ export default function Hero() {
       {/* Optional overlay to make text more readable */}
       <div className="absolute inset-0 bg-black/60" />
       <EmblaCarousel />
+      <TradingViewTicker />
 
       {/* Content */}
       {/* <div className="relative z-10 flex items-center justify-center min-h-[80vh]">

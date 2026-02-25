@@ -57,7 +57,8 @@ export const authService = {
   // Login user
   login: async (credentials) => {
     try {
-      const response = await apiClient.post('/auth/login', credentials);
+      const response = await apiClient.post('/auth/login', JSON.stringify(credentials));
+      console.log(credentials);
       if (response.data.success) {
         // Store token and user data
         localStorage.setItem('accessToken', response.data.data.accessToken);

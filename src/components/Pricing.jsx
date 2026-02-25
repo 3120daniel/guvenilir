@@ -1,6 +1,7 @@
 import { Database, Server } from 'lucide-react'
 import React from 'react'
 import Buttons from './Buttons'
+import { Link } from 'react-router-dom'
 
 export default function Pricing() {
 
@@ -91,7 +92,9 @@ export default function Pricing() {
                         </ul>
 
                         <div className='flex justify-end'>
-                            <Buttons btnTitle="Get Started" btnStyles="text-primary" withArrow={true} />
+                            <Link to="/register">
+                                <Buttons btnTitle="Get Started" btnStyles="text-primary" withArrow={true} />
+                            </Link>
                         </div>
                     </div>
                 ))}
