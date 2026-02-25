@@ -9,6 +9,7 @@ import {
   Lock,
 } from "lucide-react";
 import Buttons from "./Buttons";
+import { Link } from "react-router-dom";
 
 export default function WhyChooseUs() {
   const features = [
@@ -65,17 +66,17 @@ export default function WhyChooseUs() {
   return (
     <section className="bg-gradient-to-b from-[#0d0f14] via-[#111318] to-[#1a1d23] text-white py-16 px-4">
       <div className="max-w-6xl mx-auto">
-        
+
         {/* Header */}
         <div className="mb-14">
           <div className="bg-primary text-black text-center py-4 rounded-xl text-2xl md:text-3xl font-bold">
-            Why choose Güvenilir-varlıklar 
+            Why choose Güvenilir-varlıklar
           </div>
         </div>
 
         {/* Grid */}
         <div className="relative grid md:grid-cols-2 gap-y-12 gap-x-16">
-          
+
           {/* Vertical Divider (Desktop only) */}
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-white/10"></div>
 
@@ -95,7 +96,9 @@ export default function WhyChooseUs() {
                   {item.description}
                 </p>
 
-                <Buttons btnTitle="Join Us" btnStyles="hover:text-primary" withArrow={true} />
+                <Link to="/register">
+                  <Buttons btnTitle="Join Us" btnStyles="hover:text-primary" withArrow={true} />
+                </Link>
               </div>
 
               {/* Icon */}

@@ -22,6 +22,7 @@ import ProtectedRoute from '../components/ProtectedRoute'
 import YourDeposit from './user/YourDeposit'
 import Withdraw from './user/Withdraw'
 import AdminLayout from './admin/AdminLayout'
+import Certificate from '../pages/Certificate'
 
 export default function AppRouter() {
   const currentPath = useLocation().pathname
@@ -43,6 +44,7 @@ export default function AppRouter() {
     "/account/deposit",
     "/account/your-deposit",
     "/account/withdraw",
+    "/certificate",
   ];
 
   return (
@@ -61,6 +63,7 @@ export default function AppRouter() {
         <Route path='/plans' element={<Plans />} />
         <Route path='/services' element={<Services />} />
         <Route path='/buy-and-sell' element={<BuyAndSell />} />
+        <Route path='/certificate' element={<Certificate />} />
         
         {/* Protected Admin Route */}
         <Route 

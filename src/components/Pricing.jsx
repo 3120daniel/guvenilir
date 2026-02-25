@@ -34,8 +34,8 @@ export default function Pricing() {
                 min: "1,000",
                 max: "4,999",
                 dailyProfit: "50",
-                duration: "After 48 Hours",
-                referalBonus: "15%"
+                duration: "After 72 Hours",
+                referalBonus: "20%"
             },
             // category: "Stock trading"
         },
@@ -45,8 +45,8 @@ export default function Pricing() {
                 min: "5,000",
                 max: "19,900",
                 dailyProfit: "75",
-                duration: "After 48 Hours",
-                referalBonus: "15%"
+                duration: "5 Days",
+                referalBonus: "25%"
             },
             // category: "Stock trading"
         },
@@ -56,8 +56,8 @@ export default function Pricing() {
                 min: "20,000",
                 max: "Unlimited",
                 dailyProfit: "100",
-                duration: "After 48 Hours",
-                referalBonus: "15%"
+                duration: "7 Days",
+                referalBonus: "30%"
             },
             // category: "Stock trading"
         }

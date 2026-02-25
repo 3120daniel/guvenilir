@@ -1,8 +1,18 @@
 import React from 'react'
 import { EmblaCarousel } from './Hero/EmblaCarousel'
-import TradingViewTicker from './TradingviewTicker'
+import TradingViewTicker from './tradingview/TradingViewTicker'
+import { CustomSlidingTicker } from './tradingview/TradingViewTickerTape'
 
 export default function Hero() {
+  const marketData = [
+    { symbol: 'S&P 500', price: '4,500.25', change: '+0.5%' },
+    { symbol: 'NASDAQ', price: '15,000.50', change: '+0.8%' },
+    { symbol: 'DOW JONES', price: '35,000.75', change: '-0.2%' },
+    { symbol: 'EUR/USD', price: '1.0925', change: '+0.1%' },
+    { symbol: 'BTC/USD', price: '45,000', change: '+2.5%' },
+    { symbol: 'ETH/USD', price: '2,500', change: '+1.8%' },
+    { symbol: 'GOLD', price: '2,050', change: '+0.3%' }
+  ];
   return (
     <div className="relative bg-gray-300 min-h-[90vh] overflow-hidden">
       {/* Video Background */}
@@ -20,7 +30,11 @@ export default function Hero() {
       {/* Optional overlay to make text more readable */}
       <div className="absolute inset-0 bg-black/60" />
       <EmblaCarousel />
-      <TradingViewTicker />
+      {/* <TradingViewTicker /> */}
+      <CustomSlidingTicker
+        symbols={marketData}
+        height={70}
+      />
 
       {/* Content */}
       {/* <div className="relative z-10 flex items-center justify-center min-h-[80vh]">

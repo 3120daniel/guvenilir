@@ -12,14 +12,18 @@ import forexTrader from "../assets/forex-trader.jpg"
 import serverRoom from "../assets/server-room.jpg"
 import Faqs from '../components/Faqs'
 import { EmblaCarousel } from '../components/EmblaCarousel'
-import TradingViewTicker from '../components/TradingviewTicker'
+import TradingViewTicker from '../components/tradingview/TradingViewTicker'
+import TradingViewTickerTape, { CustomSlidingTicker } from '../components/tradingview/TradingViewTickerTape'
+import { TradingViewTickerTapeIframe } from '../components/tradingview/TradingViewTickerTapeIframe'
+import { Link } from 'react-router-dom'
 
 
 export default function Home() {
+
   return (
     <div>
       <Hero />
-     
+
 
       <div className='py-10'>
         <div className="max-w-[80vh]-lg mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between">
@@ -125,6 +129,7 @@ export default function Home() {
         </div>
       </div>
 
+
       <EmblaCarousel />
       <Pricing />
       {/* TRUST, EXPERIENCE, EXPERTISE AND KNOWLEDGE */}
@@ -146,8 +151,12 @@ export default function Home() {
               We are an international financial company engaged in investment activities, which are related to trading on financial markets and cryptocurrency exchanges performed by qualified professional traders.
             </p>
             <div className='flex gap-4 mt-10'>
-              <Buttons btnTitle="Certificate" btnStyles="bg-black text-white" withArrow={true} />
-              <Buttons btnTitle="Learn More" btnStyles="bg-black text-white" withArrow={true} />
+              <Link to="/certificate">
+                <Buttons btnTitle="Certificate" btnStyles="bg-black text-white" withArrow={true} />
+              </Link>
+              <Link to="/about">
+                <Buttons btnTitle="Learn More" btnStyles="bg-black text-white" withArrow={true} />
+              </Link>
             </div>
 
           </div>
@@ -166,7 +175,9 @@ export default function Home() {
           <div className='border border-base-300 p-8 rounded-xl bg-primary mb-10 sm:mb-0'>
             <p><span className='text-3xl font-semibold'>Investors #1 Choice</span> <br /> Güvenilir-varlıklar </p>
           </div>
-          <Buttons btnTitle="Lear More" btnStyles="bg-black text-white px-8 py-4" />
+          <Link to="/register">
+            <Buttons btnTitle="Open your account" btnStyles="bg-black text-white px-8 py-4" />
+          </Link>
         </div>
       </div>
     </div >
