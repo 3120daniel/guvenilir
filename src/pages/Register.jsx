@@ -12,6 +12,7 @@ export default function Register() {
   const [error, setError] = useState("")
   const [success, setSuccess] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+  console.log(error)
 
   const [formData, setFormData] = useState({
     fullname: "",

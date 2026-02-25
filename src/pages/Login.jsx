@@ -1,96 +1,91 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import imgg from "../assets/NAOMI-3-1.jpg"
 import Logo from '../components/Logo'
 import { Eye, EyeClosed, AlertCircle, CheckCircle } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext'
 
 export default function Login() {
     const navigate = useNavigate()
-    const { login, isLoading, isAuthenticated, error: authError } = useAuth()
-    
+
     const [passwordVisible, setPasswordVisible] = useState(false)
     const [error, setError] = useState("")
     const [success, setSuccess] = useState("")
     const [isSubmitting, setIsSubmitting] = useState(false)
-    
+
     const [formData, setFormData] = useState({
         username: "",
         password: "",
         keepMeLoggedIn: false
     })
 
-    // Redirect if already logged in
-    useEffect(() => {
-        if (isAuthenticated) {
-            navigate('/account')
-        }
-    }, [isAuthenticated, navigate])
-
-    const handlePasswordVisible = () => {
-        setPasswordVisible(!passwordVisible)
-    }
-
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target
-        setFormData(prevState => ({
-            ...prevState,
-            [name]: type === 'checkbox' ? checked : value
-        }))
-        // Clear errors when user starts typing
-        setError("")
+        setFormData(prev => ({ ...prev, [name]: type === "checkbox" ? checked : value }))
+        if (error) setError("")
     }
 
-    const validateForm = () => {
-        if (!formData.username.trim()) {
-            setError("Username is required")
-            return false
-        }
-        if (!formData.password) {
-            setError("Password is required")
-            return false
-        }
-        if (formData.password.length < 6) {
-            setError("Password must be at least 6 characters")
-            return false
-        }
-        return true
-    }
+    const handlePasswordVisible = () => setPasswordVisible(prev => !prev)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        
-        if (!validateForm()) {
+        setError("")
+        setSuccess("")
+
+        if (!formData.username.trim()) {
+            setError("Username is required.")
+            return
+        }
+        if (!formData.password) {
+            setError("Password is required.")
             return
         }
 
+        setIsSubmitting(true)
+
         try {
-            setIsSubmitting(true)
-            setError("")
-            
-            await login(
-                formData.username,
-                formData.password,
-                formData.keepMeLoggedIn
-            )
-            
-            setSuccess("Login successful! Redirecting...")
-            setFormData({
-                username: "",
-                password: "",
-                keepMeLoggedIn: false
+            const response = await fetch("https://guv-chi.vercel.app/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    username: formData.username.trim(),
+                    password: formData.password,
+                }),
             })
-            
-            // Redirect to dashboard after short delay
+
+            const data = await response.json()
+
+            if (!response.ok || data?.code !== "200") {
+                const message =
+                    data?.message ||
+                    data?.error ||
+                    data?.detail ||
+                    (typeof data === "string" ? data : null) ||
+                    "Login failed. Please check your credentials."
+                setError(message)
+                return
+            }
+
+            // Save note to localStorage
+            localStorage.setItem("note", data.note)
+
+            // If "keep me logged in", also persist a flag
+            if (formData.keepMeLoggedIn) {
+                localStorage.setItem("keepMeLoggedIn", "true")
+            } else {
+                localStorage.removeItem("keepMeLoggedIn")
+            }
+
+            setSuccess("Login successful! Redirecting...")
+
             setTimeout(() => {
-                navigate('/account')
+                navigate("/account")
             }, 1000)
+
         } catch (err) {
-            const errorMsg = err.message || err.code === 'INVALID_CREDENTIALS' 
-                ? "Invalid username or password"
-                : "Login failed. Please try again."
-            setError(errorMsg)
-            setSuccess("")
+            console.error("Login error:", err)
+            setError("Network error. Please check your connection and try again.")
         } finally {
             setIsSubmitting(false)
         }
@@ -115,10 +110,10 @@ export default function Login() {
 
                         <div className="p-6 sm:p-8 rounded-2xl shadow bg-gray-50">
                             {/* Error Alert */}
-                            {(error || authError) && (
+                            {error && (
                                 <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
                                     <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
-                                    <p className="text-red-800 text-sm">{error || authError}</p>
+                                    <p className="text-red-800 text-sm">{error}</p>
                                 </div>
                             )}
 
@@ -166,7 +161,7 @@ export default function Login() {
                                             onChange={handleChange}
                                             disabled={isSubmitting}
                                         />
-                                        <button 
+                                        <button
                                             type="button"
                                             className="absolute right-4 cursor-pointer text-gray-400 hover:text-gray-600 transition-colors disabled:opacity-50"
                                             onClick={handlePasswordVisible}
@@ -183,10 +178,10 @@ export default function Login() {
                                 {/* Remember Me & Forgot Password */}
                                 <div className="flex flex-wrap items-center justify-between gap-4">
                                     <div className="flex items-center">
-                                        <input 
-                                            id="remember-me" 
-                                            name="keepMeLoggedIn" 
-                                            type="checkbox" 
+                                        <input
+                                            id="remember-me"
+                                            name="keepMeLoggedIn"
+                                            type="checkbox"
                                             className="h-4 w-4 shrink-0 text-blue-600 focus:ring-blue-500 border-slate-300 rounded cursor-pointer"
                                             checked={formData.keepMeLoggedIn}
                                             onChange={handleChange}
@@ -205,12 +200,12 @@ export default function Login() {
 
                                 {/* Submit Button */}
                                 <div className="!mt-12">
-                                    <button 
-                                        type="submit" 
-                                        disabled={isSubmitting || isLoading}
+                                    <button
+                                        type="submit"
+                                        disabled={isSubmitting}
                                         className="w-full py-2 px-4 text-[15px] font-medium tracking-wide rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
                                     >
-                                        {isSubmitting || isLoading ? (
+                                        {isSubmitting ? (
                                             <>
                                                 <span className="animate-spin">⚡</span>
                                                 Signing in...
@@ -223,7 +218,7 @@ export default function Login() {
 
                                 {/* Register Link */}
                                 <p className="text-slate-900 text-sm !mt-6 text-center">
-                                    Don't have an account? 
+                                    Don't have an account?
                                     <Link to="/register" className="text-blue-600 hover:underline ml-1 whitespace-nowrap font-semibold">
                                         Register here
                                     </Link>
