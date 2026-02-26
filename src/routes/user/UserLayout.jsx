@@ -6,17 +6,11 @@ import { Calendar, Clock, Coins, LogOut, Menu } from 'lucide-react'
 import Logo from '../../components/Logo'
 import ChartTransaction from '../../components/ChartTransaction'
 import { Link, Outlet } from 'react-router-dom'
-import { useAuth } from '../../context/AuthContext'
+import LogoutButton from '../../components/LogoutButton'
 
 export default function UserLayout() {
-    const { logout, user, isLoading } = useAuth()
 
-    const handleLogout = async (e) => {
-        e.preventDefault()
-        await logout()
-    }
-
-    const displayName = user?.fullName || user?.username || 'User'
+    
 
     return (
         <div className='bg-base-100 text-base-content'>
@@ -24,14 +18,15 @@ export default function UserLayout() {
                 <div className='max-w-6xl mx-auto flex justify-between items-center px-4 mb-6'>
                     <Logo />
                     <div className='flex items-center gap-4'>
-                        <button 
+                        {/* <button 
                             onClick={handleLogout} 
                             disabled={isLoading}
                             className='btn btn-sm btn-error'
                         >
-                            Logout <LogOut size={16} /> 
-                        </button>
-                        <p>{displayName}</p>
+                            Logout 
+                        </button> */}
+                        <LogoutButton className='btn btn-error btn-sm' hasIcon={true} />
+                        <p>User name</p>
                         <div className="avatar avatar-online">
                             <div className="w-12 rounded-full">
                                 <img src="https://img.daisyui.com/images/profile/demo/gordon@192.webp" />
@@ -48,7 +43,7 @@ export default function UserLayout() {
                                 <li><a>Your referals</a></li>
                                 {/* <li><a>Edit Account</a></li> */}
                                 {/* <li><a>Security</a></li> */}
-                                <li><a onClick={handleLogout}>Logout</a></li>
+                                <li><LogoutButton /></li>
                             </ul>
                         </div>
                     </div>

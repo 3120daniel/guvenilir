@@ -57,11 +57,12 @@ export default function Deposit() {
                                 {/* <p className='badge badge-primary'>500</p>
                                 -
                                 <p className='badge badge-primary'>500</p> */}
-                                <span>500 - 600</span>
+                                <span>$30 - $499</span>
                             </div>
-                            <div className='w-1/3 pl-2 py-2'>40.00%</div>
+                            <div className='w-1/3 pl-2 py-2'>15.00%</div>
                         </div>
                     </div>
+                    {/*  */}
                     <div className='p-2 bg-base-300 shadow'>
                         <div className='flex items-center gap-2 mb-2 px-4'>
                             <input
@@ -75,7 +76,7 @@ export default function Deposit() {
                             <label htmlFor="">Plan B</label>
                         </div>
                         <div className='flex gap-1 py-1 p-2 rounded-tl-2xl rounded-tr-2xl '>
-                            <p className='w-3/2 pl-2 py-2 bg-base-200'>Plan A</p>
+                            <p className='w-3/2 pl-2 py-2 bg-base-200'>Plan B</p>
                             <p className='w-1/3 pl-2 py-2 bg-base-200'>Spent Amount ($)</p>
                             <p className='w-1/3 pl-2 py-2 bg-base-200'>Profit (%)</p>
                         </div>
@@ -85,11 +86,12 @@ export default function Deposit() {
                                 {/* <p className='badge badge-primary'>500</p>
                                 -
                                 <p className='badge badge-primary'>500</p> */}
-                                <span>500 - 600</span>
+                                <span>$500 - $999</span>
                             </div>
-                            <div className='w-1/3 pl-2 py-2'>40.00%</div>
+                            <div className='w-1/3 pl-2 py-2'>50.00%</div>
                         </div>
                     </div>
+                    {/*  */}
                     <div className='p-2 bg-base-300 shadow'>
                         <div className='flex items-center gap-2 mb-2 px-4'>
                             <input
@@ -103,7 +105,7 @@ export default function Deposit() {
                             <label htmlFor="">Plan C</label>
                         </div>
                         <div className='flex gap-1 py-1 p-2 rounded-tl-2xl rounded-tr-2xl '>
-                            <p className='w-3/2 pl-2 py-2 bg-base-200'>Plan A</p>
+                            <p className='w-3/2 pl-2 py-2 bg-base-200'>Plan C</p>
                             <p className='w-1/3 pl-2 py-2 bg-base-200'>Spent Amount ($)</p>
                             <p className='w-1/3 pl-2 py-2 bg-base-200'>Profit (%)</p>
                         </div>
@@ -113,11 +115,71 @@ export default function Deposit() {
                                 {/* <p className='badge badge-primary'>500</p>
                                 -
                                 <p className='badge badge-primary'>500</p> */}
-                                <span>500 - 600</span>
+                                <span>$1,000 - $4,999</span>
                             </div>
-                            <div className='w-1/3 pl-2 py-2'>40.00%</div>
+                            <div className='w-1/3 pl-2 py-2'>50.00%</div>
                         </div>
                     </div>
+                    {/*  */}
+                    <div className='p-2 bg-base-300 shadow'>
+                        <div className='flex items-center gap-2 mb-2 px-4'>
+                            <input
+                                className="radio radio-xs"
+                                type="radio"
+                                name="plan"
+                                value="planC"
+                                checked={formData.plan === "planC"}
+                                onChange={handleChange}
+                            />
+                            <label htmlFor="">Plan D</label>
+                        </div>
+                        <div className='flex gap-1 py-1 p-2 rounded-tl-2xl rounded-tr-2xl '>
+                            <p className='w-3/2 pl-2 py-2 bg-base-200'>Plan D</p>
+                            <p className='w-1/3 pl-2 py-2 bg-base-200'>Spent Amount ($)</p>
+                            <p className='w-1/3 pl-2 py-2 bg-base-200'>Profit (%)</p>
+                        </div>
+                        <div className='flex gap-1 py-1 px-2'>
+                            <div className='w-3/2  pl-2 py-2'>Plan</div>
+                            <div className='w-1/3 pl-2 py-2 gap-2'>
+                                {/* <p className='badge badge-primary'>500</p>
+                                -
+                                <p className='badge badge-primary'>500</p> */}
+                                <span>$5,000 - $19,000</span>
+                            </div>
+                            <div className='w-1/3 pl-2 py-2'>75.00%</div>
+                        </div>
+                    </div>
+                    <div className='p-2 bg-base-300 shadow'>
+                        <div className='flex items-center gap-2 mb-2 px-4'>
+                            <input
+                                className="radio radio-xs"
+                                type="radio"
+                                name="plan"
+                                value="planC"
+                                checked={formData.plan === "planC"}
+                                onChange={handleChange}
+                            />
+                            <label htmlFor="">Plan E</label>
+                        </div>
+                        <div className='flex gap-1 py-1 p-2 rounded-tl-2xl rounded-tr-2xl '>
+                            <p className='w-3/2 pl-2 py-2 bg-base-200'>Plan E</p>
+                            <p className='w-1/3 pl-2 py-2 bg-base-200'>Spent Amount ($)</p>
+                            <p className='w-1/3 pl-2 py-2 bg-base-200'>Profit (%)</p>
+                        </div>
+                        <div className='flex gap-1 py-1 px-2'>
+                            <div className='w-3/2  pl-2 py-2'>Plan</div>
+                            <div className='w-1/3 pl-2 py-2 gap-2'>
+                                {/* <p className='badge badge-primary'>500</p>
+                                -
+                                <p className='badge badge-primary'>500</p> */}
+                                <span>$20,000 - Unlimited</span>
+                            </div>
+                            <div className='w-1/3 pl-2 py-2'>100.00%</div>
+                        </div>
+                    </div>
+
+
+
                     {/*  */}
                     <div className='p-2 bg-base-300 shadow'>
                         <div className='flex justify-between py-2 px-4'>
@@ -184,7 +246,9 @@ export default function Deposit() {
                             <label htmlFor="">Spend funds from TRX</label>
                         </div>
                     </div>
-                    <button type='submit' className='btn btn-lg btn-primary'>Spend</button>
+                    <Link to="/account/confirm-deposit">
+                        <button type='submit' className='btn btn-lg btn-primary text-black'>Spend</button>
+                    </Link>
 
                 </form>
             </div>

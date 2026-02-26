@@ -49,8 +49,8 @@ export default function ConfirmDeposit() {
                 </p>
 
                 <div className='mt-6 join'>
-                    <button className='join-item btn btn-primary'>Save</button>
-                    <button className='join-item btn btn-ghost'>Cancel</button>
+                    <button className='join-item btn btn-primary text-black'>Save</button>
+                    <button className='join-item btn'>Cancel</button>
                 </div>
             </div>
         </div>
