@@ -17,8 +17,8 @@ export default function Dashboard() {
                     <CopyableText text="https://güvenilir-varlıklar .com/?ref=Joe" mainStyle="bg-base-300" />
                     {/* </div> */}
                     <div className='flex gap-6'>
-                        <Link to="/deposit" className='btn btn-secondary'>Make Deposits</Link>
-                        <Link to="/" className='btn btn-secondary btn-outline'>Withdraw</Link>
+                        <Link to="/account/deposit" className='btn btn-secondary'>Make Deposits</Link>
+                        <Link to="/account/withdrawal" className='btn btn-secondary btn-outline'>Withdraw</Link>
                     </div>
                 </div>
             </div>

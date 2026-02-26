@@ -247,7 +247,7 @@ export default function Deposit() {
                         </div>
                     </div>
                     <Link to="/account/confirm-deposit">
-                        <button type='submit' className='btn btn-lg btn-primary text-black'>Spend</button>
+                        <button type='submit' className='btn btn-lg btn-primary text-white text-black'>Spend</button>
                     </Link>
 
                 </form>

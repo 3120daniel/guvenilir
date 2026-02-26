@@ -4,13 +4,13 @@ export default function YourDeposit() {
     return (
         <div>
             <div className='space-y-6'>
-                {[1, 2, 3,].map(() => (
+                {["A", "B", "C", "D", "E"].map((item, i) => (
                     <div className='p-2 bg-base-300 shadow'>
                         <div className='flex items-center gap-2 mb-2 px-4'>
                             <label htmlFor="">Plan A</label>
                         </div>
                         <div className='flex gap-1 py-1 p-2 rounded-tl-2xl rounded-tr-2xl '>
-                            <p className='w-3/2 pl-2 py-2 bg-base-200'>Plan A</p>
+                            <p className='w-3/2 pl-2 py-2 bg-base-200'>Plan {item}</p>
                             <p className='w-1/3 pl-2 py-2 bg-base-200'>Spent Amount ($)</p>
                             <p className='w-1/3 pl-2 py-2 bg-base-200'>Profit (%)</p>
                         </div>
