@@ -23,6 +23,9 @@ import YourDeposit from './user/YourDeposit'
 import Withdraw from './user/Withdraw'
 import AdminLayout from './admin/AdminLayout'
 import Certificate from '../pages/Certificate'
+// import TestAdmin from './admin/TestAdmin'
+import AdminDashboard from './admin/AdminDashboard'
+import Referals from './user/Referals'
 
 export default function AppRouter() {
   const currentPath = useLocation().pathname
@@ -44,7 +47,9 @@ export default function AppRouter() {
     "/account/deposit",
     "/account/your-deposit",
     "/account/withdraw",
+    "/account/referrals",
     "/certificate",
+    "/t-admin",
   ];
 
   return (
@@ -70,10 +75,11 @@ export default function AppRouter() {
           path='/w-admin' 
           element={
             <ProtectedRoute requiredRole="admin">
-              <AdminLayout />
+              <AdminDashboard />
             </ProtectedRoute>
           } 
         />
+        {/* <Route path='/t-admin' element={<TestAdmin />} /> */}
         
         {/* Protected User Routes */}
         <Route 
@@ -89,6 +95,7 @@ export default function AppRouter() {
           <Route path="deposit" element={<Deposit />} />
           <Route path="your-deposit" element={<YourDeposit />} />
           <Route path="withdraw" element={<Withdraw />} />
+          <Route path="referrals" element={<Referals />} />
         </Route>
       </Routes>
       {!hideNavBarPaths.includes(currentPath) && <Footer />}

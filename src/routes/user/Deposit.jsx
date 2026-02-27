@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Deposit() {
     const [formData, setFormData] = useState({
-        plan: 'planA',
+        plan: 'Plan A',
         spendFrom: 'bitcoin',
         amountToSpend: "25.00"
     });
@@ -19,9 +19,8 @@ export default function Deposit() {
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
-        e.preventDefault(); // VERY IMPORTANT
-
-        navigate("/confirm-deposit", {
+        e.preventDefault();
+        navigate("/account/confirm-deposit", {
             state: {
                 plan: formData.plan,
                 spendFrom: formData.spendFrom,
@@ -29,227 +28,134 @@ export default function Deposit() {
             }
         });
     };
+
+    const plans = [
+        { id: 'Plan A', label: 'Plan A', range: '$30 - $499', profit: '15.00%' },
+        { id: 'Plan B', label: 'Plan B', range: '$500 - $999', profit: '50.00%' },
+        { id: 'Plan C', label: 'Plan C', range: '$1,000 - $4,999', profit: '50.00%' },
+        { id: 'Plan D', label: 'Plan D', range: '$5,000 - $19,000', profit: '75.00%' },
+        { id: 'Plan E', label: 'Plan E', range: '$20,000 - Unlimited', profit: '100.00%' }
+    ];
+
+    const spendOptions = [
+        { value: 'bitcoin', label: 'BITCOIN', bg: true },
+        { value: 'Ethereum', label: 'Ethereum', bg: false },
+        { value: 'USDT(TRC20)', label: 'USDT(TRC20)', bg: true },
+        { value: 'TRX', label: 'TRX', bg: false }
+    ];
+
     return (
-        <div className='bg-base-100 text-base-content'>
-            <div className='max-w-7xl mx-auto p-4'>
-                {/* <p>{formData.plan} {formData.spendFrom} {formData.amountToSpend}</p> */}
-                <form action="" className='text-md space-y-6' onSubmit={handleSubmit}>
-                    <div className='p-2 bg-base-300 shadow'>
-                        <div className='flex items-center gap-2 mb-2 px-4'>
-                            <input
-                                className="radio radio-xs"
-                                type="radio"
-                                name="plan"
-                                value="planA"
-                                checked={formData.plan === 'planA'}
-                                onChange={handleChange}
-                            />
-                            <label htmlFor="">Plan A</label>
-                        </div>
-                        <div className='flex gap-1 py-1 p-2 rounded-tl-2xl rounded-tr-2xl '>
-                            <p className='w-3/2 pl-2 py-2 bg-base-200'>Plan A</p>
-                            <p className='w-1/3 pl-2 py-2 bg-base-200'>Spent Amount ($)</p>
-                            <p className='w-1/3 pl-2 py-2 bg-base-200'>Profit (%)</p>
-                        </div>
-                        <div className='flex gap-1 py-1 px-2'>
-                            <div className='w-3/2  pl-2 py-2'>Plan</div>
-                            <div className='w-1/3 pl-2 py-2 gap-2'>
-                                {/* <p className='badge badge-primary'>500</p>
-                                -
-                                <p className='badge badge-primary'>500</p> */}
-                                <span>$30 - $499</span>
+        <div className='bg-base-100 text-base-content min-h-screen'>
+            <div className='max-w-7xl mx-auto'>
+                <form className='space-y-4 sm:space-y-6' onSubmit={handleSubmit}>
+                    {/* Plan Cards */}
+                    {plans.map((plan) => (
+                        <div key={plan.id} className='p-3 sm:p-4 bg-base-300 shadow-lg rounded-lg hover:shadow-xl transition-shadow'>
+                            <div className='flex items-center gap-3 mb-3 px-2 sm:px-4'>
+                                <input
+                                    className="radio radio-sm sm:radio-xs"
+                                    type="radio"
+                                    name="plan"
+                                    value={plan.id}
+                                    checked={formData.plan === plan.id}
+                                    onChange={handleChange}
+                                />
+                                <label className="font-medium text-sm sm:text-base">{plan.label}</label>
                             </div>
-                            <div className='w-1/3 pl-2 py-2'>15.00%</div>
-                        </div>
-                    </div>
-                    {/*  */}
-                    <div className='p-2 bg-base-300 shadow'>
-                        <div className='flex items-center gap-2 mb-2 px-4'>
-                            <input
-                                className="radio radio-xs"
-                                type="radio"
-                                name="plan"
-                                value="planB"
-                                checked={formData.plan === 'planB'}
-                                onChange={handleChange}
-                            />
-                            <label htmlFor="">Plan B</label>
-                        </div>
-                        <div className='flex gap-1 py-1 p-2 rounded-tl-2xl rounded-tr-2xl '>
-                            <p className='w-3/2 pl-2 py-2 bg-base-200'>Plan B</p>
-                            <p className='w-1/3 pl-2 py-2 bg-base-200'>Spent Amount ($)</p>
-                            <p className='w-1/3 pl-2 py-2 bg-base-200'>Profit (%)</p>
-                        </div>
-                        <div className='flex gap-1 py-1 px-2'>
-                            <div className='w-3/2  pl-2 py-2'>Plan</div>
-                            <div className='w-1/3 pl-2 py-2 gap-2'>
-                                {/* <p className='badge badge-primary'>500</p>
-                                -
-                                <p className='badge badge-primary'>500</p> */}
-                                <span>$500 - $999</span>
+                            
+                            {/* Table Header */}
+                            <div className='hidden sm:flex gap-1 py-2 px-2 bg-base-200 rounded-t-lg'>
+                                <p className='w-1/2 pl-3 py-2 font-semibold'>Plan</p>
+                                <p className='w-1/4 pl-3 py-2 font-semibold'>Spent Amount ($)</p>
+                                <p className='w-1/4 pl-3 py-2 font-semibold'>Profit (%)</p>
                             </div>
-                            <div className='w-1/3 pl-2 py-2'>50.00%</div>
-                        </div>
-                    </div>
-                    {/*  */}
-                    <div className='p-2 bg-base-300 shadow'>
-                        <div className='flex items-center gap-2 mb-2 px-4'>
-                            <input
-                                className="radio radio-xs"
-                                type="radio"
-                                name="plan"
-                                value="planC"
-                                checked={formData.plan === "planC"}
-                                onChange={handleChange}
-                            />
-                            <label htmlFor="">Plan C</label>
-                        </div>
-                        <div className='flex gap-1 py-1 p-2 rounded-tl-2xl rounded-tr-2xl '>
-                            <p className='w-3/2 pl-2 py-2 bg-base-200'>Plan C</p>
-                            <p className='w-1/3 pl-2 py-2 bg-base-200'>Spent Amount ($)</p>
-                            <p className='w-1/3 pl-2 py-2 bg-base-200'>Profit (%)</p>
-                        </div>
-                        <div className='flex gap-1 py-1 px-2'>
-                            <div className='w-3/2  pl-2 py-2'>Plan</div>
-                            <div className='w-1/3 pl-2 py-2 gap-2'>
-                                {/* <p className='badge badge-primary'>500</p>
-                                -
-                                <p className='badge badge-primary'>500</p> */}
-                                <span>$1,000 - $4,999</span>
+                            
+                            {/* Mobile Header */}
+                            <div className='sm:hidden grid grid-cols-3 gap-1 py-2 px-2 bg-base-200 rounded-t-lg text-center text-xs font-semibold'>
+                                <p>Plan</p>
+                                <p>Amount ($)</p>
+                                <p>Profit (%)</p>
                             </div>
-                            <div className='w-1/3 pl-2 py-2'>50.00%</div>
-                        </div>
-                    </div>
-                    {/*  */}
-                    <div className='p-2 bg-base-300 shadow'>
-                        <div className='flex items-center gap-2 mb-2 px-4'>
-                            <input
-                                className="radio radio-xs"
-                                type="radio"
-                                name="plan"
-                                value="planC"
-                                checked={formData.plan === "planC"}
-                                onChange={handleChange}
-                            />
-                            <label htmlFor="">Plan D</label>
-                        </div>
-                        <div className='flex gap-1 py-1 p-2 rounded-tl-2xl rounded-tr-2xl '>
-                            <p className='w-3/2 pl-2 py-2 bg-base-200'>Plan D</p>
-                            <p className='w-1/3 pl-2 py-2 bg-base-200'>Spent Amount ($)</p>
-                            <p className='w-1/3 pl-2 py-2 bg-base-200'>Profit (%)</p>
-                        </div>
-                        <div className='flex gap-1 py-1 px-2'>
-                            <div className='w-3/2  pl-2 py-2'>Plan</div>
-                            <div className='w-1/3 pl-2 py-2 gap-2'>
-                                {/* <p className='badge badge-primary'>500</p>
-                                -
-                                <p className='badge badge-primary'>500</p> */}
-                                <span>$5,000 - $19,000</span>
+                            
+                            {/* Plan Details */}
+                            <div className='grid grid-cols-3 sm:flex gap-1 py-2 px-2 bg-base-100 rounded-b-lg'>
+                                <div className='col-span-1 sm:w-1/2 px-2 sm:px-3 py-2 text-xs sm:text-sm break-words'>
+                                    {plan.label}
+                                </div>
+                                <div className='col-span-1 sm:w-1/4 px-2 sm:px-3 py-2 text-xs sm:text-sm text-center sm:text-left'>
+                                    {plan.range}
+                                </div>
+                                <div className='col-span-1 sm:w-1/4 px-2 sm:px-3 py-2 text-xs sm:text-sm text-center sm:text-left font-semibold text-success'>
+                                    {plan.profit}
+                                </div>
                             </div>
-                            <div className='w-1/3 pl-2 py-2'>75.00%</div>
                         </div>
-                    </div>
-                    <div className='p-2 bg-base-300 shadow'>
-                        <div className='flex items-center gap-2 mb-2 px-4'>
-                            <input
-                                className="radio radio-xs"
-                                type="radio"
-                                name="plan"
-                                value="planC"
-                                checked={formData.plan === "planC"}
-                                onChange={handleChange}
-                            />
-                            <label htmlFor="">Plan E</label>
-                        </div>
-                        <div className='flex gap-1 py-1 p-2 rounded-tl-2xl rounded-tr-2xl '>
-                            <p className='w-3/2 pl-2 py-2 bg-base-200'>Plan E</p>
-                            <p className='w-1/3 pl-2 py-2 bg-base-200'>Spent Amount ($)</p>
-                            <p className='w-1/3 pl-2 py-2 bg-base-200'>Profit (%)</p>
-                        </div>
-                        <div className='flex gap-1 py-1 px-2'>
-                            <div className='w-3/2  pl-2 py-2'>Plan</div>
-                            <div className='w-1/3 pl-2 py-2 gap-2'>
-                                {/* <p className='badge badge-primary'>500</p>
-                                -
-                                <p className='badge badge-primary'>500</p> */}
-                                <span>$20,000 - Unlimited</span>
-                            </div>
-                            <div className='w-1/3 pl-2 py-2'>100.00%</div>
-                        </div>
-                    </div>
+                    ))}
 
-
-
-                    {/*  */}
-                    <div className='p-2 bg-base-300 shadow'>
-                        <div className='flex justify-between py-2 px-4'>
-                            <p>Your account balance ($):</p>
-                            <p>0.00</p>
+                    {/* Payment Details Card */}
+                    <div className='p-4 sm:p-6 bg-base-300 shadow-lg rounded-lg space-y-4'>
+                        {/* Account Balance */}
+                        <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 py-2 px-3 sm:px-4 bg-base-200 rounded-lg'>
+                            <p className='text-sm sm:text-base font-medium'>Your account balance ($):</p>
+                            <p className='text-lg sm:text-xl font-bold'>0.00</p>
                         </div>
 
-                        <div className='py-4 px-4 bg-base-200'></div>
+                        {/* Divider */}
+                        <div className='h-px bg-base-200'></div>
 
-                        <div className='flex justify-between items-center py-2 px-4'>
-                            <p>Amount to Spend ($):</p>
+                        {/* Amount to Spend */}
+                        <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 py-2 px-3 sm:px-4'>
+                            <label className='text-sm sm:text-base font-medium'>Amount to Spend ($):</label>
                             <input
-                                className="input validator text-end"
-                                type="text"
+                                className="input input-bordered w-full sm:w-auto sm:min-w-[200px] text-end"
+                                type="number"
+                                step="0.01"
+                                min="0"
                                 name="amountToSpend"
                                 value={formData.amountToSpend}
                                 onChange={handleChange}
-                                required />
+                                required
+                            />
                         </div>
 
+                        {/* Divider */}
+                        <div className='h-px bg-base-200'></div>
 
-                        <div className='flex items-center gap-6 mb-2 py-2 px-4 bg-base-200'>
-                            <input
-                                className="radio radio-xs"
-                                type="radio"
-                                name="spendFrom"
-                                value="bitcoin"
-                                checked={formData.spendFrom === "bitcoin"}
-                                onChange={handleChange}
-                            />
-                            <label htmlFor="">Spend funds from BITCOIN</label>
-                        </div>
-                        <div className='flex items-center gap-6 mb-2 py-2 px-4'>
-                            <input
-                                className="radio radio-xs"
-                                type="radio"
-                                name="spendFrom"
-                                value="Ethereum"
-                                checked={formData.spendFrom === "Ethereum"}
-                                onChange={handleChange}
-                            />
-                            <label htmlFor="">Spend funds from Ethereum</label>
-                        </div>
-                        <div className='flex items-center gap-6 mb-2 py-2 px-4 bg-base-200'>
-                            <input
-                                className="radio radio-xs"
-                                type="radio"
-                                name="spendFrom"
-                                value="USDT(TRC20)"
-                                checked={formData.spendFrom === "USDT(TRC20)"}
-                                onChange={handleChange}
-                            />
-                            <label htmlFor="">Spend funds from USDT(TRC20)</label>
-                        </div>
-                        <div className='flex items-center gap-6 mb-2 py-2 px-4'>
-                            <input
-                                className="radio radio-xs"
-                                type="radio"
-                                name="spendFrom"
-                                value="TRX"
-                                checked={formData.spendFrom === "TRX"}
-                                onChange={handleChange}
-                            />
-                            <label htmlFor="">Spend funds from TRX</label>
+                        {/* Spend From Options */}
+                        <div className='space-y-2'>
+                            <p className='text-sm sm:text-base font-medium px-3 sm:px-4 mb-3'>Select payment method:</p>
+                            {spendOptions.map((option, index) => (
+                                <div 
+                                    key={option.value}
+                                    className={`flex items-center gap-4 p-3 sm:p-4 ${
+                                        option.bg ? 'bg-base-200' : ''
+                                    } rounded-lg hover:bg-base-100 transition-colors`}
+                                >
+                                    <input
+                                        className="radio radio-sm sm:radio-xs"
+                                        type="radio"
+                                        name="spendFrom"
+                                        value={option.value}
+                                        checked={formData.spendFrom === option.value}
+                                        onChange={handleChange}
+                                    />
+                                    <label className='text-sm sm:text-base cursor-pointer flex-1'>
+                                        Spend funds from {option.label}
+                                    </label>
+                                </div>
+                            ))}
                         </div>
                     </div>
-                    <Link to="/account/confirm-deposit">
-                        <button type='submit' className='btn btn-lg btn-primary text-white text-black'>Spend</button>
-                    </Link>
 
+                    {/* Submit Button */}
+                    <div className='flex justify-center sm:justify-start'>
+                        <button 
+                            type='submit' 
+                            className='btn btn-primary text-white w-full sm:w-auto px-8 py-3 sm:py-2 text-base sm:text-lg'
+                        >
+                            Spend Now
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>

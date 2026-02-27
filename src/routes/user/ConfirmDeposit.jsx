@@ -34,7 +34,7 @@ export default function ConfirmDeposit() {
                 </p>
                 <div className='space-y-1'>
                     <p><b>Plan:</b> {plan}</p>
-                    <p><b>Profit:</b> 80.00% after 72 hours</p>
+                    <p><b>Profit:</b> {plan === "Plan A" ? "15.00%" : plan === "Plan B" ? "30.00%" : plan === "Plan C" ? "50.00%" : plan === "Plan D" ? "75.00%" : "100.00%"}</p>
                     <p><b>Principal Return:</b> Yes</p>
                     <p><b>Principal Withdraw:</b> Not available</p>
                     <p><b>Credit Amount:</b> $1000.00</p>

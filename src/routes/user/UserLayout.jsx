@@ -13,53 +13,51 @@ export default function UserLayout() {
     
 
     return (
-        <div className='bg-base-100 text-base-content'>
-            <div className='bg-base-300 '>
-                <div className='max-w-6xl mx-auto flex justify-between items-center px-4 mb-6'>
-                    <Logo />
-                    <div className='flex items-center gap-4'>
-                        {/* <button 
-                            onClick={handleLogout} 
-                            disabled={isLoading}
-                            className='btn btn-sm btn-error'
-                        >
-                            Logout 
-                        </button> */}
-                        <LogoutButton className='btn btn-error btn-sm' hasIcon={true} />
-                        <p>User name</p>
-                        <div className="avatar avatar-online">
-                            <div className="w-12 rounded-full">
-                                <img src="https://img.daisyui.com/images/profile/demo/gordon@192.webp" />
-                            </div>
-                        </div>
-                        <div className="dropdown dropdown-center">
-                            <div tabIndex={0} role="button" className="btn btn-square btn-ghost m-1"><Menu /></div>
-                            <ul tabIndex="-1" className="dropdown-content menu bg-base-200 rounded-box z-1 w-52 p-2 shadow-sm">
-                                <li><Link to="/account">Dashboard</Link></li>
-                                <li><Link to="/account/deposit">Make Deposit</Link></li>
-                                <li><Link to="/account/your-deposit">Your Deposit</Link></li>
-                                {/* <li><a>Earning History</a></li> */}
-                                <li><Link to="/account/withdraw">Withdraw</Link></li>
-                                <li><a>Your referals</a></li>
-                                {/* <li><a>Edit Account</a></li> */}
-                                {/* <li><a>Security</a></li> */}
-                                <li><LogoutButton /></li>
-                            </ul>
-                        </div>
+       <div className='bg-base-100 text-base-content min-h-screen flex flex-col'>
+    {/* Header - stays at top */}
+    <div className='bg-base-300'>
+        <div className='max-w-6xl mx-auto flex justify-between items-center px-4 py-4'>
+            <Logo />
+            <div className='flex items-center gap-4'>
+                <LogoutButton className='btn btn-error btn-sm hidden' hasIcon={true} />
+                <p className='hidden sm:block'>User name</p>
+                <div className="avatar avatar-online">
+                    <div className="w-8 sm:w-12 rounded-full">
+                        <img src="https://img.daisyui.com/images/profile/demo/gordon@192.webp" alt="User avatar" />
                     </div>
                 </div>
-
-            </div>
-            <main className='max-w-6xl mx-auto p-4'>
-                <Outlet />
-            </main>
-
-
-
-
-            <div className='mt-10 bg-base-300'>
-                <p>Copyrights 2019 - 2025. All Rights Reserved</p>
+                <div className="dropdown dropdown-end">
+                    <div tabIndex={0} role="button" className="btn btn-square btn-ghost btn-sm sm:btn-md">
+                        <Menu />
+                    </div>
+                    <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-10 w-48 sm:w-52 p-2 shadow-lg mt-2">
+                        <li><Link to="/account">Dashboard</Link></li>
+                        <li><Link to="/account/deposit">Make Deposit</Link></li>
+                        <li><Link to="/account/your-deposit">Your Deposit</Link></li>
+                        <li><Link to="/account/withdraw">Withdraw</Link></li>
+                        <li><Link to="/account/referrals">Your referrals</Link></li>
+                        <li className="border-t border-base-300 mt-2 pt-2"><LogoutButton /></li>
+                    </ul>
+                </div>
             </div>
         </div>
+    </div>
+
+    {/* Main Content - grows to take available space */}
+    <main className='flex-1'>
+        <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6'>
+            <Outlet />
+        </div>
+    </main>
+
+    {/* Footer - always at bottom */}
+    <footer className='bg-base-300 mt-auto'>
+        <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6'>
+            <p className='text-center text-sm sm:text-base text-gray-600'>
+                Copyrights 2019 - 2025. All Rights Reserved
+            </p>
+        </div>
+    </footer>
+</div>
     )
 }
