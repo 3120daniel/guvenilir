@@ -107,20 +107,20 @@ export default function Dashboard() {
             </div>
             {/*  */}
             <div>
-                <p>Account Stats</p>
                 <div className='flex flex-col md:flex-row gap-6'>
                     {/* w-full md:w-1/2 space-y-3 flex md:flex-col md:justify-between bg-amber-300 */}
-                    <div className='md:w-1/2 flex justify-between md:flex-col gap-1 md:gap-5'>
-                        <div className='card bg-base-300 w-full'>
+                    <div className='md:w-1/2 flex justify-between md:flex-col'>
+                        <p className='font-semibold mb-2'>Account Stats</p>
+                        <div className='card bg-base-300 w-full mb-2'>
                             <div className='card-body'>
                                 <p className='font-bold bg-base-300 text-md'>Investments</p>
                                 <div className='flex justify-between'>
                                     <div className=' w-full border-gray-600 border-r border-t px-4 py-6'>
-                                        <p>0.00</p>
+                                        <p className='text-lg'>0.00</p>
                                         <p className='text-end'>Active</p>
                                     </div>
                                     <div className=' w-full border-gray-600 border-t px-4 py-6'>
-                                        <p>0.00</p>
+                                        <p className='text-lg'>0.00</p>
                                         <p className='text-end'>Last</p>
                                     </div>
                                 </div>
@@ -131,7 +131,7 @@ export default function Dashboard() {
                                 <p className='font-bold bg-base-300 text-md'>Investments</p>
                                 <div className='flex justify-between'>
                                     <div className=' w-full border-gray-600 border-r border-t px-4 py-6'>
-                                        <p>0.00</p>
+                                        <p className='text-lg'>0.00</p>
                                         <p className='text-end'>Pending</p>
                                     </div>
                                     <div className=' w-full border-gray-600 border-t px-4 py-6'>
@@ -145,6 +145,7 @@ export default function Dashboard() {
                     </div>
 
                     <div className='md:w-1/2'>
+                        <p className='font-semibold mb-2'>Latest Deposits & Withdrawal</p>
                         <ChartTransaction />
                     </div>
                 </div>

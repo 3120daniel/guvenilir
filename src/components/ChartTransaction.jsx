@@ -111,11 +111,11 @@ const ChartTransaction = () => {
 
   return (
     <div className="w-full max-w-4xl mx-auto">
-      <div className="bg-white rounded-lg shadow-lg p-6">
+      <div className="bg-white rounded-lg shadow-lg p-6 h-full">
         <div className="mb-4">
           <h2 className="text-2xl font-semibold text-gray-800">Current Rate</h2>
         </div>
-        <div ref={chartRef} className="w-full max-h-[235px]" />
+        <div ref={chartRef} className="w-full h-full max-h-[240px]" />
       </div>
     </div>
   );

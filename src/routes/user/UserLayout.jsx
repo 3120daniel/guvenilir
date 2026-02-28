@@ -1,12 +1,13 @@
 import React from 'react'
 import { CopyableText } from '../../components/ui/CopyableText'
 import Buttons from '../../components/Buttons'
-import { Calendar, Clock, Coins, LogOut, Menu } from 'lucide-react'
+import { Calendar, Clock, Coins, LogOut, Menu, User } from 'lucide-react'
 
 import Logo from '../../components/Logo'
 import ChartTransaction from '../../components/ChartTransaction'
 import { Link, Outlet } from 'react-router-dom'
 import LogoutButton from '../../components/LogoutButton'
+import GoogleTranslateSwitcher from '../../components/GoogleTranslateSwitcher'
 
 export default function UserLayout() {
 
@@ -20,12 +21,13 @@ export default function UserLayout() {
             <Logo />
             <div className='flex items-center gap-4'>
                 <LogoutButton className='btn btn-error btn-sm hidden' hasIcon={true} />
-                <p className='hidden sm:block'>User name</p>
+                <GoogleTranslateSwitcher />
                 <div className="avatar avatar-online">
-                    <div className="w-8 sm:w-12 rounded-full">
-                        <img src="https://img.daisyui.com/images/profile/demo/gordon@192.webp" alt="User avatar" />
+                    <div className="w-6 sm:w-10 rounded-full border border-gray-400 flex justify-center items-center">
+                       <User />
                     </div>
                 </div>
+                <p className='hidden sm:block'>User name</p>
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-square btn-ghost btn-sm sm:btn-md">
                         <Menu />
