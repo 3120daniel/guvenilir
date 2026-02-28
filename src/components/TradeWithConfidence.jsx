@@ -2,15 +2,15 @@ import React from "react";
 
 const TradeWithConfidence = () => {
     return (
-        <section className="bg-gray-100 min-h-screen flex items-center">
+        <section className="bg-gray-100 lg:min-h-screen flex items-center">
             <div className="max-w-7xl mx-auto px-6 py-16 w-full">
-                <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
+                <div className="flex flex-row items-center justify-between gap-16">
 
                     {/* LEFT SIDE - Floating Brand Circles */}
-                    <div className="relative w-full lg:w-1/2 flex justify-center items-center">
+                    <div className="relative w-full lg:w-1/2 flex justify-cente items-center">
 
                         {/* McDonald's Large */}
-                        <div className="w-64 h-64 md:w-80 md:h-80 bg-red-600 rounded-full flex items-center justify-center z-10">
+                        <div className="w-52 h-52 md:w-80 md:h-80 bg-red-600 rounded-full flex items-center justify-center z-10">
                             <span className="text-primary text-7xl md:text-8xl font-bold">
                                 M
                             </span>
@@ -22,12 +22,12 @@ const TradeWithConfidence = () => {
                         </div>
 
                         {/* Intel */}
-                        <div className="absolute top-6 right-6 w-40 h-40 md:w-48 md:h-48 bg-blue-700 rounded-full flex items-center justify-center text-white text-3xl md:text-4xl font-semibold">
+                        <div className="absolute top-6 right-0 w-40 h-40 md:w-48 md:h-48 bg-blue-700 rounded-full flex items-center justify-center text-white text-3xl md:text-4xl font-semibold">
                             intel
                         </div>
 
                         {/* Yahoo */}
-                        <div className="absolute bottom-20 right-12 w-24 h-24 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl font-semibold">
+                        <div className="absolute bottom-10 right-6 w-24 h-24 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl font-semibold">
                             yahoo!
                         </div>
 
@@ -35,7 +35,7 @@ const TradeWithConfidence = () => {
                         <div className="absolute -left-6 top-32 w-14 h-14 bg-sky-500 rounded-full"></div>
                         <div className="absolute bottom-6 left-20 w-10 h-10 bg-blue-500 rounded-full"></div>
                         <div className="absolute -top-6 right-28 w-14 h-14 bg-green-500 rounded-full"></div>
-                        <div className="absolute bottom-8 right-0 w-16 h-16 bg-primary rounded-full"></div>
+                        <div className="absolute bottom-0 right-24 w-16 h-16 bg-primary rounded-full"></div>
                     </div>
 
                     {/* RIGHT SIDE - Text Content */}

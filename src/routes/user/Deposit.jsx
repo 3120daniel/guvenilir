@@ -151,7 +151,7 @@ export default function Deposit() {
                     <div className='flex justify-center sm:justify-start'>
                         <button 
                             type='submit' 
-                            className='btn btn-primary text-white w-full sm:w-auto px-8 py-3 sm:py-2 text-base sm:text-lg'
+                            className='btn btn-primary  text-black w-full sm:w-auto px-8 py-3 sm:py-2 text-base sm:text-lg'
                         >
                             Spend Now
                         </button>

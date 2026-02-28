@@ -19,8 +19,8 @@ import atmCard2 from "../assets/atm-card-2.jpg"
 export default function OurServices() {
     return (
         <div>
-            <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-                <div className="grid lg:gap-10 lg:grid-cols-2">
+            <div className="py-16 lg:py-20 px-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl ">
+                <div className="grid lg:gap-10 grid-cols-2">
 
                     {/*  */}
                     <div className="lg:px-10">
@@ -40,20 +40,20 @@ export default function OurServices() {
                                 alt=""
                             />
                         </div>
-                        <div className='w-full'>
+                        {/* <div className='w-full hidden md:block'>
                             <img
                                 className="object-contain h-full w-full rounded sm:h-96"
                                 src={atmCard2}
                                 alt=""
                             />
-                        </div>
+                        </div> */}
                     </div>
 
                 </div>
             </div>
             {/*  */}
-            <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-                <div className="grid gap-10 lg:grid-cols-2">
+            <div className="py-16 lg:py-20 px-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
+                <div className="grid gap-10 grid-cols-2">
 
                     {/*  */}
                     <div className="lg:px-10">

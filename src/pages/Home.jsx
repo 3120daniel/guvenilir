@@ -87,8 +87,8 @@ export default function Home() {
 
 
       {/* Investment that's suitable for you */}
-      <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-        <div className="grid gap-10 lg:grid-cols-2">
+      <div className="py-16 lg:py-20 px-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
+        <div className="grid gap-10 grid-cols-2">
 
           <div className="lg:px-16">
             <h5 className="mb-4 text-4xl font-extrabold leading-none">
@@ -132,11 +132,11 @@ export default function Home() {
       </div>
 
 
-      <EmblaCarousel />
+      {/* <EmblaCarousel /> */}
       <Pricing />
       {/* TRUST, EXPERIENCE, EXPERTISE AND KNOWLEDGE */}
-      <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-        <div className="grid gap-10 lg:grid-cols-2">
+      <div className="py-16 lg:py-20 px-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
+        <div className="grid gap-10 grid-cols-2">
           <div>
             <img
               className="object-cover w-full h-56 rounded shadow-lg sm:h-96"
@@ -160,9 +160,7 @@ export default function Home() {
                 <Buttons btnTitle="Learn More" btnStyles="bg-black text-white" withArrow={true} />
               </Link>
             </div>
-
           </div>
-
         </div>
       </div>
       {/*  */}
