@@ -14,8 +14,8 @@ export default function Hero() {
   //   { symbol: 'GOLD', price: '2,050', change: '+0.3%' }
   // ];
   return (
-    <div className="relative bg-gray-300 max-h-[40vh] md:min-h-[90vh] overflow-hidden">
-      {/* Video Background */}
+    <div className="relative bg-gray-300 min-h-[40vh] lg:min-h-[90vh] overflow-hidden">
+      {/* Video Background md:min-h-[90vh] */}
       <video
         autoPlay
         loop

@@ -2,9 +2,9 @@ import { ArrowRightLeft, Users } from "lucide-react";
 
 export default function Banner({title, desc}) {
   return (
-    <section className="bg-base-300 py-16 px-4">
+    <section className="bg-base-300 py-16 px-10">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row sm:items-center justify-between gap-10">
+        <div className="flex flex-row sm:items-center justify-between gap-10">
           
           {/* LEFT SIDE */}
           <div className="lg:text-left">

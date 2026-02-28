@@ -4,12 +4,12 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function ConfirmDeposit() {
     const location = useLocation();
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
-  const plan = location.state?.plan;
-  const spendFrom = location.state?.spendFrom;
-  const amountToSpend = location.state?.amountToSpend;
-  console.log("chekers" + plan)
+    const plan = location.state?.plan;
+    const spendFrom = location.state?.spendFrom;
+    const amountToSpend = location.state?.amountToSpend;
+    console.log("chekers" + plan)
 
 
     return (
@@ -23,9 +23,56 @@ export default function ConfirmDeposit() {
                     <li>Then go to your wallet app and make payment.</li>
                     <li>Then go to your wallet app and make payment.</li>
                 </ol>
-                <p>WALLET ADDRESS:  </p>
-                <div className='flex'>
-                    <CopyableText text="0xc0d52c4BC7A1F1bbd1555fcC6b3bF5c84A3aCe72" mainStyle="font-semibold bg-base-300" />
+
+                {/* eth and bnb smart chain have the same address */}
+                <div className='py-5 my-8 border-y border-base-300'>
+                    <p className='mb-5'>WALLET ADDRESS:</p>
+                    {
+                        [
+                            { wallet: "BTC", walletAddress: "bc1qmnhg0lrdqv2ut96ly6rt8pdqzqa7ltkzmj82j5" },
+                            { wallet: "ETHEREUM", walletAddress: "0x56AEB5C4aF0319E125f1BdAa9127A5e2Cd61d1A6" },
+                            { wallet: "SOLANA", walletAddress: "21AfzRjwtHpf2pkvJ6o9xspStxhCFv1dM5CnLrWjnZqm" },
+                            { wallet: "BNB Smart chain", walletAddress: "0x56AEB5C4aF0319E125f1BdAa9127A5e2Cd61d1A6" },
+                            { wallet: "Xrp", walletAddress: "0rp4RnrX2qKUtwFCoQs2xPioBx63c4yHCGp" },
+                            { wallet: "TRX", walletAddress: "TM4RUeSht9jY9QZGWfSqc4NBJHfdiCEQyf" },
+                            { wallet: "LTC", walletAddress: "ltc1qf8dm2g7306t3a5exx42pe55x3tks0kmdyzex65" },
+                        ].map((item, i) => (
+                            <div className='mb-4'>
+                                <p>{item.wallet}:</p>
+                                <div className='flex'>
+                                    <CopyableText text={item.walletAddress} mainStyle="font-semibold bg-base-300" />
+                                </div>
+                            </div>
+                        ))
+                    }
+                    {/* <p>BTC:</p>
+                    <div className='flex'>
+                        <CopyableText text="bc1qmnhg0lrdqv2ut96ly6rt8pdqzqa7ltkzmj82j5" mainStyle="font-semibold bg-base-300" />
+                    </div>
+                    <p>ETHEREUM:</p>
+                    <div className='flex'>
+                        <CopyableText text="0x56AEB5C4aF0319E125f1BdAa9127A5e2Cd61d1A6" mainStyle="font-semibold bg-base-300" />
+                    </div>
+                    <p>SOLANA:</p>
+                    <div className='flex'>
+                        <CopyableText text="21AfzRjwtHpf2pkvJ6o9xspStxhCFv1dM5CnLrWjnZqm" mainStyle="font-semibold bg-base-300" />
+                    </div>
+                    <p>BNB Smart chain:</p>
+                    <div className='flex'>
+                        <CopyableText text="0x56AEB5C4aF0319E125f1BdAa9127A5e2Cd61d1A6" mainStyle="font-semibold bg-base-300" />
+                    </div>
+                    <p>Xrp:</p>
+                    <div className='flex'>
+                        <CopyableText text="0rp4RnrX2qKUtwFCoQs2xPioBx63c4yHCGp" mainStyle="font-semibold bg-base-300" />
+                    </div>
+                    <p>TRX:</p>
+                    <div className='flex'>
+                        <CopyableText text="TM4RUeSht9jY9QZGWfSqc4NBJHfdiCEQyf" mainStyle="font-semibold bg-base-300" />
+                    </div>
+                    <p>LTC:</p>
+                    <div className='flex'>
+                        <CopyableText text="ltc1qf8dm2g7306t3a5exx42pe55x3tks0kmdyzex65" mainStyle="font-semibold bg-base-300" />
+                    </div> */}
                 </div>
 
                 <p className='my-6'>AFTER PAYMENT COME BACK AND HIT THE SAVE BUTTON</p>

@@ -20,7 +20,7 @@ export function EmblaCarousel() {
         <div className={`${Styles.embla} bg-primary`}>
             <div className={Styles.embla__viewport} ref={emblaRef}>
                 <div className={`${Styles.embla__container} text-white`}>
-                        <div className={`${Styles.embla__slide} flex items-center min-h-[80vh]`}>
+                        <div className={`${Styles.embla__slide} flex items-center min-h-[40vh] lg:min-h-[90vh]`}>
 
                             <div className="w-full max-w-6xl mx-auto px-6">
 
@@ -69,7 +69,7 @@ export function EmblaCarousel() {
                             </div>
                         </div>
                         {/*  */}
-                        <div className={`${Styles.embla__slide} flex items-center min-h-[80vh]`}>
+                        <div className={`${Styles.embla__slide} flex items-center min-h-[40vh] lg:min-h-[90vh]`}>
 
                             <div className="w-full max-w-6xl mx-auto px-6">
 

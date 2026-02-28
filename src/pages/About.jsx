@@ -1,10 +1,4 @@
 import React from 'react'
-import equity1 from "../assets/in-equity-11-icon-1.svg"
-import equity2 from "../assets/in-equity-11-icon-2.svg"
-import equity3 from "../assets/in-equity-11-icon-3.svg"
-import equity4 from "../assets/in-equity-11-icon-4.svg"
-import equity5 from "../assets/in-equity-11-icon-5.svg"
-import equity6 from "../assets/in-equity-11-icon-6.svg"
 import WhyChooseUs from '../components/WhyChooseUs'
 import { Flag, Hourglass, Leaf } from 'lucide-react'
 import img1 from "../assets/about/in-gallery-image-1.jpg"
@@ -13,11 +7,14 @@ import img3 from "../assets/about/in-gallery-image-3.jpg"
 import img4 from "../assets/about/in-gallery-image-4.jpg"
 import img5 from "../assets/about/in-gallery-image-5.jpg"
 import img6 from "../assets/about/in-gallery-image-6.jpg"
+import Banner from '../components/Banner'
+import PopularMarkets from '../components/PopularMarkets'
 
 
 export default function About() {
   return (
     <div className='bg-gray-200'>
+      <Banner title="About Us" desc="We are specialist in financial solutions" />
       <div className='mx-auto max-w-6xl '>
         <div className='py-20'>
           <div className='text-center mb-10 space-y-8 px-4 sm:px-10 md:px-44'>
@@ -61,42 +58,7 @@ export default function About() {
               ))}
           </div>
         </div>
-        {/*  */}
-        <div className='px-4'>
-          <div className='mb-10 space-y-4'>
-            <h2 className="text-3xl md:text-4xl font-bold">
-              Trade the world’s most popular <span className="relative inline-block"> markets
 
-                <span className="absolute left-0 -bottom-2 w-full h-1 bg-primary"></span>
-              </span>
-            </h2>
-            <p className='text-base sm:text-xl'>
-              Find your next trade with access to a wide range of markets.
-            </p>
-          </div>
-
-          <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-4'>
-            {[
-              { img: equity1, title: "Indices", desc: "Trade 15 of the most famous global indices as CFDs" },
-              { img: equity2, title: "Stocks", desc: "Trade the most covered & highest-profile asset classes" },
-              { img: equity4, title: "Crypto", desc: "Trade Bitcoin, Ethereum, Ripple and others." },
-              { img: equity3, title: "Forex", desc: "Trade 40+ major, minor, and exotic currency pairs" },
-              { img: equity6, title: "Metals", desc: "Trade metals including Gold and Silver" },
-              { img: equity5, title: "Energies", desc: "Trade Brent Crude Oil, WTI, Natural Gas and Coal" },
-            ].map((item, i) => (
-              <div className='flex gap-4 bg-white py-10 px-8 rounded-lg shadow'>
-                <div className='shrink-0'>
-                  <img src={item.img} alt="" width={80} />
-                </div>
-                <div>
-                  <p className='font-semibold mb-2'>{item.title}</p>
-                  <p className='text-sm'>{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        {/*  */}
         {/*  */}
         {/* <section className="bg-gray-100 py-16">
           <div className="max-w-7xl mx-auto px-6">
@@ -143,7 +105,7 @@ export default function About() {
         {/*  */}
 
 
-        <div class="container mx-auto px-4 py-2 lg:px-32 lg:pt-24 mb-10">
+        <div class="mx-auto px-4 py-2 lg:px-32 lg:pt-24 mb-10">
           <div class="-m-1 flex flex-wrap md:-m-2">
             <div class="flex w-1/2 flex-wrap">
               <div class="w-1/2 p-1 md:p-2">
@@ -190,6 +152,7 @@ export default function About() {
       </div>
       {/*  */}
       <WhyChooseUs />
+      <PopularMarkets />
     </div>
   )
 }
