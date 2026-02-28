@@ -1,6 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { CopyableText } from '../../components/ui/CopyableText'
 import { useLocation, useNavigate } from 'react-router-dom';
+
+
+// 1. Define hook outside the component
+function useRealDeviceWidth() {
+    const [isMobileDevice, setIsMobileDevice] = useState(false);
+
+    useEffect(() => {
+        const checkWidth = () => {
+            // Using screen.width to detect the actual hardware
+            setIsMobileDevice(window.screen.width <= 768);
+        };
+        checkWidth();
+        window.addEventListener('resize', checkWidth);
+        return () => window.removeEventListener('resize', checkWidth);
+    }, []);
+
+    return isMobileDevice;
+}
 
 export default function ConfirmDeposit() {
     const location = useLocation();
@@ -11,11 +29,15 @@ export default function ConfirmDeposit() {
     const amountToSpend = location.state?.amountToSpend;
     console.log("chekers" + plan)
 
+    const isMobile = useRealDeviceWidth();
+    const adaptiveText = isMobile ? "text-4xl" : "text-base";
+
+
 
     return (
-        <div className='bg-base-100 text-base-content'>
+        <div className={`bg-base-100 text-base-content ${adaptiveText} min-h-screen`}>
             <div className='mx-auto max-w-7xl py-16'>
-                <p className='font-semibold text-lg mb-8'>Please confirm your deposit:</p>
+                <p className='font-semibold mb-8'>Please confirm your deposit:</p>
 
                 <p className='mb-4'>STEPS TO MAKE DEPOSIT:</p>
                 <ol className='list-decimal list-inside'>
@@ -38,41 +60,18 @@ export default function ConfirmDeposit() {
                             { wallet: "LTC", walletAddress: "ltc1qf8dm2g7306t3a5exx42pe55x3tks0kmdyzex65" },
                         ].map((item, i) => (
                             <div className='mb-4'>
-                                <p>{item.wallet}:</p>
+                                <p className='mb-3'>{item.wallet}:</p>
                                 <div className='flex'>
-                                    <CopyableText text={item.walletAddress} mainStyle="font-semibold bg-base-300" />
+                                    {/* <CopyableText text={item.walletAddress} mainStyle={`${adaptiveText} font-semibold bg-base-300`}  /> */}
+                                    <CopyableText 
+                                    text={item.walletAddress} 
+                                    mainStyle={`font-semibold bg-base-300 ${isMobile ? 'p-4 text-3xl' : 'p-2'}`}
+                                    btnStyle={`font-semibold bg-base-300 ${isMobile ? 'p-5 text-3xl' : 'p-2'}`}
+                                />
                                 </div>
                             </div>
                         ))
                     }
-                    {/* <p>BTC:</p>
-                    <div className='flex'>
-                        <CopyableText text="bc1qmnhg0lrdqv2ut96ly6rt8pdqzqa7ltkzmj82j5" mainStyle="font-semibold bg-base-300" />
-                    </div>
-                    <p>ETHEREUM:</p>
-                    <div className='flex'>
-                        <CopyableText text="0x56AEB5C4aF0319E125f1BdAa9127A5e2Cd61d1A6" mainStyle="font-semibold bg-base-300" />
-                    </div>
-                    <p>SOLANA:</p>
-                    <div className='flex'>
-                        <CopyableText text="21AfzRjwtHpf2pkvJ6o9xspStxhCFv1dM5CnLrWjnZqm" mainStyle="font-semibold bg-base-300" />
-                    </div>
-                    <p>BNB Smart chain:</p>
-                    <div className='flex'>
-                        <CopyableText text="0x56AEB5C4aF0319E125f1BdAa9127A5e2Cd61d1A6" mainStyle="font-semibold bg-base-300" />
-                    </div>
-                    <p>Xrp:</p>
-                    <div className='flex'>
-                        <CopyableText text="0rp4RnrX2qKUtwFCoQs2xPioBx63c4yHCGp" mainStyle="font-semibold bg-base-300" />
-                    </div>
-                    <p>TRX:</p>
-                    <div className='flex'>
-                        <CopyableText text="TM4RUeSht9jY9QZGWfSqc4NBJHfdiCEQyf" mainStyle="font-semibold bg-base-300" />
-                    </div>
-                    <p>LTC:</p>
-                    <div className='flex'>
-                        <CopyableText text="ltc1qf8dm2g7306t3a5exx42pe55x3tks0kmdyzex65" mainStyle="font-semibold bg-base-300" />
-                    </div> */}
                 </div>
 
                 <p className='my-6'>AFTER PAYMENT COME BACK AND HIT THE SAVE BUTTON</p>
@@ -95,10 +94,15 @@ export default function ConfirmDeposit() {
                     Transaction ID
                 </p>
 
-                <div className='mt-6 join'>
+                <div className={`mt-10 join ${isMobile ? 'scale-150 origin-left' : ''}`}>
+                    <button className='join-item btn btn-primary text-black px-8'>Save</button>
+                    <button className='join-item btn px-8' onClick={() => navigate(-1)}>Cancel</button>
+                </div>
+
+                {/* <div className='mt-6 join'>
                     <button className='join-item btn btn-primary text-black'>Save</button>
                     <button className='join-item btn'>Cancel</button>
-                </div>
+                </div> */}
             </div>
         </div>
     )
