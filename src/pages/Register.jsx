@@ -214,7 +214,7 @@ export default function Register() {
                     name="password"
                     type={passwordVisible ? "text" : "password"}
                     required
-                    className="input w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md outline-blue-600 focus:border-blue-500 transition-colors"
+                    className="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md outline-blue-600 focus:border-blue-500 transition-colors"
                     placeholder="Create a password"
                     value={formData.password}
                     onChange={handleChange}

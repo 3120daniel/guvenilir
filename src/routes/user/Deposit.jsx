@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 export default function Deposit() {
     const [formData, setFormData] = useState({
         plan: 'Plan A',
-        spendFrom: 'bitcoin',
-        amountToSpend: "25.00"
+        spendFrom: 'Bitcoin',
+        amountToSpend: "30.00"
     });
 
     const handleChange = (e) => {
@@ -38,10 +38,14 @@ export default function Deposit() {
     ];
 
     const spendOptions = [
-        { value: 'bitcoin', label: 'BITCOIN', bg: true },
+        { value: 'Bitcoin', label: 'BITCOIN', bg: true },
         { value: 'Ethereum', label: 'Ethereum', bg: false },
         { value: 'USDT(TRC20)', label: 'USDT(TRC20)', bg: true },
-        { value: 'TRX', label: 'TRX', bg: false }
+        { value: "SOLANA", label: "SOLANA", bg: false },
+        { value: "XRP", label: "XRP", bg: true },
+        { value: 'TRX', label: 'TRX', bg: false },
+        { value: 'LTC', label: 'LTC', bg: true },
+        { value: 'Dogecoin', label: 'Dogecoin', bg: false }
     ];
 
     return (

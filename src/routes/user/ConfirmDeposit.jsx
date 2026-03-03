@@ -32,12 +32,28 @@ export default function ConfirmDeposit() {
     const isMobile = useRealDeviceWidth();
     const adaptiveText = isMobile ? "text-4xl" : "text-base";
 
+    const wallets = [
+        { wallet: "Bitcoin", walletAddress: "bc1qmnhg0lrdqv2ut96ly6rt8pdqzqa7ltkzmj82j5" },
+        { wallet: "ETHEREUM", walletAddress: "0x56AEB5C4aF0319E125f1BdAa9127A5e2Cd61d1A6" },
+        { wallet: "USDT(TRC20)", walletAddress: "TM4RUeSht9jY9QZGWfSqc4NBJHfdiCEQyf" },
+        { wallet: "SOLANA", walletAddress: "21AfzRjwtHpf2pkvJ6o9xspStxhCFv1dM5CnLrWjnZqm" },
+        { wallet: "Xrp", walletAddress: "0rp4RnrX2qKUtwFCoQs2xPioBx63c4yHCGp" },
+        { wallet: "TRX", walletAddress: "TM4RUeSht9jY9QZGWfSqc4NBJHfdiCEQyf" },
+        { wallet: "LTC", walletAddress: "ltc1qf8dm2g7306t3a5exx42pe55x3tks0kmdyzex65" },
+        { wallet: "Dogecoin", walletAddress: "DHBbbqNJHEHUif8MZeN1TDqs2S5BZGKuSp5" },
+        // { wallet: "BNB Smart chain", walletAddress: "0x56AEB5C4aF0319E125f1BdAa9127A5e2Cd61d1A6" },
+    ];
+
+    const selectedWallet = wallets.find(
+        w => w.wallet.toLowerCase() === spendFrom?.toLowerCase()
+    );
+
 
 
     return (
         <div className={`bg-base-100 text-base-content ${adaptiveText} min-h-screen`}>
             <div className='mx-auto max-w-7xl py-16'>
-                <p className='font-semibold mb-8'>Please confirm your deposit:</p>
+                <p className='font-semibold mb-8'>Please confirm your deposit: {spendFrom}</p>
 
                 <p className='mb-4'>STEPS TO MAKE DEPOSIT:</p>
                 <ol className='list-decimal list-inside'>
@@ -49,29 +65,22 @@ export default function ConfirmDeposit() {
                 {/* eth and bnb smart chain have the same address */}
                 <div className='py-5 my-8 border-y border-base-300'>
                     <p className='mb-5'>WALLET ADDRESS:</p>
-                    {
-                        [
-                            { wallet: "BTC", walletAddress: "bc1qmnhg0lrdqv2ut96ly6rt8pdqzqa7ltkzmj82j5" },
-                            { wallet: "ETHEREUM", walletAddress: "0x56AEB5C4aF0319E125f1BdAa9127A5e2Cd61d1A6" },
-                            { wallet: "SOLANA", walletAddress: "21AfzRjwtHpf2pkvJ6o9xspStxhCFv1dM5CnLrWjnZqm" },
-                            { wallet: "BNB Smart chain", walletAddress: "0x56AEB5C4aF0319E125f1BdAa9127A5e2Cd61d1A6" },
-                            { wallet: "Xrp", walletAddress: "0rp4RnrX2qKUtwFCoQs2xPioBx63c4yHCGp" },
-                            { wallet: "TRX", walletAddress: "TM4RUeSht9jY9QZGWfSqc4NBJHfdiCEQyf" },
-                            { wallet: "LTC", walletAddress: "ltc1qf8dm2g7306t3a5exx42pe55x3tks0kmdyzex65" },
-                        ].map((item, i) => (
-                            <div className='mb-4'>
-                                <p className='mb-3'>{item.wallet}:</p>
-                                <div className='flex'>
-                                    {/* <CopyableText text={item.walletAddress} mainStyle={`${adaptiveText} font-semibold bg-base-300`}  /> */}
-                                    <CopyableText 
-                                    text={item.walletAddress} 
+                    {selectedWallet ? (
+                        <div className='mb-4'>
+                            <p className='mb-3'>{selectedWallet.wallet}:</p>
+                            <div className='flex'>
+                                <CopyableText
+                                    text={selectedWallet.walletAddress}
                                     mainStyle={`font-semibold bg-base-300 ${isMobile ? 'p-4 text-3xl' : 'p-2'}`}
                                     btnStyle={`font-semibold bg-base-300 ${isMobile ? 'p-5 text-3xl' : 'p-2'}`}
                                 />
-                                </div>
                             </div>
-                        ))
-                    }
+                        </div>
+                    ) : (
+                        <div className='mb-4'>
+                            <p className='text-gray-500'>Please select a wallet to view address</p>
+                        </div>
+                    )}
                 </div>
 
                 <p className='my-6'>AFTER PAYMENT COME BACK AND HIT THE SAVE BUTTON</p>

@@ -27,6 +27,8 @@ import Certificate from '../pages/Certificate'
 import AdminDashboard from './admin/AdminDashboard'
 import Referals from './user/Referals'
 import GoogleTranslateSwitcher from '../components/GoogleTranslateSwitcher'
+import ScrollToTop from '../components/ui/ScrollToTop'
+import TawkToWidget from '../components/ui/TawkToWidget'
 
 export default function AppRouter() {
   const currentPath = useLocation().pathname
@@ -55,6 +57,8 @@ export default function AppRouter() {
 
   return (
     <>
+      <ScrollToTop />
+      <TawkToWidget />
       <GoogleTranslateSwitcher />
       {!hideNavBarPaths.includes(currentPath) && <NavBar />}
       <Routes>
@@ -71,21 +75,21 @@ export default function AppRouter() {
         <Route path='/services' element={<Services />} />
         <Route path='/buy-and-sell' element={<BuyAndSell />} />
         <Route path='/certificate' element={<Certificate />} />
-        
+
         {/* Protected Admin Route */}
-        <Route 
-          path='/w-admin' 
+        <Route
+          path='/w-admin'
           element={
             <ProtectedRoute requiredRole="admin">
               <AdminDashboard />
             </ProtectedRoute>
-          } 
+          }
         />
         {/* <Route path='/t-admin' element={<TestAdmin />} /> */}
-        
+
         {/* Protected User Routes */}
-        <Route 
-          path='/account' 
+        <Route
+          path='/account'
           element={
             <ProtectedRoute requiredRole="user">
               <UserLayout />
