@@ -29,6 +29,7 @@ import Referals from './user/Referals'
 import GoogleTranslateSwitcher from '../components/GoogleTranslateSwitcher'
 import ScrollToTop from '../components/ui/ScrollToTop'
 import TawkToWidget from '../components/ui/TawkToWidget'
+import WhatsAppWidget from '../components/WhatsAppWidget'
 
 export default function AppRouter() {
   const currentPath = useLocation().pathname
@@ -58,6 +59,7 @@ export default function AppRouter() {
   return (
     <>
       <ScrollToTop />
+      <WhatsAppWidget />
       <TawkToWidget />
       <GoogleTranslateSwitcher />
       {!hideNavBarPaths.includes(currentPath) && <NavBar />}

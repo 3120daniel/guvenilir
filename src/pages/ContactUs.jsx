@@ -20,7 +20,7 @@ export default function ContactUs() {
             <div className='flex flex-col justify-center items-center'>
               <Phone />
               <p>Phone</p>
-              <p>+1 (516) 373-1402</p>
+              <p>+1 (516) 373‑1402</p>
             </div>
           </div>
         </div>

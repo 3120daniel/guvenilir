@@ -16,7 +16,6 @@ import TradingViewTicker from '../components/tradingview/TradingViewTicker'
 import TradingViewTickerTape, { CustomSlidingTicker } from '../components/tradingview/TradingViewTickerTape'
 import { TradingViewTickerTapeIframe } from '../components/tradingview/TradingViewTickerTapeIframe'
 import { Link } from 'react-router-dom'
-import WhatsAppWidget from '../components/WhatsAppWidget'
 import CTA from '../components/CTA'
 import ChooseAnInvestment from '../components/ChooseAnInvestment'
 import PopularMarkets from '../components/PopularMarkets'
@@ -27,7 +26,6 @@ export default function Home() {
   return (
     <div>
       <Hero />
-      <WhatsAppWidget />
 
 
       <div className='py-10'>
