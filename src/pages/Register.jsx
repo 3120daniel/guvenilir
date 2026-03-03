@@ -12,7 +12,6 @@ export default function Register() {
   const [error, setError] = useState("")
   const [success, setSuccess] = useState("")
   const [isLoading, setIsLoading] = useState(false)
-  console.log(error)
 
   const [formData, setFormData] = useState({
     fullname: "",
@@ -71,22 +70,37 @@ export default function Register() {
 
       const data = await response.json()
 
-      if (!response.ok) {
-        const message =
-          data?.message ||
-          data?.error ||
-          data?.detail ||
-          (typeof data === "string" ? data : null) ||
-          "Registration failed. Please try again."
-        setError(message)
+      // DEBUG: remove this once the issue is fixed
+      console.log("Backend response:", JSON.stringify(data))
+
+      // Your backend always returns HTTP 200 — check data.code and data.note to determine outcome
+      const code = String(data?.code ?? "").trim()
+      const note = String(data?.note ?? "").trim()
+
+      if (code === "400") {
+        // Backend validation error (empty fields, invalid email, invalid name, etc.)
+        setError(note || "Registration failed. Please try again.")
         return
       }
 
-      setSuccess("Account created successfully! Redirecting...")
+      if (note.toLowerCase().includes("exists")) {
+        // User already registered with this email or username
+        setError("An account with this email or username already exists. Please log in or use different details.")
+        return
+      }
 
-      setTimeout(() => {
-        navigate("/login")
-      }, 1500)
+      if (note.toLowerCase().includes("submitted")) {
+        // Success — account created
+        setSuccess("Account created successfully! Redirecting...")
+        setTimeout(() => {
+          navigate("/login")
+        }, 1500)
+        return
+      }
+
+      // Fallback — show whatever the backend sent so nothing silently swallows errors
+      console.warn("Unhandled backend response:", data)
+      setError(note || "Something went wrong. Please try again.")
 
     } catch (err) {
       console.error("Registration error:", err)
@@ -200,7 +214,7 @@ export default function Register() {
                     name="password"
                     type={passwordVisible ? "text" : "password"}
                     required
-                    className="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md outline-blue-600 focus:border-blue-500 transition-colors"
+                    className="input w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md outline-blue-600 focus:border-blue-500 transition-colors"
                     placeholder="Create a password"
                     value={formData.password}
                     onChange={handleChange}

@@ -7,7 +7,7 @@ import Logo from '../../components/Logo'
 import ChartTransaction from '../../components/ChartTransaction'
 import { Link, Outlet } from 'react-router-dom'
 import LogoutButton from '../../components/LogoutButton'
-import GoogleTranslateSwitcher from '../../components/GoogleTranslateSwitcher'
+import CurrentDate from '../../components/ui/CurrentDate'
 
 export default function UserLayout() {
 
@@ -20,8 +20,8 @@ export default function UserLayout() {
         <div className='max-w-6xl mx-auto flex justify-between items-center px-4 py-4'>
             <Logo />
             <div className='flex items-center gap-4'>
-                <LogoutButton className='btn btn-error btn-sm hidden' hasIcon={true} />
-                <GoogleTranslateSwitcher />
+                {/* <LogoutButton className='btn btn-error btn-sm hidden' hasIcon={true} /> */}
+                <CurrentDate />
                 <div className="avatar avatar-online">
                     <div className="w-6 sm:w-10 rounded-full border border-gray-400 flex justify-center items-center">
                        <User />

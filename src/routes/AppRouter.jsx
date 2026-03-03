@@ -26,6 +26,7 @@ import Certificate from '../pages/Certificate'
 // import TestAdmin from './admin/TestAdmin'
 import AdminDashboard from './admin/AdminDashboard'
 import Referals from './user/Referals'
+import GoogleTranslateSwitcher from '../components/GoogleTranslateSwitcher'
 
 export default function AppRouter() {
   const currentPath = useLocation().pathname
@@ -54,6 +55,7 @@ export default function AppRouter() {
 
   return (
     <>
+      <GoogleTranslateSwitcher />
       {!hideNavBarPaths.includes(currentPath) && <NavBar />}
       <Routes>
         <Route path='*' element={<NotFound />} />

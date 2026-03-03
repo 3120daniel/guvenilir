@@ -3,7 +3,6 @@ import imgg from "../assets/NAOMI-3-1.jpg"
 import Logo from '../components/Logo'
 import { Eye, EyeClosed, AlertCircle, CheckCircle } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
-import GoogleTranslateSwitcher from '../components/GoogleTranslateSwitcher'
 
 
 
@@ -249,4 +248,4 @@ export default function Login() {
     )
 }
 // userperson
-// Password2025%%$$
+// Password2025%%$$ 

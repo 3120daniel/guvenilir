@@ -1,6 +1,7 @@
 import React from 'react'
 import { EmblaCarousel } from './Hero/EmblaCarousel'
 import TradingViewTicker from './tradingview/TradingViewTicker'
+import CryptoLogoAnimation from './ui/CryptoLogoAnimation'
 // import { CustomSlidingTicker } from './tradingview/TradingViewTickerTape'
 
 export default function Hero() {
@@ -26,6 +27,7 @@ export default function Hero() {
         <source src="/hero-bg.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+      <CryptoLogoAnimation />
 
       {/* Optional overlay to make text more readable */}
       <div className="absolute inset-0 bg-black/60" />

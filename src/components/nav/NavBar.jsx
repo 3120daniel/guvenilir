@@ -20,7 +20,7 @@ export const NavBar = () => {
   };
 
   return (
-    <nav className="bg-black text-white shadow-md sticky top-0 z-50  py-3">
+    <nav className="bg-black text-white shadow-md sticky top-0 z-40  py-3">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo - always visible, left aligned */}
@@ -67,7 +67,7 @@ export const NavBar = () => {
 
           {/* Buttons and Google Translate Switcher */}
           <div className="hidden md:flex space-x-4 items-center">
-            <GoogleTranslateSwitcher />
+            {/* <GoogleTranslateSwitcher /> */}
             {isAuthenticated ? (
               <>
                 <Link to="/account" className="hover:text-primary px-3 py-2 rounded-md text-sm">
@@ -98,7 +98,7 @@ export const NavBar = () => {
 
           {/* Mobile Hamburger - right aligned */}
           <div className="md:hidden flex items-center gap-4">
-            <GoogleTranslateSwitcher />
+            {/* <GoogleTranslateSwitcher /> */}
             <button
               onClick={toggleMenu}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-300"

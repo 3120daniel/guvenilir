@@ -1,4 +1,4 @@
-import { Mail } from 'lucide-react'
+import { Mail, Phone } from 'lucide-react'
 import React from 'react'
 import Banner from '../components/Banner'
 
@@ -13,14 +13,14 @@ export default function ContactUs() {
             <div className='flex flex-col justify-center items-center'>
               <Mail />
               <p>Email</p>
-              <p>support@Güvenilir-varlıklar .com</p>
+              <p>Guvenilirvarliklar@gmail.com</p>
             </div>
           </div>
           <div>
             <div className='flex flex-col justify-center items-center'>
-              <Mail />
-              <p>Email</p>
-              <p>support@Güvenilir-varlıklar .com</p>
+              <Phone />
+              <p>Phone</p>
+              <p>+1 (516) 373-1402</p>
             </div>
           </div>
         </div>

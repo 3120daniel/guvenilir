@@ -244,19 +244,20 @@ export default function GoogleTranslateSwitcher() {
     <>
       <div id="google_translate_element" style={{ display: 'none' }}></div>
 
-      <div className="relative">
+      <div className="relative bg-gray-100 px-2 py-1">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 text-sm font-medium"
+          className="flex items-center gap-2 px-3 bg-white border border-gray-200 transition-colors duration-200 text-sm"
           title="Change language"
         >
-          <Globe size={18} />
-          <span className="hidden sm:inline text-white">{currentLanguage.toUpperCase()}</span>
-          <ChevronDown size={16} className={`transition-transform duration-200 text-white ${isOpen ? 'rotate-180' : ''}`} />
+          {/* <Globe size={18} /> */}
+          <span className='border-r pr-2 border-gray-200 py-2'>Translator</span>
+          <span className="hidden sm:inline">{currentLanguage.toUpperCase()}</span>
+          <ChevronDown size={16} className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
         </button>
 
         {isOpen && (
-          <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-lg shadow-lg z-50 border border-gray-200 dark:border-gray-700 max-h-96 overflow-y-auto">
+          <div className="absolute righ mt-2 w-56 shadow-lg z-50 bg-gray-100 max-h-96 overflow-y-auto">
             <div className="p-1">
               {ALL_LANGUAGES.map((lang) => (
                 <button
@@ -265,7 +266,7 @@ export default function GoogleTranslateSwitcher() {
                   className={`w-full text-left px-4 py-2 rounded-md transition-colors duration-200 text-sm ${
                     currentLanguage === lang.code
                       ? 'bg-blue-600 text-white font-semibold'
-                      : 'text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
+                      : 'text-gray-800 hover:bg-gray-100'
                   }`}
                 >
                   <div className="flex justify-between items-center">
