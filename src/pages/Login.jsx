@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react'
 import imgg from "../assets/NAOMI-3-1.jpg"
 import Logo from '../components/Logo'
 import { Eye, EyeClosed, AlertCircle, CheckCircle } from 'lucide-react'
-import { Link, useNavigate } from 'react-router-dom'
-
-
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 // 1. Define hook outside the component
 function useRealDeviceWidth() {
@@ -67,58 +66,75 @@ export default function Login() {
         setIsSubmitting(true)
 
         try {
-            const response = await fetch("https://guv-chi.vercel.app/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    username: formData.username.trim(),
-                    password: formData.password,
-                }),
-            })
+            let dataBody = {
+                username: formData.username.trim(),
+                password: formData.password
+            }
+            const response = await axios.post("https://guv-chi.vercel.app/login", JSON.stringify(dataBody))
 
-            const data = await response.json()
-
-            if (!response.ok || data?.code !== "200") {
-                const message =
-                    data?.message ||
-                    data?.error ||
-                    data?.detail ||
-                    (typeof data === "string" ? data : null) ||
-                    "Login failed. Please check your credentials."
-                setError(message)
-                // Save note to localStorage
-                localStorage.setItem("note", data.note)
-                
-                 // If "keep me logged in", also persist a flag
-                if (formData.keepMeLoggedIn) {
-                    localStorage.setItem("keepMeLoggedIn", "true")
-                } else {
-                    localStorage.removeItem("keepMeLoggedIn")
-                }
-
+            if (response.data.status === 200 && response.data.code === "200") {
+                let userId = response.data.note;
+                localStorage.setItem("note", userId);
                 setSuccess("Login successful! Redirecting...")
 
                 setTimeout(() => {
                     navigate("/account")
                 }, 1000)
-            } else if (!response.ok || data?.code !== "202") {
-                const message =
-                    data?.message ||
-                    data?.error ||
-                    data?.detail ||
-                    (typeof data === "string" ? data : null) ||
-                    "Login failed. Please check your credentials."
-                setError(message)
-                // Save note to localStorage
-                localStorage.setItem("adminData", data.note)
-                setSuccess("Login successful! Redirecting...")
-
-                setTimeout(() => {
-                    navigate("/w-admin")
-                }, 1000)
+            } else if (response.data.status === 200 && response.data.code === "202") {
+                let userId = response.data.note;
+                localStorage.setItem("note", userId);
+                navigate("/account")
+            } else {
+                setError(response.data.message);
             }
+            // const response = await fetch("https://guv-chi.vercel.app/login", {
+            //     method: "POST",
+            //     headers: {
+            //         "Content-Type": "application/json",
+            //     },
+            //     body: JSON.stringify({
+            //         username: formData.username.trim(),
+            //         password: formData.password,
+            //     }),
+            // })
+
+            // const data = await response.json()
+
+            // if (response.ok && data?.code !== "200") {
+            //     // const message = "";
+                    
+            //     // setError(message)
+            //     // // Save note to localStorage
+            //     // localStorage.setItem("note", data.note)
+                
+            //     //  // If "keep me logged in", also persist a flag
+            //     // if (formData.keepMeLoggedIn) {
+            //     //     localStorage.setItem("keepMeLoggedIn", "true")
+            //     // } else {
+            //     //     localStorage.removeItem("keepMeLoggedIn")
+            //     // }
+
+            //     // setSuccess("Login successful! Redirecting...")
+
+            //     // setTimeout(() => {
+            //     //     navigate("/account")
+            //     // }, 1000)
+            // } else if (!response.ok || data?.code !== "202") {
+            //     const message =
+            //         data?.message ||
+            //         data?.error ||
+            //         data?.detail ||
+            //         (typeof data === "string" ? data : null) ||
+            //         "Login failed. Please check your credentials."
+            //     setError(message)
+            //     // Save note to localStorage
+            //     localStorage.setItem("adminData", data.note)
+            //     setSuccess("Login successful! Redirecting...")
+
+            //     setTimeout(() => {
+            //         navigate("/w-admin")
+            //     }, 1000)
+            // }
         } catch (err) {
             console.error("Login error:", err)
             setError("Network error. Please check your connection and try again.")
