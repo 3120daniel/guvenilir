@@ -31,7 +31,7 @@ export default function Deposit() {
 
     const plans = [
         { id: 'Plan A', label: 'Plan A', range: '$30 - $499', profit: '15.00%' },
-        { id: 'Plan B', label: 'Plan B', range: '$500 - $999', profit: '50.00%' },
+        { id: 'Plan B', label: 'Plan B', range: '$500 - $999', profit: '30.00%' },
         { id: 'Plan C', label: 'Plan C', range: '$1,000 - $4,999', profit: '50.00%' },
         { id: 'Plan D', label: 'Plan D', range: '$5,000 - $19,000', profit: '75.00%' },
         { id: 'Plan E', label: 'Plan E', range: '$20,000 - Unlimited', profit: '100.00%' }
