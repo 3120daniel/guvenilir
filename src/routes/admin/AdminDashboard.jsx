@@ -168,7 +168,14 @@ export default function AdminDashboard() {
   const [confirmModal, setConfirmModal] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
 
+  const [adminData, setAdminData] = useState(localStorage.getItem("adminDaa"))
+
   useEffect(() => {
+    if (adminData !== "admin") {
+      localStorage.removeItem("adminData")
+      localStorage.removeItem("note")
+      navigate("/login")
+    }
     const check = () => {
       const mobile = window.innerWidth < 1024;
       setIsMobile(mobile);
@@ -178,6 +185,13 @@ export default function AdminDashboard() {
     window.addEventListener("resize", check);
     return () => window.removeEventListener("resize", check);
   }, []);
+
+
+
+  //  useEffect(()=> {
+  //      
+
+  //   }, [navigate])
 
   const getUserName = (id) => users.find((u) => u.id === id)?.name || "Unknown";
   const handleDepositAction = (id, status) => setDeposits((p) => p.map((d) => d.id === id ? { ...d, status } : d));
@@ -400,14 +414,16 @@ export default function AdminDashboard() {
               <div className="hidden lg:block card bg-base-100 border border-base-300 shadow-sm">
                 <div className="overflow-x-auto">
                   <table className="table table-sm">
-                    <thead><tr className="text-xs text-base-content/40 uppercase tracking-wider bg-base-200/50"><th>#ID</th><th>User</th><th>Amount</th><th>Date</th><th>Action</th></tr></thead>
+                    <thead><tr className="text-xs text-base-content/40 uppercase tracking-wider bg-base-200/50"><th>User</th><th>Plan</th><th>Method</th><th>Amount</th><th>Date</th><th>Action</th></tr></thead>
                     <tbody>
                       {deposits.map((d) => {
                         const user = users.find((u) => u.id === d.userId);
                         return (
                           <tr key={d.id} className="row-hover">
-                            <td className="mono text-xs text-base-content/30">#{String(d.id).padStart(4, "0")}</td>
                             <td><p className="font-medium text-sm">{user?.name}</p><p className="text-xs text-base-content/40">@{user?.username}</p></td>
+                            <td className="mono text-xs text-base-content/30">Plan A</td>
+                            <td className="mono text-xs text-base-content/30">Bitcoin</td>
+
                             <td className="mono font-bold text-success">+${d.amount.toLocaleString()}</td>
                             <td className="text-xs text-base-content/50">{d.date}</td>
                             <td><TransactionActions status={d.status} onAction={(s) => handleDepositAction(d.id, s)} /></td>

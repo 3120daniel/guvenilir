@@ -40,6 +40,8 @@ export default function Login() {
         keepMeLoggedIn: false
     })
 
+
+
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target
         setFormData(prev => ({ ...prev, [name]: type === "checkbox" ? checked : value }))
@@ -86,25 +88,37 @@ export default function Login() {
                     (typeof data === "string" ? data : null) ||
                     "Login failed. Please check your credentials."
                 setError(message)
-                return
+                // Save note to localStorage
+                localStorage.setItem("note", data.note)
+                
+                 // If "keep me logged in", also persist a flag
+                if (formData.keepMeLoggedIn) {
+                    localStorage.setItem("keepMeLoggedIn", "true")
+                } else {
+                    localStorage.removeItem("keepMeLoggedIn")
+                }
+
+                setSuccess("Login successful! Redirecting...")
+
+                setTimeout(() => {
+                    navigate("/account")
+                }, 1000)
+            } else if (!response.ok || data?.code !== "202") {
+                const message =
+                    data?.message ||
+                    data?.error ||
+                    data?.detail ||
+                    (typeof data === "string" ? data : null) ||
+                    "Login failed. Please check your credentials."
+                setError(message)
+                // Save note to localStorage
+                localStorage.setItem("adminData", data.note)
+                setSuccess("Login successful! Redirecting...")
+
+                setTimeout(() => {
+                    navigate("/w-admin")
+                }, 1000)
             }
-
-            // Save note to localStorage
-            localStorage.setItem("note", data.note)
-
-            // If "keep me logged in", also persist a flag
-            if (formData.keepMeLoggedIn) {
-                localStorage.setItem("keepMeLoggedIn", "true")
-            } else {
-                localStorage.removeItem("keepMeLoggedIn")
-            }
-
-            setSuccess("Login successful! Redirecting...")
-
-            setTimeout(() => {
-                navigate("/account")
-            }, 1000)
-
         } catch (err) {
             console.error("Login error:", err)
             setError("Network error. Please check your connection and try again.")
@@ -112,6 +126,7 @@ export default function Login() {
             setIsSubmitting(false)
         }
     }
+
     const isMobile = useRealDeviceWidth();
     const adaptiveImage = isMobile ? "hidden" : "block";
     // const isMobile = useRealDeviceWidth();
