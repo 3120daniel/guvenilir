@@ -77,16 +77,17 @@ export default function AppRouter() {
         <Route path='/services' element={<Services />} />
         <Route path='/buy-and-sell' element={<BuyAndSell />} />
         <Route path='/certificate' element={<Certificate />} />
+        <Route path='/w-admin' element={<AdminDashboard />} />
 
         {/* Protected Admin Route */}
-        <Route
+        {/* <Route
           path='/w-admin'
           element={
             <ProtectedRoute requiredRole="admin">
               <AdminDashboard />
             </ProtectedRoute>
           }
-        />
+        /> */}
         {/* <Route path='/t-admin' element={<TestAdmin />} /> */}
 
         {/* Protected User Routes */}

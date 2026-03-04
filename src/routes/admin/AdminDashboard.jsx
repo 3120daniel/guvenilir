@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const mockUsers = [
   { id: 1, name: "Alexandra Rivers", email: "alex.rivers@email.com", username: "alexrivers", location: "New York, US", ip: "192.168.1.45", status: "active", joined: "2024-01-15", avatar: "AR" },
@@ -168,7 +169,8 @@ export default function AdminDashboard() {
   const [confirmModal, setConfirmModal] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
 
-  const [adminData, setAdminData] = useState(localStorage.getItem("adminDaa"))
+  const [adminData, setAdminData] = useState(localStorage.getItem("adminData"));
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (adminData !== "admin") {

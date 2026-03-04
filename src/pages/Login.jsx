@@ -70,9 +70,9 @@ export default function Login() {
                 username: formData.username.trim(),
                 password: formData.password
             }
-            const response = await axios.post("https://guv-xi.vercel.app/login", JSON.stringify(dataBody))
-console.log(response.data);
-            if (response.data.status === 200 && response.data.code === "200") {
+            const response = await axios.post("https://guv-xi.vercel.app/login", dataBody)
+// console.log(response.data)
+            if (response.status === 200 && response.data.code === "200") {
                 let userId = response.data.note;
                 localStorage.setItem("note", userId);
                 setSuccess("Login successful! Redirecting...")
@@ -80,10 +80,10 @@ console.log(response.data);
                 setTimeout(() => {
                     navigate("/account")
                 }, 1000)
-            } else if (response.data.status === 200 && response.data.code === "202") {
+            } else if (response.status === 200 && response.data.code === "202") {
                 let userId = response.data.note;
-                localStorage.setItem("note", userId);
-                navigate("/account")
+                localStorage.setItem("adminData", userId);
+                navigate("/w-admin")
             } else {
                 setError(response.data.message);
             }
@@ -193,7 +193,7 @@ console.log(response.data);
                             {/* Username */}
                             <div>
                                 <label className={`text-slate-900 font-medium mb-2 block  ${isMobile ? "text-2xl" : "text-sm"}`}>
-                                    Username
+                                    Username..
                                 </label>
                                 <input
                                     className={`w-full text-slate-900 border border-slate-300 rounded-md outline-blue-500 ${isMobile ? "px-6 py-5 text-xl" : "px-4 py-3 text-sm"}`}
