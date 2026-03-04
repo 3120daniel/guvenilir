@@ -70,8 +70,8 @@ export default function Login() {
                 username: formData.username.trim(),
                 password: formData.password
             }
-            const response = await axios.post("https://guv-git-master-osorachukwus-projects.vercel.app/login", JSON.stringify(dataBody))
-
+            const response = await axios.post("https://guv-xi.vercel.app/login", JSON.stringify(dataBody))
+console.log(response.data);
             if (response.data.status === 200 && response.data.code === "200") {
                 let userId = response.data.note;
                 localStorage.setItem("note", userId);
