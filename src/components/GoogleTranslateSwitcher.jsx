@@ -118,6 +118,7 @@ export default function GoogleTranslateSwitcher() {
   ];
 
   useEffect(() => {
+    // const savedLanguage = localStorage.getItem('google_translate_language') || 'en';
     const savedLanguage = localStorage.getItem('google_translate_language') || 'en';
     setCurrentLanguage(savedLanguage);
 
@@ -226,13 +227,43 @@ export default function GoogleTranslateSwitcher() {
         document.cookie = `googtrans=/en/${langCode}; path=/; max-age=31536000`;
         window.location.reload();
       } else {
-        // Clear the googtrans cookie on all paths
-        document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-        document.cookie = `googtrans=; path=${window.location.pathname}; expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
-        // Also clear the Google hosted domain cookie
+        // Clear the googtrans cookie on all possible paths and domains
+        const domains = ['', window.location.hostname, '.google.com', '.translate.google.com'];
+        const paths = ['/', window.location.pathname, ''];
+        
+        domains.forEach(domain => {
+          paths.forEach(path => {
+            const cookieDomain = domain ? `; domain=${domain}` : '';
+            const cookiePath = path ? `; path=${path}` : '';
+            document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:01 GMT; max-age=0${cookieDomain}${cookiePath}`;
+            document.cookie = `googtrans=/en/fr; expires=Thu, 01 Jan 1970 00:00:01 GMT; max-age=0${cookieDomain}${cookiePath}`;
+          });
+        });
+        
+        // Clear any other common Google Translate cookies
         document.cookie = 'googtrans=; domain=.google.com; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        document.cookie = 'googtrans=; domain=.translate.google.com; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        
+        // Remove localStorage items
         localStorage.removeItem('google_translate_language');
-        window.location.reload();
+        
+        // Force remove any existing Google Translate iframe
+        const gtFrame = document.querySelector('.goog-te-banner-frame, #goog-gt-tt');
+        if (gtFrame) {
+          gtFrame.remove();
+        }
+        
+        // Force clear the select element and dispatch multiple events
+        if (selectElement) {
+          selectElement.value = 'en';
+          selectElement.dispatchEvent(new Event('change', { bubbles: true }));
+          selectElement.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+        
+        // Longer delay to ensure widget processes the change
+        setTimeout(() => {
+          window.location.reload();
+        }, 500);
       }
     }, 300);
   };
