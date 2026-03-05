@@ -30,6 +30,7 @@ import GoogleTranslateSwitcher from '../components/GoogleTranslateSwitcher'
 import ScrollToTop from '../components/ui/ScrollToTop'
 import TawkToWidget from '../components/ui/TawkToWidget'
 import WhatsAppWidget from '../components/WhatsAppWidget'
+import Translator from '../components/ui/Translator'
 
 export default function AppRouter() {
   const currentPath = useLocation().pathname
@@ -61,7 +62,8 @@ export default function AppRouter() {
       <ScrollToTop />
       <WhatsAppWidget />
       <TawkToWidget />
-      <GoogleTranslateSwitcher />
+      {/* <GoogleTranslateSwitcher /> */}
+      <Translator />
       {!hideNavBarPaths.includes(currentPath) && <NavBar />}
       <Routes>
         <Route path='*' element={<NotFound />} />
