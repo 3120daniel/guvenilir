@@ -19,24 +19,20 @@ const LANGUAGES = [
   { code: "uk", label: "UK", full: "Ukrainian" },
 ];
 
-// ---------- Translation engine (MyMemory, free, no key) ----------
+const STORAGE_KEY = "preferred_language";
+const SOURCE_LANG = "en"; // the original language of your website
+
+// ---------- Translation API ----------
 async function translateText(text, from, to) {
   if (!text.trim() || from === to) return text;
   const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${from}|${to}`;
   const res = await fetch(url);
   const data = await res.json();
   if (data.responseStatus === 200) return data.responseData.translatedText;
-  return text; // fallback: return original
+  return text;
 }
 
-// Batch: split long arrays into chunks to stay under the 500-char limit
-function chunkArray(arr, size) {
-  const out = [];
-  for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
-  return out;
-}
-
-// ---------- DOM walker: collect & restore text nodes ----------
+// ---------- DOM helpers ----------
 const SKIP_TAGS = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "IFRAME", "CODE", "PRE"]);
 
 function collectTextNodes(root) {
@@ -44,7 +40,6 @@ function collectTextNodes(root) {
     acceptNode(node) {
       if (!node.textContent.trim()) return NodeFilter.FILTER_REJECT;
       if (SKIP_TAGS.has(node.parentElement?.tagName)) return NodeFilter.FILTER_REJECT;
-      // Skip the translator bar itself
       if (node.parentElement?.closest?.("[data-translator-bar]")) return NodeFilter.FILTER_REJECT;
       return NodeFilter.FILTER_ACCEPT;
     },
@@ -55,81 +50,99 @@ function collectTextNodes(root) {
   return nodes;
 }
 
+function chunkArray(arr, size) {
+  const out = [];
+  for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
+  return out;
+}
+
 // ---------- Component ----------
 export default function TranslatorBar() {
-  const [activeLang, setActiveLang] = useState("en");
+  // Read saved language from localStorage on first render
+  const [activeLang, setActiveLang] = useState(() => {
+    try { return localStorage.getItem(STORAGE_KEY) || SOURCE_LANG; }
+    catch { return SOURCE_LANG; }
+  });
   const [open, setOpen] = useState(false);
   const [status, setStatus] = useState("idle"); // idle | translating | done | error
   const dropRef = useRef(null);
-  // Store originals: Map<TextNode, originalValue>
   const originals = useRef(new Map());
-  const originalLang = useRef("en");
+  const hasAutoTranslated = useRef(false);
 
-  // Close dropdown on outside click
-  useEffect(() => {
-    const handler = (e) => { if (dropRef.current && !dropRef.current.contains(e.target)) setOpen(false); };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
-
-  const restoreOriginals = useCallback(() => {
-    originals.current.forEach((original, node) => {
-      if (node.isConnected) node.textContent = original;
-    });
-  }, []);
-
-  const translatePage = useCallback(async (toLang) => {
-    if (toLang === activeLang) return;
-
-    // If reverting to original language
-    if (toLang === originalLang.current && originals.current.size > 0) {
-      restoreOriginals();
-      setActiveLang(toLang);
-      setStatus("idle");
+  // ---------- Core translate function ----------
+  const runTranslation = useCallback(async (toLang, { silent = false } = {}) => {
+    if (toLang === SOURCE_LANG) {
+      // Restore originals
+      originals.current.forEach((original, node) => {
+        if (node.isConnected) node.textContent = original;
+      });
+      originals.current.clear();
+      setActiveLang(SOURCE_LANG);
+      try { localStorage.setItem(STORAGE_KEY, SOURCE_LANG); } catch {}
+      if (!silent) { setStatus("done"); setTimeout(() => setStatus("idle"), 2000); }
       return;
     }
 
-    setStatus("translating");
+    if (!silent) setStatus("translating");
     setOpen(false);
 
-    // Collect text nodes
-    const nodes = collectTextNodes(document.body);
-
-    // If we don't have originals saved yet, save them now
-    if (originals.current.size === 0) {
-      nodes.forEach((n) => originals.current.set(n, n.textContent));
-    } else {
-      // Restore originals first before re-translating (so we translate from source)
-      restoreOriginals();
+    // Always restore originals first so we translate from source
+    if (originals.current.size > 0) {
+      originals.current.forEach((original, node) => {
+        if (node.isConnected) node.textContent = original;
+      });
+      originals.current.clear();
     }
 
-    // Re-collect after restore (nodes may have changed)
-    const freshNodes = collectTextNodes(document.body);
-    const texts = freshNodes.map((n) => n.textContent.trim());
+    // Collect fresh text nodes and save originals
+    const nodes = collectTextNodes(document.body);
+    nodes.forEach((n) => originals.current.set(n, n.textContent));
 
-    // Translate in batches of 5 nodes at a time
-    const batches = chunkArray(
-      freshNodes.map((node, i) => ({ node, text: texts[i] })),
-      5
-    );
+    const batches = chunkArray(nodes, 5);
 
     try {
       for (const batch of batches) {
         await Promise.all(
-          batch.map(async ({ node, text }) => {
-            const translated = await translateText(text, originalLang.current, toLang);
+          batch.map(async (node) => {
+            const translated = await translateText(node.textContent, SOURCE_LANG, toLang);
             if (node.isConnected) node.textContent = translated;
           })
         );
       }
       setActiveLang(toLang);
-      setStatus("done");
-      setTimeout(() => setStatus("idle"), 2000);
+      try { localStorage.setItem(STORAGE_KEY, toLang); } catch {}
+      if (!silent) { setStatus("done"); setTimeout(() => setStatus("idle"), 2000); }
+      else setStatus("idle");
     } catch {
       setStatus("error");
       setTimeout(() => setStatus("idle"), 3000);
     }
-  }, [activeLang, restoreOriginals]);
+  }, []);
+
+  // ---------- Auto-translate on every page load ----------
+  useEffect(() => {
+    if (hasAutoTranslated.current) return;
+    hasAutoTranslated.current = true;
+
+    const saved = activeLang;
+    if (saved && saved !== SOURCE_LANG) {
+      // Small delay to let the page fully render first
+      const timer = setTimeout(() => {
+        setStatus("translating");
+        runTranslation(saved, { silent: true });
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [activeLang, runTranslation]);
+
+  // ---------- Close dropdown on outside click ----------
+  useEffect(() => {
+    const handler = (e) => {
+      if (dropRef.current && !dropRef.current.contains(e.target)) setOpen(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
 
   const currentLang = LANGUAGES.find((l) => l.code === activeLang);
 
@@ -163,7 +176,7 @@ export default function TranslatorBar() {
           Translator
         </span>
 
-        {/* Dropdown trigger */}
+        {/* Dropdown */}
         <div ref={dropRef} style={{ position: "relative" }}>
           <button
             onClick={() => setOpen((o) => !o)}
@@ -182,64 +195,40 @@ export default function TranslatorBar() {
               color: "#222",
               letterSpacing: "0.05em",
               outline: "none",
-              transition: "border-color 0.15s",
               opacity: status === "translating" ? 0.6 : 1,
             }}
           >
             {status === "translating" ? (
-              <span
-                style={{
-                  display: "inline-block",
-                  width: 11,
-                  height: 11,
-                  border: "1.5px solid #aaa",
-                  borderTopColor: "#333",
-                  borderRadius: "50%",
-                  animation: "spin 0.7s linear infinite",
-                }}
-              />
-            ) : (
-              currentLang?.label
-            )}
+              <span style={{
+                display: "inline-block", width: 11, height: 11,
+                border: "1.5px solid #aaa", borderTopColor: "#333",
+                borderRadius: "50%", animation: "spin 0.7s linear infinite",
+              }} />
+            ) : currentLang?.label}
             <svg viewBox="0 0 10 10" style={{ width: 9, height: 9, marginLeft: 1 }} fill="none">
               <path d="M2 3.5l3 3 3-3" stroke="#555" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
 
           {open && (
-            <div
-              style={{
-                position: "absolute",
-                top: "calc(100% + 4px)",
-                left: 0,
-                background: "#fff",
-                border: "1px solid #ddd",
-                borderRadius: 8,
-                boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
-                minWidth: 160,
-                zIndex: 10000,
-                animation: "fadeDown 0.12s ease-out",
-                overflow: "hidden",
-              }}
-            >
+            <div style={{
+              position: "absolute", top: "calc(100% + 4px)", left: 0,
+              background: "#fff", border: "1px solid #ddd", borderRadius: 8,
+              boxShadow: "0 8px 24px rgba(0,0,0,0.12)", minWidth: 160,
+              zIndex: 10000, animation: "fadeDown 0.12s ease-out", overflow: "hidden",
+            }}>
               {LANGUAGES.map((lang) => (
                 <button
                   key={lang.code}
-                  onClick={() => translatePage(lang.code)}
+                  onClick={() => runTranslation(lang.code)}
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 10,
-                    width: "100%",
-                    padding: "7px 14px",
+                    display: "flex", alignItems: "center", gap: 10,
+                    width: "100%", padding: "7px 14px",
                     background: lang.code === activeLang ? "#f0f7ff" : "transparent",
-                    border: "none",
-                    cursor: "pointer",
-                    fontSize: 13,
+                    border: "none", cursor: "pointer", fontSize: 13,
                     color: lang.code === activeLang ? "#1d6fc4" : "#333",
                     fontWeight: lang.code === activeLang ? 600 : 400,
                     textAlign: "left",
-                    transition: "background 0.1s",
                   }}
                   onMouseEnter={(e) => { if (lang.code !== activeLang) e.currentTarget.style.background = "#f5f5f5"; }}
                   onMouseLeave={(e) => { if (lang.code !== activeLang) e.currentTarget.style.background = "transparent"; }}
@@ -259,7 +248,7 @@ export default function TranslatorBar() {
           )}
         </div>
 
-        {/* Status message */}
+        {/* Status messages */}
         {status === "translating" && (
           <span style={{ marginLeft: 10, color: "#888", fontSize: 12 }}>Translating page…</span>
         )}

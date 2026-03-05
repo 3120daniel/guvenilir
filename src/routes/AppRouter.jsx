@@ -62,8 +62,8 @@ export default function AppRouter() {
       <ScrollToTop />
       <WhatsAppWidget />
       <TawkToWidget />
-      {/* <GoogleTranslateSwitcher /> */}
-      <Translator />
+      <GoogleTranslateSwitcher />
+      {/* <Translator /> */}
       {!hideNavBarPaths.includes(currentPath) && <NavBar />}
       <Routes>
         <Route path='*' element={<NotFound />} />

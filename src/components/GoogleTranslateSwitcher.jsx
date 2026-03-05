@@ -210,54 +210,28 @@ export default function GoogleTranslateSwitcher() {
     }
   }, []);
 
-  // const handleLanguageChange = (langCode) => {
-  //   setCurrentLanguage(langCode);
-  //   localStorage.setItem('google_translate_language', langCode);
-  //   setIsOpen(false);
-
-  //   // Try to trigger the hidden Google Translate selector
-  //   const selectElement = document.querySelector('.goog-te-combo');
-  //   if (selectElement) {
-  //     selectElement.value = langCode;
-  //     selectElement.dispatchEvent(new Event('change', { bubbles: true }));
-  //   }
-
-  //   // Force page reload with language cookie to ensure translation
-  //   setTimeout(() => {
-  //     if (langCode !== 'en') {
-  //       // Set cookie for non-English languages
-  //       document.cookie = `googtrans=/en/${langCode}; path=/`;
-  //       window.location.reload();
-  //     } else {
-  //       // For English, clear the Google Translate cookie
-  //       document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-  //       // Also try the alternative cookie name
-  //       document.cookie = 'googtrans=/en/en; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-  //       window.location.reload();
-  //     }
-  //   }, 300);
-  // };
-
   const handleLanguageChange = (langCode) => {
     setCurrentLanguage(langCode);
     localStorage.setItem('google_translate_language', langCode);
     setIsOpen(false);
 
-    // Try to trigger the hidden Google Translate selector
     const selectElement = document.querySelector('.goog-te-combo');
     if (selectElement) {
       selectElement.value = langCode;
       selectElement.dispatchEvent(new Event('change', { bubbles: true }));
     }
 
-    // Don't reload immediately for English
     setTimeout(() => {
       if (langCode !== 'en') {
         document.cookie = `googtrans=/en/${langCode}; path=/; max-age=31536000`;
         window.location.reload();
       } else {
-        // For English, just reload without trying to clear cookies
-        // This lets Google Translate handle it naturally
+        // Clear the googtrans cookie on all paths
+        document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        document.cookie = `googtrans=; path=${window.location.pathname}; expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
+        // Also clear the Google hosted domain cookie
+        document.cookie = 'googtrans=; domain=.google.com; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        localStorage.removeItem('google_translate_language');
         window.location.reload();
       }
     }, 300);
@@ -288,8 +262,8 @@ export default function GoogleTranslateSwitcher() {
                   key={lang.code}
                   onClick={() => handleLanguageChange(lang.code)}
                   className={`w-full text-left px-4 py-2 rounded-md transition-colors duration-200 text-sm ${currentLanguage === lang.code
-                      ? 'bg-blue-600 text-white font-semibold'
-                      : 'text-gray-800 hover:bg-gray-100'
+                    ? 'bg-blue-600 text-white font-semibold'
+                    : 'text-gray-800 hover:bg-gray-100'
                     }`}
                 >
                   <div className="flex justify-between items-center">
