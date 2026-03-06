@@ -36,6 +36,7 @@ export default function UserLayout() {
                         <li><Link to="/account">Dashboard</Link></li>
                         <li><Link to="/account/deposit">Make Deposit</Link></li>
                         <li><Link to="/account/your-deposit">Your Deposit</Link></li>
+                        <li><Link to="/account/edit-account">Account</Link></li>
                         <li><Link to="/account/withdraw">Withdraw</Link></li>
                         <li><Link to="/account/referrals">Your referrals</Link></li>
                         <li className="border-t border-base-300 mt-2 pt-2"><LogoutButton /></li>

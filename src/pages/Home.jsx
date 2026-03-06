@@ -19,6 +19,7 @@ import { Link } from 'react-router-dom'
 import CTA from '../components/CTA'
 import ChooseAnInvestment from '../components/ChooseAnInvestment'
 import PopularMarkets from '../components/PopularMarkets'
+import FirstChoice from '../components/FirstChoice'
 
 
 export default function Home() {
@@ -174,16 +175,7 @@ export default function Home() {
       <CTA />
       <PopularMarkets />
       <ChooseAnInvestment />
-      <div className='bg-primary'>
-        <div className='flex flex-col sm:flex-row items-center justify-between max-w-7xl border border-primary/50 mx-auto p-6 rounded-lg'>
-          <div className='border border-base-300 p-8 rounded-xl bg-primary mb-10 sm:mb-0'>
-            <p><span className='text-3xl font-semibold'>Investors #1 Choice</span> <br /> Güvenilir-varlıklar </p>
-          </div>
-          <Link to="/register">
-            <Buttons btnTitle="Open your account" btnStyles="bg-black text-white px-8 py-4" />
-          </Link>
-        </div>
-      </div>
+      <FirstChoice />
     </div >
   )
 }

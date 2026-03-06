@@ -31,6 +31,16 @@ import ScrollToTop from '../components/ui/ScrollToTop'
 import TawkToWidget from '../components/ui/TawkToWidget'
 import WhatsAppWidget from '../components/WhatsAppWidget'
 import Translator from '../components/ui/Translator'
+import CannabisInvestments from '../pages/services/CannabisInvestments'
+import FinancialPlanning from '../pages/services/FinancialPlanning'
+import ForexTrading from '../pages/services/ForexTrading'
+import GoldInvestments from '../pages/services/GoldInvestments'
+import LoansAndGrants from '../pages/services/LoansAndGrants'
+import OilAndGas from '../pages/services/OilAndGas'
+import RealEstate from '../pages/services/RealEstate'
+import RetirmentPlanning from '../pages/services/RetirmentPlanning'
+import StockInvestments from '../pages/services/StockInvestments'
+import Account from './user/Account'
 
 export default function AppRouter() {
   const currentPath = useLocation().pathname
@@ -52,6 +62,7 @@ export default function AppRouter() {
     "/account/deposit",
     "/account/your-deposit",
     "/account/withdraw",
+    "/account/edit-account",
     "/account/referrals",
     "/certificate",
     "/t-admin",
@@ -80,6 +91,17 @@ export default function AppRouter() {
         <Route path='/buy-and-sell' element={<BuyAndSell />} />
         <Route path='/certificate' element={<Certificate />} />
         <Route path='/w-admin' element={<AdminDashboard />} />
+        {/* Services */}
+        <Route path='/cannabis-investments' element={<CannabisInvestments />} />
+        {/* <Route path='/cryptocurrency' element={<Cryp />} /> */}
+        <Route path='/financial-planning' element={<FinancialPlanning />} />
+        <Route path='/forex-trading' element={<ForexTrading />} />
+        <Route path='/gold-investment' element={<GoldInvestments />} />
+        <Route path='/loans-and-grants' element={<LoansAndGrants />} />
+        <Route path='/oil-and-gas' element={<OilAndGas />} />
+        <Route path='/real-estate' element={<RealEstate />} />
+        <Route path='/retirment-planning' element={<RetirmentPlanning />} />
+        <Route path='/stock-investments' element={<StockInvestments />} />
 
         {/* Protected Admin Route */}
         {/* <Route
@@ -105,6 +127,7 @@ export default function AppRouter() {
           <Route path="confirm-deposit" element={<ConfirmDeposit />} />
           <Route path="deposit" element={<Deposit />} />
           <Route path="your-deposit" element={<YourDeposit />} />
+          <Route path="edit-account" element={<Account />} />
           <Route path="withdraw" element={<Withdraw />} />
           <Route path="referrals" element={<Referals />} />
         </Route>

@@ -69,7 +69,7 @@ export default function Footer() {
                                 <ul className="mt-2 space-y-2">
                                     <li>
                                         <Link
-                                            to="/"
+                                            to="/about"
                                             className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                                         >
                                             About Us
@@ -77,7 +77,7 @@ export default function Footer() {
                                     </li>
                                     <li>
                                         <Link
-                                            to="/"
+                                            to="/services"
                                             className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                                         >
                                             What We Offer
@@ -85,7 +85,7 @@ export default function Footer() {
                                     </li>
                                     <li>
                                         <Link
-                                            to="/"
+                                            to="/faqs"
                                             className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                                         >
                                             FAQ's
@@ -93,7 +93,7 @@ export default function Footer() {
                                     </li>
                                     <li>
                                         <Link
-                                            to="/"
+                                            to="/contact"
                                             className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                                         >
                                             Contact Us
@@ -108,7 +108,7 @@ export default function Footer() {
                                 <ul className="mt-2 space-y-2">
                                     <li>
                                         <Link
-                                            to="/"
+                                            to="/forex-trading"
                                             className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                                         >
                                             Forex Trading
@@ -116,7 +116,7 @@ export default function Footer() {
                                     </li>
                                     <li>
                                         <Link
-                                            to="/"
+                                            to="/real-estate"
                                             className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                                         >
                                             Real Estate
@@ -124,7 +124,7 @@ export default function Footer() {
                                     </li>
                                     <li>
                                         <Link
-                                            to="/"
+                                            to="/cryptocurrency'"
                                             className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                                         >
                                             Cryptocurrency Trading
@@ -132,7 +132,7 @@ export default function Footer() {
                                     </li>
                                     <li>
                                         <Link
-                                            to="/"
+                                            to="/gold-investment"
                                             className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                                         >
                                             Gold Investments
@@ -140,7 +140,7 @@ export default function Footer() {
                                     </li>
                                     <li>
                                         <Link
-                                            to="/"
+                                            to="/retirment-planning"
                                             className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                                         >
                                             Retirement Planing
@@ -155,7 +155,7 @@ export default function Footer() {
                                 <ul className="mt-2 space-y-2">
                                     <li>
                                         <Link
-                                            to="/"
+                                            to="/cannabis-investments"
                                             className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                                         >
                                             Cannabis Investment
@@ -163,7 +163,7 @@ export default function Footer() {
                                     </li>
                                     <li>
                                         <Link
-                                            to="/"
+                                            to="/oil-and-gas"
                                             className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                                         >
                                             Oil And Gas
@@ -171,7 +171,7 @@ export default function Footer() {
                                     </li>
                                     <li>
                                         <Link
-                                            to="/"
+                                            to="/financial-planning"
                                             className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                                         >
                                             Financial Planning
@@ -179,7 +179,7 @@ export default function Footer() {
                                     </li>
                                     <li>
                                         <Link
-                                            to="/"
+                                            to="/loans-and-grants"
                                             className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                                         >
                                             Loans And Grants
@@ -187,7 +187,7 @@ export default function Footer() {
                                     </li>
                                     <li>
                                         <Link
-                                            to="/"
+                                            to="/stock-investments"
                                             className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                                         >
                                             Stock Investments
@@ -202,7 +202,7 @@ export default function Footer() {
                                 <ul className="mt-2 space-y-2">
                                     <li>
                                         <Link
-                                            to="/"
+                                            to="/register"
                                             className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                                         >
                                             Create Account
@@ -210,7 +210,7 @@ export default function Footer() {
                                     </li>
                                     <li>
                                         <Link
-                                            to="/"
+                                            to="/login"
                                             className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                                         >
                                             Login
