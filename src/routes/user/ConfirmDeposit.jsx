@@ -43,14 +43,38 @@ export default function ConfirmDeposit() {
     };
 
     const wallets = [
-        { wallet: "Bitcoin",     walletAddress: "bc1qmnhg0lrdqv2ut96ly6rt8pdqzqa7ltkzmj82j5" },
-        { wallet: "Ethereum",    walletAddress: "0x56AEB5C4aF0319E125f1BdAa9127A5e2Cd61d1A6" },
-        { wallet: "USDT(TRC20)", walletAddress: "TM4RUeSht9jY9QZGWfSqc4NBJHfdiCEQyf" },
-        { wallet: "SOLANA",      walletAddress: "21AfzRjwtHpf2pkvJ6o9xspStxhCFv1dM5CnLrWjnZqm" },
-        { wallet: "XRP",         walletAddress: "0rp4RnrX2qKUtwFCoQs2xPioBx63c4yHCGp" },
-        { wallet: "TRX",         walletAddress: "TM4RUeSht9jY9QZGWfSqc4NBJHfdiCEQyf" },
-        { wallet: "LTC",         walletAddress: "ltc1qf8dm2g7306t3a5exx42pe55x3tks0kmdyzex65" },
-        { wallet: "Dogecoin",    walletAddress: "DHBbbqNJHEHUif8MZeN1TDqs2S5BZGKuSp5" },
+        {
+            wallet: "Bitcoin",
+            walletAddress: "bc1qmnhg0lrdqv2ut96ly6rt8pdqzqa7ltkzmj82j5"
+        },
+        {
+            wallet: "Ethereum",
+            walletAddress: "0x56AEB5C4aF0319E125f1BdAa9127A5e2Cd61d1A6"
+        },
+        {
+            wallet: "USDT(TRC20)",
+            walletAddress: "TM4RUeSht9jY9QZGWfSqc4NBJHfdiCEQyf"
+        },
+        {
+            wallet: "SOLANA",
+            walletAddress: "21AfzRjwtHpf2pkvJ6o9xspStxhCFv1dM5CnLrWjnZqm"
+        },
+        {
+            wallet: "XRP",
+            walletAddress: "0rp4RnrX2qKUtwFCoQs2xPioBx63c4yHCGp"
+        },
+        {
+            wallet: "TRX",
+            walletAddress: "TM4RUeSht9jY9QZGWfSqc4NBJHfdiCEQyf"
+        },
+        {
+            wallet: "LTC",
+            walletAddress: "ltc1qf8dm2g7306t3a5exx42pe55x3tks0kmdyzex65"
+        },
+        {
+            wallet: "Dogecoin",
+            walletAddress: "DHBbbqNJHEHUif8MZeN1TDqs2S5BZGKuSp5"
+        },
     ];
 
     const selectedWallet = wallets.find(
@@ -130,8 +154,8 @@ export default function ConfirmDeposit() {
 
                 <div className='space-y-1 mb-8'>
                     <p><b>Plan:</b> {plan}</p>
-                    <p><b>Profit:</b> {profitMap[plan] ?? "N/A"}</p>
                     <p><b>Amount:</b> ${amountToSpend}</p>
+                    <p><b>Profit:</b> {profitMap[plan] ?? "N/A"}</p>
                     <p><b>Payment Method:</b> {spendFrom}</p>
                     <p><b>Principal Return:</b> Yes</p>
                     <p><b>Principal Withdraw:</b> Not available during investment</p>

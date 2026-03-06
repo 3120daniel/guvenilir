@@ -2,50 +2,70 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 export default function Deposit() {
+    const plans = [
+        { id: 'Plan A', label: 'Plan A', range: '$30 - $499',           profit: '15.00%', minAmount: '30.00' },
+        { id: 'Plan B', label: 'Plan B', range: '$500 - $999',          profit: '30.00%', minAmount: '500.00' },
+        { id: 'Plan C', label: 'Plan C', range: '$1,000 - $4,999',      profit: '50.00%', minAmount: '1000.00' },
+        { id: 'Plan D', label: 'Plan D', range: '$5,000 - $19,000',     profit: '75.00%', minAmount: '5000.00' },
+        { id: 'Plan E', label: 'Plan E', range: '$20,000 - Unlimited',  profit: '100.00%', minAmount: '20000.00' }
+    ];
+
     const [formData, setFormData] = useState({
         plan: 'Plan A',
         spendFrom: 'Bitcoin',
-        amountToSpend: "30.00"
+        amountToSpend: plans[0].minAmount
     });
 
     const handleChange = (e) => {
-        const { name, value } = e.target
-        setFormData(prevState => ({
-            ...prevState,
-            [name]: value
-        }))
-    }
+        const { name, value } = e.target;
+
+        if (name === 'plan') {
+            const selected = plans.find(p => p.id === value);
+            setFormData(prevState => ({
+                ...prevState,
+                plan: value,
+                amountToSpend: selected ? selected.minAmount : prevState.amountToSpend
+            }));
+        } else if (name === 'amountToSpend') {
+            const selectedPlan = plans.find(p => p.id === formData.plan);
+            const min = selectedPlan ? parseFloat(selectedPlan.minAmount) : 0;
+            const entered = parseFloat(value);
+            setFormData(prevState => ({
+                ...prevState,
+                amountToSpend: (!isNaN(entered) && entered < min) ? selectedPlan.minAmount : value
+            }));
+        } else {
+            setFormData(prevState => ({
+                ...prevState,
+                [name]: value
+            }));
+        }
+    };
 
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const selectedPlan = plans.find(p => p.id === formData.plan);
         navigate("/account/confirm-deposit", {
             state: {
                 plan: formData.plan,
                 spendFrom: formData.spendFrom,
-                amountToSpend: formData.amountToSpend
+                amountToSpend: formData.amountToSpend,
+                // profit: selectedPlan ? selectedPlan.profit : ''
             }
         });
     };
 
-    const plans = [
-        { id: 'Plan A', label: 'Plan A', range: '$30 - $499', profit: '15.00%' },
-        { id: 'Plan B', label: 'Plan B', range: '$500 - $999', profit: '30.00%' },
-        { id: 'Plan C', label: 'Plan C', range: '$1,000 - $4,999', profit: '50.00%' },
-        { id: 'Plan D', label: 'Plan D', range: '$5,000 - $19,000', profit: '75.00%' },
-        { id: 'Plan E', label: 'Plan E', range: '$20,000 - Unlimited', profit: '100.00%' }
-    ];
-
     const spendOptions = [
-        { value: 'Bitcoin', label: 'BITCOIN', bg: true },
-        { value: 'Ethereum', label: 'Ethereum', bg: false },
+        { value: 'Bitcoin',     label: 'BITCOIN',     bg: true },
+        { value: 'Ethereum',    label: 'Ethereum',    bg: false },
         { value: 'USDT(TRC20)', label: 'USDT(TRC20)', bg: true },
-        { value: "SOLANA", label: "SOLANA", bg: false },
-        { value: "XRP", label: "XRP", bg: true },
-        { value: 'TRX', label: 'TRX', bg: false },
-        { value: 'LTC', label: 'LTC', bg: true },
-        { value: 'Dogecoin', label: 'Dogecoin', bg: false }
+        { value: "SOLANA",      label: "SOLANA",      bg: false },
+        { value: "XRP",         label: "XRP",         bg: true },
+        { value: 'TRX',         label: 'TRX',         bg: false },
+        { value: 'LTC',         label: 'LTC',         bg: true },
+        { value: 'Dogecoin',    label: 'Dogecoin',    bg: false }
     ];
 
     return (
@@ -114,7 +134,7 @@ export default function Deposit() {
                                 className="input input-bordered w-full sm:w-auto sm:min-w-[200px] text-end"
                                 type="number"
                                 step="0.01"
-                                min="0"
+                                min={plans.find(p => p.id === formData.plan)?.minAmount || '0'}
                                 name="amountToSpend"
                                 value={formData.amountToSpend}
                                 onChange={handleChange}
@@ -128,7 +148,7 @@ export default function Deposit() {
                         {/* Spend From Options */}
                         <div className='space-y-2'>
                             <p className='text-sm sm:text-base font-medium px-3 sm:px-4 mb-3'>Select payment method:</p>
-                            {spendOptions.map((option, index) => (
+                            {spendOptions.map((option) => (
                                 <div 
                                     key={option.value}
                                     className={`flex items-center gap-4 p-3 sm:p-4 ${
@@ -155,7 +175,7 @@ export default function Deposit() {
                     <div className='flex justify-center sm:justify-start'>
                         <button 
                             type='submit' 
-                            className='btn btn-primary  text-black w-full sm:w-auto px-8 py-3 sm:py-2 text-base sm:text-lg'
+                            className='btn btn-primary text-black w-full sm:w-auto px-8 py-3 sm:py-2 text-base sm:text-lg'
                         >
                             Spend Now
                         </button>
