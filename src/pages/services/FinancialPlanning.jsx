@@ -2,10 +2,11 @@ import React from 'react'
 import FirstChoice from '../../components/FirstChoice'
 import { Menu } from 'lucide-react'
 import Banner from '../../components/Banner'
+import image from "../../assets/6.jpg"
 
 export default function FinancialPlanning() {
-  return (
-     <div>
+    return (
+        <div>
             <Banner title="Our Services" desc="Financial Planning" />
             <div className='pt-20'>
                 {/* Title */}
@@ -25,8 +26,10 @@ export default function FinancialPlanning() {
                                 <Menu />
                             </div>
                             <div>
-                                <p className='text-lg sm:text-2xl font-semibold mb-3'>Trading Forex on Karli-varliklar</p>
-                                <p>Forex is a portmanteau of foreign currency and exchange. Foreign exchange is the process of changing one currency into another currency for a variety of reasons, usually for commerce, trading, or tourism. According to a recent triennial report from the Bank for International Settlements (a global bank for national central banks), the average was more than $5.1 trillion in daily forex trading volume. Because of the worldwide reach of trade, commerce, and finance, forex markets tend to be the largest and most liquid asset markets in the world. Market participants use forex to hedge against international currency and interest rate risk, to speculate on geopolitical events, and to diversify portfolios, among several other reasons.</p>
+                                <p className='text-lg sm:text-2xl font-semibold mb-3'>Financial Planning</p>
+                                <p>
+                                    A financial plan is a comprehensive evaluation of an investor’s current and future financial state by using currently known variables to predict future cash flows, asset values and withdrawal plans. Most individuals work in conjunction with their preferred financial planner and use current net worth, tax liabilities, asset allocation, and future retirement and estate plans in developing financial plans. These metrics are used along with estimates of asset growth to determine if a person’s financial goals can be met in the future, or what steps need to be taken to ensure that they are.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -36,5 +39,5 @@ export default function FinancialPlanning() {
                 <FirstChoice />
             </div>
         </div>
-  )
+    )
 }

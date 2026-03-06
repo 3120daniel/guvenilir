@@ -1,6 +1,8 @@
 import React from 'react'
 import FirstChoice from '../../components/FirstChoice'
-import { Menu } from 'lucide-react'
+import { Check, Menu } from 'lucide-react'
+import image from "../../assets/stock-2.png"
+import Banner from '../../components/Banner'
 
 export default function StockInvestments() {
     return (
@@ -24,8 +26,40 @@ export default function StockInvestments() {
                                 <Menu />
                             </div>
                             <div>
-                                <p className='text-lg sm:text-2xl font-semibold mb-3'>Trading Forex on Karli-varliklar</p>
-                                <p>Forex is a portmanteau of foreign currency and exchange. Foreign exchange is the process of changing one currency into another currency for a variety of reasons, usually for commerce, trading, or tourism. According to a recent triennial report from the Bank for International Settlements (a global bank for national central banks), the average was more than $5.1 trillion in daily forex trading volume. Because of the worldwide reach of trade, commerce, and finance, forex markets tend to be the largest and most liquid asset markets in the world. Market participants use forex to hedge against international currency and interest rate risk, to speculate on geopolitical events, and to diversify portfolios, among several other reasons.</p>
+                                <p className='text-lg sm:text-2xl font-semibold mb-3'>
+                                    Trading Stock or Share on Güvenilir-varlıklar
+                                </p>
+                                <p>
+                                    A stock or share (also known as a company's "equity") is a financial instrument that represents ownership in a company or corporation and represents a proportionate claim on its assets (what it owns) and earnings (what it generates in profits). Stock ownership implies that the shareholder owns a slice of the company equal to the number of shares held as a proportion of the company's total outstanding shares. For instance, an individual or entity that owns 100,000 shares of a company with one million outstanding shares would have a 10% ownership stake in it. Most companies have outstanding shares that run into the millions or billions.
+                                </p>
+                                <p className='text-lg sm:text-2xl font-semibold my-4'>
+                                    How do I invest in stocks with 0% commission
+                                </p>
+                                <p>
+                                    As you will surely notice, the online trading platforms that offer the opportunity to speculate on the oil price are numerous. It is therefore necessary that you take the time to carefully compare them in order to choose the one that offers you the most advantages. You therefore need to verify certain important points such as:
+                                </p>
+
+                                <ul className='mt-4'>
+                                    <li className='flex items-center gap-2'>
+                                        <div className='h-4 w-4 rounded-full bg-primary flex items-center justify-center'>
+                                            <Check width={14} />
+                                        </div>
+                                        Create an account
+                                    </li>
+                                    <li className='flex items-center gap-2'>
+                                        <div className='h-4 w-4 rounded-full bg-primary flex items-center justify-center'> <Check width={14} /></div>
+                                        Choose a deposit plan
+                                    </li>
+                                    <li className='flex items-center gap-2'>
+                                        <div className='h-4 w-4 rounded-full bg-primary flex items-center justify-center'> <Check width={14} /></div>
+                                        Make deposit
+                                    </li>
+                                    <li className='flex items-center gap-2'>
+                                        <div className='h-4 w-4 rounded-full bg-primary flex items-center justify-center'>
+                                            <Check width={14} /></div>
+                                        Get your ROI on plan completion
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>

@@ -2,6 +2,7 @@ import React from 'react'
 import FirstChoice from '../../components/FirstChoice'
 import { Menu } from 'lucide-react'
 import Banner from '../../components/Banner'
+import image from "../../assets/7.jpg"
 
 export default function LoansAndGrants() {
     return (
@@ -25,8 +26,12 @@ export default function LoansAndGrants() {
                                 <Menu />
                             </div>
                             <div>
-                                <p className='text-lg sm:text-2xl font-semibold mb-3'>Trading Forex on Karli-varliklar</p>
-                                <p>Forex is a portmanteau of foreign currency and exchange. Foreign exchange is the process of changing one currency into another currency for a variety of reasons, usually for commerce, trading, or tourism. According to a recent triennial report from the Bank for International Settlements (a global bank for national central banks), the average was more than $5.1 trillion in daily forex trading volume. Because of the worldwide reach of trade, commerce, and finance, forex markets tend to be the largest and most liquid asset markets in the world. Market participants use forex to hedge against international currency and interest rate risk, to speculate on geopolitical events, and to diversify portfolios, among several other reasons.</p>
+                                <p className='text-lg sm:text-2xl font-semibold mb-3'>
+                                    Easy with Güvenilir-varlıklar
+                                </p>
+                                <p>
+                                    Getting a loan doesn’t have to be intimidating, with the right lender it can be a simple process. You only need a lender committed to taking the mystery out of the mortgage loan process! At Güvenilir-varlıklar, we understand! Our investors want simple facts, honest answers and competitive products. DGS automatically offers loan services to investors with over $50,000 investment either in our normal Güvenilir-varlıklar financial Services packages or the NFP plans. Investors over $50,000 are entitled to loans of $200,000-1millon dollars yearly with 5% paid monthly, or the investor could wish to compound the interest till the time limit, provided all required information and identity of the investor are duly confirmed by Güvenilir-varlıklar loan board. Every investor above $50,000 is provided with a personal account manager and the investor has a direct communication with the manager in order to see that our loan offers are secured. GREAT INVESTING WITH Güvenilir-varlıklar FAMILY.
+                                </p>
                             </div>
                         </div>
                     </div>

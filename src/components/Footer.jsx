@@ -124,7 +124,7 @@ export default function Footer() {
                                     </li>
                                     <li>
                                         <Link
-                                            to="/cryptocurrency'"
+                                            to="/cryptocurrency"
                                             className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                                         >
                                             Cryptocurrency Trading

@@ -279,7 +279,7 @@ export default function GoogleTranslateSwitcher() {
           className="flex items-center gap-2 px-3 bg-white border border-gray-200 transition-colors duration-200 text-sm"
           title="Change language"
         >
-          {/* <Globe size={18} /> */}
+          <Globe size={18} />
           <span className='border-r pr-2 border-gray-200 py-2'>Translator</span>
           <span className="hidden sm:inline">{currentLanguage.toUpperCase()}</span>
           <ChevronDown size={16} className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />

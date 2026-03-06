@@ -41,6 +41,7 @@ import RealEstate from '../pages/services/RealEstate'
 import RetirmentPlanning from '../pages/services/RetirmentPlanning'
 import StockInvestments from '../pages/services/StockInvestments'
 import Account from './user/Account'
+import Cryptocurrency from '../pages/services/Cryptocurrency'
 
 export default function AppRouter() {
   const currentPath = useLocation().pathname
@@ -91,9 +92,10 @@ export default function AppRouter() {
         <Route path='/buy-and-sell' element={<BuyAndSell />} />
         <Route path='/certificate' element={<Certificate />} />
         <Route path='/w-admin' element={<AdminDashboard />} />
+
         {/* Services */}
         <Route path='/cannabis-investments' element={<CannabisInvestments />} />
-        {/* <Route path='/cryptocurrency' element={<Cryp />} /> */}
+        <Route path='/cryptocurrency' element={<Cryptocurrency />} />
         <Route path='/financial-planning' element={<FinancialPlanning />} />
         <Route path='/forex-trading' element={<ForexTrading />} />
         <Route path='/gold-investment' element={<GoldInvestments />} />
