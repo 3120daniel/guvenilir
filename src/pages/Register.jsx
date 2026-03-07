@@ -19,6 +19,10 @@ export default function Register() {
     email: "",
     password: "",
     repeatpassword: "",
+    bitcoin: "btc",
+    etherum: "eth",
+    usdt: "usdt",
+    trx: "trx"
   })
 
   const handleChange = (e) => {
