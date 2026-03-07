@@ -24,7 +24,7 @@ export default function Register() {
     usdt: "usdt",
     trx: "trx"
   })
-
+// chhchhc
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
