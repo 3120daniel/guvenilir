@@ -28,7 +28,7 @@ import AdminDashboard from './admin/AdminDashboard'
 import Referals from './user/Referals'
 import GoogleTranslateSwitcher from '../components/GoogleTranslateSwitcher'
 import ScrollToTop from '../components/ui/ScrollToTop'
-import TawkToWidget from '../components/ui/TawkToWidget'
+// import TawkToWidget from '../components/ui/TawkToWidget'
 import WhatsAppWidget from '../components/WhatsAppWidget'
 import Translator from '../components/ui/Translator'
 import CannabisInvestments from '../pages/services/CannabisInvestments'
@@ -73,7 +73,7 @@ export default function AppRouter() {
     <>
       <ScrollToTop />
       <WhatsAppWidget />
-      <TawkToWidget />
+      {/* <TawkToWidget /> */}
       <GoogleTranslateSwitcher />
       {/* <Translator /> */}
       {!hideNavBarPaths.includes(currentPath) && <NavBar />}
